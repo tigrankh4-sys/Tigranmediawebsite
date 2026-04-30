@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://d2ezq7q7q0tvyx.cloudfront.net data:; media-src https://d2ezq7q7q0tvyx.cloudfront.net; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';">
 <title>Wijnen Waldo — De zuiderse zon in je glas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1316,7 +1317,7 @@ Waldo stelt graag een persoonlijk wijnpakket samen voor elke gelegenheid — ver
 <section class="newsletter" id="newsletter">
   <h2>De brieven van Waldo.</h2>
   <p>Schrijf je in en ontdek als eerste onze<br>nieuwe wijnen, proeverijen en verhalen uit de wijngaard.</p>
-  <form class="newsletter-form" onsubmit="event.preventDefault()">
+  <form class="newsletter-form" id="newsletter-form">
     <input type="email" placeholder="Uw e-mailadres">
     <button type="submit">Inschrijven</button>
   </form>
@@ -1429,15 +1430,13 @@ Waldo stelt graag een persoonlijk wijnpakket samen voor elke gelegenheid — ver
       }, 3200);
     });
   })();
+
+  // Newsletter form
+  (function() {
+    var f = document.getElementById('newsletter-form');
+    if (f) f.addEventListener('submit', function(e) { e.preventDefault(); });
+  })();
 </script>
 
-<!--
-  VIDEO HOSTING:
-  Upload hero-video.mp4 naar je S3 bucket.
-  Zorg dat de bucket public read toegang heeft.
-  Vervang ./hero-video.mp4 door de volledige S3 URL:
-  https://[bucket-naam].s3.[regio].amazonaws.com/hero-video.mp4
-  Of gebruik je CloudFront URL voor betere performance.
--->
 </body>
 </html>
