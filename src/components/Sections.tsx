@@ -831,7 +831,7 @@ export default function Sections() {
                   id="foto-placeholder"
                   src="https://tigranmedia.be/images/tigran-profiel.webp"
                   alt="Tigran — Tigran Media"
-                  style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                  style={{ width: '240px', height: '240px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 20%', display: 'block', margin: '0 auto', border: '1px solid rgba(240,235,224,0.3)' }}
                 />
               </div>
               <div className="over-mij-col">

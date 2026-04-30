@@ -637,6 +637,17 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
       <section className="sc-section" id="contact">
         <div className="sc-inner">
           <div className="sc-contact-inner">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '48px' }}>
+              <img
+                src="https://tigranmedia.be/images/tigran-profiel.webp"
+                alt="Tigran — Tigran Media"
+                style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 20%', flexShrink: 0, border: '1px solid rgba(240,235,224,0.3)' }}
+              />
+              <div>
+                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#F0EBE0', marginBottom: '4px' }}>Tigran — Tigran Media</div>
+                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '10px', letterSpacing: '0.08em', color: '#F0EBE0', opacity: 0.5, lineHeight: 1.6 }}>Webdesigner in de Kempen. Beschikbaar voor heel Vlaanderen.</div>
+              </div>
+            </div>
             <h2 className="sc-title">Start uw project.</h2>
             <p className="sc-contact-sub">Vul het formulier in. Wij nemen binnen 24u contact op.</p>
             <ContactForm />
