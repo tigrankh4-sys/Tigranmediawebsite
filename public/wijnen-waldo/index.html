@@ -3,1440 +3,1559 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://d2ezq7q7q0tvyx.cloudfront.net data:; media-src https://d2ezq7q7q0tvyx.cloudfront.net; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';">
-<title>Wijnen Waldo — De zuiderse zon in je glas</title>
+<title>Wijnen Waldo — De zuiderse zon in je glas · Zoersel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400&family=DM+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F5ECD7;
-    --bg-2: #EDE0C4;
-    --bg-3: #2D1B0E;
-    --text: #2D1B0E;
-    --bordeaux: #8B1A1A;
-    --gold: #8B1A1A;
-    --border: rgba(139,26,26,0.2);
-    --border-strong: rgba(139,26,26,0.4);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.8;
-    letter-spacing: 0.02em;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  img, svg, video { display: block; max-width: 100%; }
-
-  a { color: inherit; text-decoration: none; }
-
-  .mono {
-    font-family: 'DM Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 11px;
-    color: var(--gold);
-  }
-
-  .italic-h {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.05;
-  }
-
-  /* ---------------- NAVBAR ---------------- */
-  .nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 22px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(245,236,215,0.85);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
-    border-bottom: 1px solid transparent;
-  }
-
-  .nav.scrolled {
-    background: rgba(245,236,215,0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 16px 48px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 26px;
-    color: var(--gold);
-    letter-spacing: 0.01em;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 38px;
-    align-items: center;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: var(--text);
-    opacity: 0.85;
-    transition: opacity 0.25s ease, color 0.25s ease;
-    position: relative;
-  }
-
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0; bottom: -4px;
-    width: 0;
-    height: 1px;
-    background: var(--gold);
-    transition: width 0.3s ease;
-  }
-
-  .nav-links a:hover {
-    opacity: 1;
-    color: var(--gold);
-  }
-
-  .nav-links a:hover::after { width: 100%; }
-
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--gold);
-    font-size: 26px;
-    cursor: pointer;
-    line-height: 1;
-    padding: 4px 8px;
-    z-index: 110;
-  }
-
-  /* mobile overlay */
-  .mobile-menu {
-    position: fixed;
-    top: 0; right: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(245,236,215,0.97);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    transform: translateX(100%);
-    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 105;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-  }
-
-  .mobile-menu.open { transform: translateX(0); }
-
-  .mobile-menu a {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 32px;
-    color: var(--text);
-    transition: color 0.25s ease;
-  }
-
-  .mobile-menu a:hover { color: var(--gold); }
-
-  /* ---------------- HERO ---------------- */
-  .hero {
-    position: relative;
-    height: 100vh;
-    min-height: 640px;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero video {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 1;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 0 32px;
-    max-width: 1100px;
-  }
-
-  .hero-label {
-    margin-bottom: 28px;
-    opacity: 0.85;
-  }
-
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(48px, 8vw, 110px);
-    line-height: 1.0;
-    color: var(--text);
-    margin-bottom: 28px;
-    letter-spacing: -0.005em;
-  }
-
-  .hero-sub {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: clamp(17px, 1.5vw, 21px);
-    line-height: 1.8;
-    color: var(--text);
-    opacity: 0.85;
-    margin-bottom: 44px;
-    font-style: italic;
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 16px 34px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    cursor: pointer;
-    transition: transform 0.25s ease, filter 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-    border: 1px solid transparent;
-    background: none;
-    color: inherit;
-  }
-
-  .btn-primary {
-    background: var(--bordeaux);
-    color: var(--text);
-  }
-
-  .btn-primary:hover {
-    transform: scale(1.01);
-    filter: brightness(1.12);
-  }
-
-  .btn-ghost {
-    border: 1px solid var(--gold);
-    color: var(--gold);
-  }
-
-  .btn-ghost:hover {
-    transform: scale(1.01);
-    background: rgba(139,26,26,0.08);
-    filter: brightness(1.05);
-  }
-
-  .hero-wave {
-    position: absolute;
-    bottom: -1px;
-    left: 0; right: 0;
-    width: 100%;
-    z-index: 2;
-    line-height: 0;
-  }
-
-  .hero-wave svg { width: 100%; height: 80px; display: block; }
-
-  /* ---------------- SECTIONS COMMON ---------------- */
-  section {
-    padding: 140px 48px;
-    position: relative;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(34px, 5vw, 64px);
-    line-height: 1.05;
-    text-align: center;
-    margin-bottom: 80px;
-    color: var(--text);
-  }
-
-  /* reveal animation */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal.is-visible > *:nth-child(1) { transition-delay: 0s; }
-  .reveal.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
-  .reveal.is-visible > *:nth-child(3) { transition-delay: 0.2s; }
-  .reveal.is-visible > *:nth-child(4) { transition-delay: 0.3s; }
-  .reveal.is-visible > *:nth-child(5) { transition-delay: 0.4s; }
-
-  /* ---------------- INTRO ---------------- */
-  .intro {
-    background: var(--bg);
-    padding-top: 140px;
-  }
-
-  .intro-grid {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    gap: 64px;
-    align-items: start;
-  }
-
-  .intro-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(22px, 3vw, 36px);
-    line-height: 1.3;
-    color: var(--text);
-  }
-
-  .intro-quote .attribution {
-    display: block;
-    margin-top: 24px;
-    color: var(--gold);
-    font-style: italic;
-    font-size: 0.6em;
-  }
-
-  .intro-divider {
-    width: 1px;
-    height: 100%;
-    min-height: 200px;
-    background: var(--border-strong);
-    align-self: stretch;
-  }
-
-  .intro-body p {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: var(--text);
-    opacity: 0.8;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 22px;
-  }
-
-  /* ---------------- AANBOD ---------------- */
-  .aanbod {
-    background: var(--bg-2);
-  }
-
-  .aanbod-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
-  }
-
-  .aanbod-col {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .aanbod-col .label {
-    margin-bottom: 18px;
-    font-size: 10px;
-  }
-
-  .aanbod-col .country {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(36px, 4vw, 52px);
-    color: var(--text);
-    line-height: 1.05;
-    margin-bottom: 22px;
-  }
-
-  .aanbod-col .desc {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: var(--text);
-    opacity: 0.7;
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 28px;
-    flex-grow: 1;
-  }
-
-  .aanbod-col .more {
-    color: var(--gold);
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    align-self: flex-start;
-    transition: color 0.25s ease, letter-spacing 0.25s ease;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
-  }
-
-  .aanbod-col .more:hover {
-    border-bottom-color: var(--gold);
-    letter-spacing: 0.02em;
-  }
-
-  /* ---------------- BELEVEN ---------------- */
-  .beleven {
-    background: var(--bg);
-  }
-
-  .beleven-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .beleven-item {
-    border-left: 3px solid var(--bordeaux);
-    padding-left: 24px;
-  }
-
-  .beleven-item h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: clamp(28px, 3vw, 38px);
-    color: var(--text);
-    margin-bottom: 14px;
-    line-height: 1.1;
-  }
-
-  .beleven-item p {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: var(--text);
-    opacity: 0.8;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 16px;
-  }
-
-  .beleven-item a {
-    color: var(--gold);
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
-    transition: border-color 0.25s ease, letter-spacing 0.25s ease;
-  }
-
-  .beleven-item a:hover {
-    border-bottom-color: var(--gold);
-    letter-spacing: 0.02em;
-  }
-
-  /* ---------------- OVER ---------------- */
-  .over {
-    background: var(--bg);
-    position: relative;
-  }
-
-  .over::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.35;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.77  0 0 0 0 0.59  0 0 0 0 0.23  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    background-size: 220px 220px;
-  }
-
-  .over-grid {
-    display: grid;
-    grid-template-columns: 5fr 6fr;
-    gap: 80px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .photo-frame {
-    aspect-ratio: 4 / 5;
-    border: 1px solid rgba(139,26,26,0.3);
-    background: rgba(139,26,26,0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    color: var(--gold);
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    opacity: 0.95;
-  }
-
-  .photo-frame span { opacity: 0.4; }
-
-  .over-text .label {
-    margin-bottom: 22px;
-    display: inline-block;
-  }
-
-  .over-text h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(32px, 4vw, 56px);
-    line-height: 1.05;
-    color: var(--text);
-    margin-bottom: 36px;
-  }
-
-  .over-text p {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: var(--text);
-    opacity: 0.8;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-  }
-
-  /* ---------------- CONTACT ---------------- */
-  .contact {
-    background: var(--bg-2);
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 19px;
-  }
-
-  .contact-info .item {
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text);
-    transition: color 0.25s ease;
-  }
-
-  .contact-info .item:last-child {
-    border-bottom: none;
-  }
-
-  .contact-info a:hover { color: var(--gold); }
-
-  .contact-info .item-label {
-    font-family: 'DM Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 10px;
-    color: var(--gold);
-    display: block;
-    margin-bottom: 8px;
-    opacity: 0.85;
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .contact-form label {
-    display: block;
-    font-family: 'DM Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 10px;
-    color: var(--gold);
-    margin-bottom: 10px;
-    opacity: 0.85;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border);
-    color: var(--text);
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    padding: 10px 0 12px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    resize: none;
-  }
-
-  .contact-form textarea {
-    min-height: 110px;
-    line-height: 1.8;
-  }
-
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder {
-    color: #9A8070;
-    opacity: 0.4;
-    font-style: italic;
-  }
-
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-bottom-color: var(--gold);
-  }
-
-  .contact-form button {
-    align-self: flex-start;
-    margin-top: 8px;
-  }
-
-  /* ---------------- DROPDOWNS ---------------- */
-  .nav-item { position: relative; }
-
-  .dropdown {
-    position: absolute;
-    top: calc(100% + 14px);
-    left: 50%;
-    transform: translateX(-50%) translateY(-6px);
-    background: var(--bg);
-    border-bottom: 2px solid var(--bordeaux);
-    min-width: 190px;
-    padding: 10px 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
-    z-index: 200;
-    white-space: nowrap;
-  }
-
-  .nav-item:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  .dropdown a {
-    display: block;
-    padding: 9px 22px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    color: var(--text);
-    opacity: 0.65;
-    transition: opacity 0.2s, color 0.2s;
-  }
-  .dropdown a:hover { opacity: 1; color: var(--gold); }
-
-  /* ---------------- GESCHENKEN ---------------- */
-  .geschenken-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .geschenken-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(32px, 4vw, 54px);
-    line-height: 1.05;
-    color: var(--text);
-    margin-bottom: 24px;
-  }
-
-  .geschenken-body {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.8;
-    letter-spacing: 0.02em;
-    color: var(--text);
-    opacity: 0.72;
-    margin-bottom: 32px;
-  }
-
-  .geschenken-cta {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 15px;
-    color: var(--gold);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 3px;
-    transition: border-color 0.25s, color 0.25s;
-  }
-  .geschenken-cta:hover { border-color: var(--gold); }
-
-  .geschenken-packages { display: flex; flex-direction: column; gap: 16px; }
-
-  .package-box {
-    border: 1px solid var(--bordeaux);
-    padding: 28px 32px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 22px;
-    color: var(--gold);
-    opacity: 0.7;
-    text-align: center;
-    transition: opacity 0.25s, background 0.25s;
-  }
-  .package-box:hover { opacity: 1; background: rgba(139,26,26,0.06); }
-
-  /* ---------------- VRIENDEN ---------------- */
-  .vrienden { text-align: center; }
-
-  .vrienden-sub {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.8;
-    letter-spacing: 0.02em;
-    color: var(--text);
-    opacity: 0.68;
-    max-width: 560px;
-    margin: 0 auto 40px;
-  }
-
-  .vrienden-body {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.8;
-    letter-spacing: 0.02em;
-    color: var(--text);
-    opacity: 0.6;
-    max-width: 640px;
-    margin: 0 auto 48px;
-  }
-  .vrienden-body p { margin-bottom: 20px; }
-
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    max-width: 640px;
-    margin: 40px auto 0;
-  }
-
-  .partner-box {
-    height: 80px;
-    border: 1px solid rgba(139,26,26,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #4A3728;
-    opacity: 0.5;
-  }
-
-  .btn-bordeaux-wide {
-    display: inline-block;
-    background: var(--bordeaux);
-    color: var(--text);
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 15px;
-    letter-spacing: 0.06em;
-    padding: 18px 56px;
-    transition: background 0.25s, transform 0.2s;
-  }
-  .btn-bordeaux-wide:hover { background: #a02020; transform: scale(1.01); }
-
-  /* ---------------- NIEUWSBRIEF ---------------- */
-  .newsletter {
-    background: var(--bordeaux);
-    padding: 88px 48px;
-    text-align: center;
-  }
-
-  .newsletter h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.05;
-    color: #fff;
-    margin-bottom: 18px;
-  }
-
-  .newsletter > p {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.8;
-    letter-spacing: 0.02em;
-    color: rgba(255,255,255,0.78);
-    margin-bottom: 36px;
-  }
-
-  .newsletter-form {
-    display: flex;
-    justify-content: center;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .newsletter-form input {
-    flex: 1;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-right: none;
-    color: #fff;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 15px;
-    padding: 14px 20px;
-    outline: none;
-    transition: border-color 0.3s;
-  }
-  .newsletter-form input::placeholder { color: rgba(255,255,255,0.45); }
-  .newsletter-form input:focus { border-color: #fff; }
-
-  .newsletter-form button {
-    background: #2D1B0E;
-    color: #F5ECD7;
-    border: none;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 14px 28px;
-    cursor: pointer;
-    transition: background 0.25s;
-    white-space: nowrap;
-  }
-  .newsletter-form button:hover { background: #0a0200; }
-
-  /* ---------------- FOOTER ---------------- */
-  footer {
-    background: var(--bg-3);
-    padding: 64px 48px 32px;
-  }
-
-  .footer-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
-    max-width: 1100px;
-    margin: 0 auto 48px;
-  }
-
-  .footer-col-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-  }
-  .f-brand { font-size: 28px; color: var(--gold); display: block; margin-bottom: 8px; }
-  .f-tagline { font-size: 17px; color: var(--text); opacity: 0.38; }
-
-  .footer-col h4 {
-    font-family: 'DM Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 10px;
-    color: var(--gold);
-    margin-bottom: 18px;
-  }
-
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-  .footer-col ul a {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    color: var(--text);
-    opacity: 0.48;
-    transition: opacity 0.2s;
-  }
-  .footer-col ul a:hover { opacity: 1; }
-
-  .footer-col address { font-style: normal; display: flex; flex-direction: column; gap: 8px; }
-
-  .footer-col address a,
-  .footer-col address span {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    color: var(--text);
-    opacity: 0.48;
-    transition: opacity 0.2s;
-  }
-  .footer-col address a:hover { opacity: 1; }
-
-  .footer-socials { display: flex; gap: 14px; margin-top: 16px; }
-
-  .footer-socials a {
-    color: var(--gold);
-    opacity: 0.45;
-    transition: opacity 0.25s, transform 0.25s;
-    display: inline-flex;
-  }
-  .footer-socials a:hover { opacity: 1; transform: translateY(-1px); }
-
-  .footer-bottom {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding-top: 24px;
-    border-top: 1px solid rgba(196,150,58,0.12);
-    text-align: center;
-  }
-
-  .footer-copy {
-    font-family: 'DM Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 10px;
-    color: var(--text);
-    opacity: 0.28;
-  }
-
-  /* ---------------- FOTO STRIP ---------------- */
-  .foto-strip {
-    position: relative;
-    width: 100%;
-    height: 480px;
-    overflow: hidden;
-  }
-
-  .foto-strip img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    display: block;
-  }
-
-  .foto-strip-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.22);
-  }
-
-  .foto-strip-caption {
-    position: absolute;
-    bottom: 40px;
-    right: 64px;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(20px, 2.5vw, 32px);
-    color: #F5ECD7;
-    opacity: 0.85;
-    letter-spacing: 0.01em;
-  }
-
-  /* ---------------- RESPONSIVE ---------------- */
-  @media (max-width: 900px) {
-    .aanbod-grid { grid-template-columns: 1fr; gap: 56px; }
-    .beleven-list { grid-template-columns: 1fr 1fr; gap: 36px; }
-    .partners-grid { grid-template-columns: repeat(2, 1fr); }
-    .over-grid { grid-template-columns: 1fr; gap: 48px; }
-    .contact-grid { grid-template-columns: 1fr; gap: 56px; }
-    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
-    .intro-divider { display: none; }
-    .geschenken-grid { grid-template-columns: 1fr; gap: 48px; }
-    .footer-cols { grid-template-columns: 1fr; gap: 40px; }
-  }
-
-  @media (max-width: 768px) {
-    .nav { padding: 18px 24px; }
-    .nav.scrolled { padding: 14px 24px; }
-    .nav-links { display: none; }
-    .hamburger { display: block; }
-
-    section { padding: 90px 24px; }
-    .hero { padding: 0 16px; }
-    .hero h1 { letter-spacing: 0; }
-    .hero-buttons { gap: 12px; }
-    .btn { padding: 14px 24px; font-size: 15px; }
-
-    footer { padding: 48px 24px 28px; }
-    .section-title { margin-bottom: 56px; }
-
-    .over-text h2 { margin-bottom: 24px; }
-    .beleven-list { grid-template-columns: 1fr; }
-    .partners-grid { grid-template-columns: repeat(2, 1fr); }
-    .newsletter { padding: 64px 24px; }
-    .newsletter-form { flex-direction: column; }
-    .newsletter-form input { border-right: 1px solid rgba(255,255,255,0.5); border-bottom: none; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-buttons { flex-direction: column; align-items: stretch; }
-    .btn { width: 100%; }
-    .btn-bordeaux-wide { padding: 16px 32px; }
-  }
-
-  /* ── LIGHT THEME OVERRIDES ── */
-
-  /* Hero text stays light on video */
-  .hero h1, .hero-sub { color: #F5ECD7; }
-  .hero .hero-label { color: #8B1A1A; }
-
-  /* Buttons with dark/bordeaux bg need light text */
-  .btn-primary { color: #F5ECD7; }
-  .btn-bordeaux-wide { color: #F5ECD7; }
-
-  /* Footer stays dark — restore light text */
-  footer { color: #F5ECD7; }
-  .f-tagline { color: #F5ECD7 !important; opacity: 0.38; }
-  .footer-col h4 { color: #C4963A; }
-  .f-brand { color: #C4963A; }
-  .footer-col ul a { color: #F5ECD7 !important; }
-  .footer-col address a,
-  .footer-col address span { color: #F5ECD7 !important; }
-  .footer-socials a { color: #C4963A; }
-  .footer-copy { color: #F5ECD7; }
-
-  /* Paragraph text #4A3728 */
-  .intro-body p, .beleven-item p, .over-text p,
-  .geschenken-body, .vrienden-sub, .vrienden-body { color: #4A3728; opacity: 1; }
-
-  /* Nav link text dark */
-  .nav-links a { color: #2D1B0E; opacity: 1; }
-  .nav-links a:hover { color: #8B1A1A; opacity: 1; }
-  .mobile-menu a { color: #2D1B0E; }
-
+/* ── TOKENS ───────────────────────────────────────────── */
+:root {
+  --bg:         #0F0C09;
+  --bg-2:       #181310;
+  --bg-3:       #231A12;
+  --bg-card:    #1A1410;
+  --text:       #EDE0C8;
+  --text-sub:   rgba(237,224,200,.65);
+  --text-muted: #8A7560;
+  --bordeaux:   #8B1D2E;
+  --bordeaux-h: #A5243A;
+  --gold:       #C9922C;
+  --gold-light: #DDB054;
+  --gold-dim:   rgba(201,146,44,.18);
+  --line:       rgba(201,146,44,.13);
+  --radius:     2px;
+
+  --ease-out: cubic-bezier(.22,.61,.36,1);
+  --t-fast:   150ms;
+  --t-mid:    250ms;
+  --t-slow:   400ms;
+}
+
+/* ── RESET ────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+img  { display: block; max-width: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.75;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── PAPIER TEXTUUR ───────────────────────────────────── */
+
+/* Laag 1: Grof papier — grote organische vlekken (lage freq = echt papier) */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9001;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.08' numOctaves='5' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.78 0 0 0 0 0.57 0 0 0 0 0.17 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
+  opacity: .10;
+  mix-blend-mode: soft-light;
+}
+
+/* Laag 2: Fijne detail — kleine korrel bovenop */
+body::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='3' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.78 0 0 0 0 0.57 0 0 0 0 0.17 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
+  opacity: .055;
+  mix-blend-mode: overlay;
+}
+
+/* ── TYPOGRAPHY ───────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant', serif;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: .02em;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: .68rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.section-heading {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+}
+.section-heading em { font-style: italic; color: var(--gold-light); }
+
+/* ── ORNAMENT DIVIDER ─────────────────────────────────── */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 18px 0 26px;
+}
+.ornament::before, .ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.ornament svg { flex-shrink: 0; opacity: .7; }
+
+/* ── BUTTONS ──────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--t-mid) var(--ease-out),
+              border-color var(--t-mid) var(--ease-out),
+              color var(--t-mid) var(--ease-out);
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--bg);
+  border-color: var(--gold);
+}
+.btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(237,224,200,.25);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── NAV ──────────────────────────────────────────────── */
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  height: 68px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--t-slow) var(--ease-out),
+              backdrop-filter var(--t-slow) var(--ease-out),
+              border-color var(--t-slow) var(--ease-out);
+  border-bottom: 1px solid transparent;
+}
+#nav.scrolled {
+  background: rgba(15,12,9,.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom-color: var(--line);
+}
+
+.nav-logo {
+  font-family: 'Cormorant', serif;
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: .14em;
+  color: var(--text);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-logo em { font-style: normal; color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .7rem;
+  font-weight: 400;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--text-sub);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease-out);
+}
+.nav-links a:hover { color: var(--text); }
+
+.nav-reserve {
+  font-size: .68rem !important;
+  color: var(--text) !important;
+  border: 1px solid rgba(139,29,46,.6) !important;
+  padding: 9px 22px;
+  letter-spacing: .18em !important;
+  transition: background var(--t-mid) var(--ease-out),
+              border-color var(--t-mid) var(--ease-out) !important;
+}
+.nav-reserve:hover {
+  background: var(--bordeaux) !important;
+  border-color: var(--bordeaux) !important;
+  color: var(--text) !important;
+}
+
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--text);
+  transition: opacity var(--t-fast);
+}
+
+/* ── HERO ─────────────────────────────────────────────── */
+#hero {
+  position: relative;
+  height: 100svh;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#hero video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 60%, transparent 20%, rgba(15,12,9,.6) 100%),
+    linear-gradient(to bottom, rgba(15,12,9,.5) 0%, rgba(15,12,9,.55) 55%, rgba(15,12,9,.88) 100%);
+}
+
+.hero-body {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 860px;
+}
+
+.hero-tag {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: var(--gold);
+  font-size: .65rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+}
+.hero-tag::before, .hero-tag::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: rgba(201,146,44,.4);
+}
+
+.hero-h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 24px;
+  text-shadow: 0 2px 40px rgba(0,0,0,.4);
+}
+.hero-h1 em { font-style: italic; color: var(--gold-light); }
+
+.hero-sub {
+  font-size: .95rem;
+  color: var(--text-sub);
+  letter-spacing: .04em;
+  max-width: 480px;
+  margin: 0 auto 48px;
+  line-height: 1.9;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Vine watermark */
+.hero-glass {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  height: 95%;
+  width: auto;
+  pointer-events: none;
+}
+
+/* Maand card corners + badge */
+.maand-inner { position: relative; }
+.maand-corner {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  opacity: .45;
+  pointer-events: none;
+}
+.maand-corner.tl { top: 12px; left: 12px; }
+.maand-corner.tr { top: 12px; right: 12px; transform: scaleX(-1); }
+.maand-corner.bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
+.maand-corner.br { bottom: 12px; right: 12px; transform: scale(-1,-1); }
+.maand-badge { display: block; margin: 0 auto 22px; }
+
+/* Pullquote sun */
+.pullquote-sun {
+  display: block;
+  margin: 0 auto 32px;
+  opacity: .88;
+}
+
+/* Section wine divider */
+.wine-divider {
+  display: block;
+  width: 100%;
+  height: 30px;
+  margin: 18px 0 26px;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.hero-scroll-hint span {
+  font-size: .6rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(237,224,200,.3);
+}
+.hero-scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(to bottom, rgba(201,146,44,.5), transparent);
+  animation: drip 2.2s var(--ease-out) infinite;
+}
+@keyframes drip {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+}
+
+/* ── REVEAL ───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--t-slow) var(--ease-out),
+              transform var(--t-slow) var(--ease-out);
+}
+.reveal.in { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; }
+.d2 { transition-delay: .18s; }
+.d3 { transition-delay: .28s; }
+.d4 { transition-delay: .38s; }
+
+/* ── SECTION BASE ─────────────────────────────────────── */
+.section { padding: 100px 8%; }
+.section-sm { padding: 72px 8%; }
+
+/* ── INTRO ────────────────────────────────────────────── */
+#intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.intro-copy {
+  background: var(--bg-2);
+  padding: 100px 9% 100px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro-copy p {
+  color: var(--text-sub);
+  font-size: .95rem;
+  max-width: 420px;
+}
+.intro-copy p + p { margin-top: 14px; }
+
+.intro-signature {
+  margin-top: 40px;
+  font-family: 'Cormorant', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.intro-photo {
+  position: relative;
+  overflow: hidden;
+  min-height: 540px;
+}
+.intro-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(.82) saturate(.9);
+  transition: transform 1s var(--ease-out), filter .6s var(--ease-out);
+}
+.intro-photo:hover img {
+  transform: scale(1.04);
+  filter: brightness(.88) saturate(.95);
+}
+.intro-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139,29,46,.1) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* ── PULL QUOTE ───────────────────────────────────────── */
+#pullquote {
+  background: var(--bg);
+  padding: 88px 10%;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+#pullquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cormorant', serif;
+  font-size: 18rem;
+  line-height: 1;
+  color: rgba(201,146,44,.05);
+  pointer-events: none;
+  user-select: none;
+}
+
+.pullquote-text {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(1.55rem, 3vw, 2.4rem);
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(237,224,200,.82);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.55;
+  position: relative;
+}
+.pullquote-attr {
+  margin-top: 28px;
+  font-size: .65rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .75;
+}
+
+/* ── SELECTIE ─────────────────────────────────────────── */
+#selectie {
+  background: var(--bg-2);
+  padding: 100px 8%;
+}
+
+.selectie-head {
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 60px;
+}
+.selectie-head p {
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: .9rem;
+}
+
+.selectie-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid var(--line);
+}
+
+.wijn-card {
+  background: var(--bg-card);
+  padding: 60px 40px 50px;
+  text-align: center;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--t-mid) var(--ease-out);
+}
+.wijn-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  transition: border-color var(--t-mid) var(--ease-out);
+  pointer-events: none;
+}
+.wijn-card:hover { background: var(--bg-3); }
+.wijn-card:hover::before { border-color: rgba(201,146,44,.22); }
+
+.wijn-card-icon {
+  width: 48px;
+  height: 80px;
+  margin: 0 auto 32px;
+  color: var(--bordeaux);
+  opacity: .7;
+  transition: opacity var(--t-mid) var(--ease-out),
+              color var(--t-mid) var(--ease-out);
+}
+.wijn-card:hover .wijn-card-icon { opacity: 1; color: var(--gold); }
+
+.wijn-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+.wijn-card .wijn-region {
+  font-size: .65rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .7;
+  margin-bottom: 16px;
+  display: block;
+}
+.wijn-card p {
+  font-size: .88rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 240px;
+  margin: 0 auto;
+}
+.wijn-card-link {
+  display: inline-block;
+  margin-top: 28px;
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(201,146,44,.3);
+  padding-bottom: 2px;
+  transition: border-color var(--t-fast), color var(--t-fast);
+}
+.wijn-card-link:hover { border-color: var(--gold); }
+
+/* ── MAAND WIJN ───────────────────────────────────────── */
+#maand {
+  background: var(--bg);
+  padding: 100px 8%;
+}
+
+.maand-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0;
+  border: 1px solid var(--line);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.maand-label {
+  background: var(--bordeaux);
+  padding: 56px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+.maand-label-top {
+  font-size: .6rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(237,224,200,.7);
+}
+.maand-label h3 {
+  font-family: 'Cormorant', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.2;
+}
+.maand-label-vintage {
+  font-family: 'Cormorant', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(237,224,200,.25);
+  line-height: 1;
+}
+
+.maand-info {
+  background: var(--bg-2);
+  padding: 52px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.maand-info .eyebrow { margin-bottom: 14px; }
+.maand-info h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 16px;
+}
+.maand-info p {
+  font-size: .9rem;
+  color: var(--text-sub);
+  max-width: 400px;
+  margin-bottom: 28px;
+}
+
+.maand-notes {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.maand-note {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.maand-note-label {
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.maand-note-value {
+  font-family: 'Cormorant', serif;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+/* ── BELEVEN ──────────────────────────────────────────── */
+#beleven {
+  background: var(--bg-2);
+  padding: 100px 8%;
+}
+
+.beleven-head { max-width: 500px; margin-bottom: 60px; }
+.beleven-head p {
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: .9rem;
+  max-width: 380px;
+}
+
+.beleven-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+}
+
+.beleven-card {
+  background: var(--bg-card);
+  padding: 56px 48px;
+  border: 1px solid var(--line);
+  cursor: default;
+  transition: background var(--t-mid) var(--ease-out),
+              border-color var(--t-mid) var(--ease-out);
+  position: relative;
+}
+.beleven-card:hover {
+  background: var(--bg-3);
+  border-color: rgba(139,29,46,.4);
+}
+
+.beleven-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 24px;
+  color: var(--bordeaux);
+  opacity: .65;
+  transition: opacity var(--t-mid), color var(--t-mid);
+}
+.beleven-card:hover .beleven-icon { opacity: 1; color: var(--gold); }
+
+.beleven-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+.beleven-card p {
+  font-size: .88rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  max-width: 340px;
+}
+
+/* ── CURSUSSEN BANNER ─────────────────────────────────── */
+#cursussen {
+  position: relative;
+  height: 540px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+#cursussen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(.45) saturate(.8);
+  transition: transform 10s var(--ease-out);
+}
+#cursussen:hover img { transform: scale(1.035); }
+
+.cursussen-grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15,12,9,.9) 35%, rgba(15,12,9,.15) 100%);
+}
+
+.cursussen-body {
+  position: relative;
+  z-index: 2;
+  margin-left: 8%;
+  width: min(480px, 48vw);
+  flex-shrink: 0;
+}
+.cursussen-body h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); margin-bottom: 16px; }
+.cursussen-body p {
+  font-size: .9rem;
+  color: var(--text-sub);
+  margin-bottom: 36px;
+  line-height: 1.8;
+}
+
+/* ── TESTIMONIALS ─────────────────────────────────────── */
+#testimonials {
+  background: var(--bg);
+  padding: 100px 8%;
+  text-align: center;
+}
+
+.testi-head { margin-bottom: 56px; }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid var(--line);
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.testi-card {
+  background: var(--bg-card);
+  padding: 44px 38px;
+  text-align: left;
+  transition: background var(--t-mid) var(--ease-out);
+}
+.testi-card:hover { background: var(--bg-3); }
+
+.testi-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+.testi-stars svg { color: var(--gold); }
+
+.testi-quote {
+  font-family: 'Cormorant', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(237,224,200,.8);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.testi-author {
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .7;
+}
+
+/* ── CONTACT CTA ──────────────────────────────────────── */
+#cta {
+  background: var(--bordeaux);
+  padding: 90px 8%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,.4) 0%, transparent 65%);
+}
+.cta-body {
+  position: relative;
+  z-index: 1;
+  max-width: 580px;
+  margin: 0 auto;
+}
+#cta .eyebrow { color: rgba(237,224,200,.6); margin-bottom: 14px; }
+#cta h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+#cta p {
+  color: var(--text-sub);
+  font-size: .9rem;
+  margin-bottom: 40px;
+}
+
+.cta-form {
+  display: flex;
+  gap: 0;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.cta-form label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+.cta-form input {
+  flex: 1;
+  padding: 15px 20px;
+  background: rgba(15,12,9,.45);
+  border: 1px solid rgba(237,224,200,.2);
+  border-right: none;
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: .85rem;
+  outline: none;
+  transition: border-color var(--t-fast);
+}
+.cta-form input::placeholder { color: rgba(237,224,200,.3); }
+.cta-form input:focus { border-color: rgba(237,224,200,.45); }
+
+.cta-form button {
+  padding: 15px 26px;
+  background: rgba(15,12,9,.55);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  border: 1px solid rgba(237,224,200,.2);
+  cursor: pointer;
+  transition: background var(--t-fast);
+  white-space: nowrap;
+}
+.cta-form button:hover { background: rgba(15,12,9,.75); }
+
+/* ── FOOTER ───────────────────────────────────────────── */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  padding: 72px 8% 36px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  gap: 48px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid var(--line);
+}
+
+.footer-brand .nav-logo {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 1.25rem;
+}
+.footer-brand p {
+  font-size: .85rem;
+  color: var(--text-muted);
+  max-width: 260px;
+  line-height: 1.8;
+}
+
+.f-col h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .62rem;
+  font-weight: 500;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  opacity: .8;
+}
+
+.f-col ul { list-style: none; }
+.f-col ul li + li { margin-top: 10px; }
+.f-col ul a {
+  font-size: .85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+.f-col ul a:hover { color: var(--text); }
+
+.f-contact p {
+  font-size: .85rem;
+  color: var(--text-muted);
+  line-height: 2;
+}
+.f-contact a {
+  color: var(--text-muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+.f-contact a:hover { color: var(--text); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  font-size: .72rem;
+  color: rgba(138,117,96,.45);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom a {
+  color: rgba(138,117,96,.45);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+.footer-bottom a:hover { color: var(--text-muted); }
+
+/* ── REDUCED MOTION ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: opacity var(--t-mid); transform: none; }
+  .hero-scroll-hint::after { animation: none; }
+  .intro-photo img,
+  #cursussen img { transition: none; }
+  * { transition-duration: 10ms !important; }
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .maand-inner { grid-template-columns: 1fr; max-width: 560px; }
+  .maand-label { flex-direction: row; gap: 24px; padding: 36px 40px; text-align: left; }
+}
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  #intro { grid-template-columns: 1fr; }
+  .intro-photo { min-height: 360px; }
+  .selectie-grid { grid-template-columns: 1fr; }
+  .beleven-grid { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .section { padding: 72px 6%; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .cta-form { flex-direction: column; }
+  .cta-form input { border-right: 1px solid rgba(237,224,200,.2); border-bottom: none; }
+  #cursussen { height: auto; min-height: 460px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ============== NAVBAR ============== -->
-<nav class="nav" id="nav">
-  <a href="#hero" class="nav-logo">Wijnen Waldo</a>
+<!-- ── NAV ─────────────────────────────────────────────── -->
+<nav id="nav" role="navigation" aria-label="Hoofdnavigatie">
+  <a href="#" class="nav-logo">WIJNEN <em>WALDO</em></a>
   <ul class="nav-links">
-    <li class="nav-item">
-      <a href="#aanbod">Wijnen</a>
-      <div class="dropdown">
-        <a href="#aanbod">Ons aanbod</a>
-        <a href="#aanbod">Wijn kopen</a>
-        <a href="#aanbod">Wijnlijst</a>
-        <a href="#geschenken">Geschenken</a>
-      </div>
-    </li>
-    <li class="nav-item">
-      <a href="#beleven">Proeven &amp; Beleven</a>
-      <div class="dropdown">
-        <a href="#beleven">Privé degustatie</a>
-        <a href="#beleven">Wijncursus</a>
-        <a href="#beleven">Tuinproeverijen</a>
-      </div>
-    </li>
-    <li><a href="#over">Over ons</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#intro">Over ons</a></li>
+    <li><a href="#selectie">Kies &amp; geniet</a></li>
+    <li><a href="#beleven">Proef &amp; beleef</a></li>
+    <li><a href="#cursussen">Cursussen</a></li>
+    <li><a href="#cta" class="nav-reserve">Afspraak maken</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+  <button class="nav-burger" id="burger" aria-label="Menu openen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#aanbod" class="mobile-link">Wijnen</a>
-  <a href="#beleven" class="mobile-link">Proeven &amp; Beleven</a>
-  <a href="#over" class="mobile-link">Over ons</a>
-  <a href="#contact" class="mobile-link">Contact</a>
-</div>
-
-<!-- ============== HERO ============== -->
-<section class="hero" id="hero">
-  <video autoplay muted loop playsinline preload="auto">
+<!-- ── HERO ────────────────────────────────────────────── -->
+<section id="hero" aria-label="Hero">
+  <video autoplay muted loop playsinline aria-hidden="true">
     <source src="https://d2ezq7q7q0tvyx.cloudfront.net/wijnen-waldo/hero-video.mp4" type="video/mp4">
   </video>
-  <div class="hero-overlay"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
 
-  <div class="hero-content">
-    <div class="mono hero-label">ZOERSEL, KEMPEN — EST. 2016</div>
-    <h1>De zuiderse zon<br>in je glas.</h1>
-    <p class="hero-sub">Familiale wijnen uit Italië, Spanje en Zuid-Frankrijk.<br>Persoonlijk geselecteerd. Persoonlijk verteld.</p>
-    <div class="hero-buttons">
-      <a href="#aanbod" class="btn btn-primary">Ontdek onze wijnen</a>
-      <a href="#beleven" class="btn btn-ghost">Plan een proeverij</a>
+  <!-- Decorative vine + bottle watermark (element 1) -->
+  <svg class="hero-glass" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#C9922C" stroke-width="1.2" fill="none" opacity="0.07" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 200 40 L 200 130 C 200 145, 188 152, 184 168 C 180 184, 178 200, 178 220 L 178 540 C 178 555, 188 565, 200 565 C 212 565, 222 555, 222 540 L 222 220 C 222 200, 220 184, 216 168 C 212 152, 200 145, 200 130 Z"/>
+      <path d="M 188 40 L 212 40 L 212 70 L 188 70 Z"/>
+      <line x1="188" y1="55" x2="212" y2="55"/>
+      <rect x="178" y="320" width="44" height="120"/>
+      <line x1="178" y1="340" x2="222" y2="340"/>
+      <line x1="178" y1="420" x2="222" y2="420"/>
+      <path d="M 178 250 C 140 240, 110 220, 90 190 C 70 160, 60 130, 70 100 C 80 70, 110 50, 140 60"/>
+      <path d="M 90 190 C 70 200, 50 210, 35 230"/>
+      <path d="M 110 220 C 100 240, 95 260, 105 280"/>
+      <g transform="translate(60 110)"><path d="M 0 0 C -18 -8, -30 -2, -34 14 C -38 30, -28 42, -10 40 C 8 38, 18 24, 14 8 C 12 0, 6 -2, 0 0 Z"/><line x1="0" y1="0" x2="-22" y2="22"/><line x1="-12" y1="6" x2="-22" y2="22"/><line x1="-4" y1="20" x2="-22" y2="22"/></g>
+      <g transform="translate(38 230) rotate(-20)"><path d="M 0 0 C -16 -6, -26 -2, -30 12 C -34 26, -25 36, -8 34 C 6 32, 16 20, 12 6 C 10 0, 5 -2, 0 0 Z"/><line x1="0" y1="0" x2="-20" y2="18"/></g>
+      <g transform="translate(135 50) rotate(40)"><path d="M 0 0 C -14 -6, -24 -2, -28 10 C -32 24, -22 34, -6 32 C 8 30, 16 18, 12 6 C 10 0, 4 -2, 0 0 Z"/><line x1="0" y1="0" x2="-18" y2="16"/></g>
+      <g transform="translate(110 280)"><circle cx="0" cy="0" r="6"/><circle cx="12" cy="2" r="6"/><circle cx="-12" cy="2" r="6"/><circle cx="6" cy="12" r="6"/><circle cx="-6" cy="12" r="6"/><circle cx="0" cy="22" r="6"/><circle cx="14" cy="22" r="6"/><circle cx="-14" cy="22" r="6"/><circle cx="6" cy="32" r="6"/><circle cx="-6" cy="32" r="6"/><circle cx="0" cy="42" r="6"/></g>
+      <path d="M 222 280 C 260 270, 295 250, 315 220 C 335 190, 345 155, 335 125 C 325 95, 295 80, 270 90"/>
+      <path d="M 315 220 C 335 230, 355 245, 365 265"/>
+      <path d="M 295 250 C 305 270, 310 290, 300 310"/>
+      <g transform="translate(340 140) scale(-1 1)"><path d="M 0 0 C -18 -8, -30 -2, -34 14 C -38 30, -28 42, -10 40 C 8 38, 18 24, 14 8 C 12 0, 6 -2, 0 0 Z"/><line x1="0" y1="0" x2="-22" y2="22"/></g>
+      <g transform="translate(362 265) scale(-1 1) rotate(-20)"><path d="M 0 0 C -16 -6, -26 -2, -30 12 C -34 26, -25 36, -8 34 C 6 32, 16 20, 12 6 C 10 0, 5 -2, 0 0 Z"/><line x1="0" y1="0" x2="-20" y2="18"/></g>
+      <g transform="translate(296 310)"><circle cx="0" cy="0" r="6"/><circle cx="12" cy="2" r="6"/><circle cx="-12" cy="2" r="6"/><circle cx="6" cy="12" r="6"/><circle cx="-6" cy="12" r="6"/><circle cx="0" cy="22" r="6"/><circle cx="14" cy="22" r="6"/><circle cx="-14" cy="22" r="6"/><circle cx="0" cy="34" r="6"/></g>
+      <path d="M 70 100 C 55 95, 50 85, 60 78 C 70 72, 76 80, 72 88"/>
+      <path d="M 335 125 C 350 120, 355 110, 345 103 C 335 97, 329 105, 333 113"/>
+    </g>
+  </svg>
+
+  <div class="hero-body">
+    <div class="hero-tag" aria-hidden="true">Wijnen Waldo &nbsp;·&nbsp; Zoersel &nbsp;·&nbsp; Est. 2016</div>
+    <h1 class="hero-h1">
+      De zuiderse zon<br>in je glas.<br>
+      <em>Proeven en laten proeven.</em>
+    </h1>
+    <p class="hero-sub">Familiale domeinen, uitzonderlijke wijnen vol smaak en passie — op afspraak te beleven in Zoersel.</p>
+    <div class="hero-ctas">
+      <a href="#selectie" class="btn btn-gold">Ontdek de Selectie</a>
+      <a href="#cta" class="btn btn-outline">Plan een Bezoek</a>
     </div>
   </div>
 
-  <div class="hero-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path d="M0,80 C360,0 1080,0 1440,80 L1440,80 L0,80 Z" fill="#F5ECD7"></path>
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── INTRO ────────────────────────────────────────────── -->
+<section id="intro" aria-labelledby="intro-heading">
+  <div class="intro-copy">
+    <span class="eyebrow reveal">Over Wijnen Waldo</span>
+    <svg class="wine-divider reveal d1" viewBox="0 0 800 30" height="30" preserveAspectRatio="none" aria-hidden="true">
+      <g stroke="#C9922C" stroke-width="1" fill="none" stroke-linecap="round">
+        <line x1="0" y1="15" x2="340" y2="15"/>
+        <path d="M 340 15 C 350 15, 355 10, 360 8"/>
+        <circle cx="362" cy="7" r="1.4" fill="#C9922C"/>
+        <g transform="translate(400 15)">
+          <path d="M 0 -7 L 7 0 L 0 7 L -7 0 Z" fill="#C9922C" fill-opacity="0.8" stroke="none"/>
+          <path d="M -7 0 C -16 -2, -24 -6, -28 -2"/><path d="M -28 -2 C -32 0, -32 4, -28 5"/>
+          <path d="M 7 0 C 16 -2, 24 -6, 28 -2"/><path d="M 28 -2 C 32 0, 32 4, 28 5"/>
+          <circle cx="-22" cy="6" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="-18" cy="8" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="22" cy="6" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="18" cy="8" r="1.2" fill="#C9922C" stroke="none"/>
+        </g>
+        <circle cx="438" cy="7" r="1.4" fill="#C9922C"/>
+        <path d="M 460 15 C 450 15, 445 10, 440 8"/>
+        <line x1="460" y1="15" x2="800" y2="15"/>
+      </g>
     </svg>
+    <h2 class="section-heading reveal d1" id="intro-heading">
+      Ons verhaal begint<br><em>in de wijngaard</em>
+    </h2>
+    <p class="reveal d2">Wijnen Waldo is opgericht door Waldo en Ann Severins in Zoersel. Gedreven door passie voor het wijnverhaal nemen ze jullie mee naar familiale domeinen en uitzonderlijke wijnen vol smaak en karakter.</p>
+    <p class="reveal d2">Waldo volgde de professionele opleiding WSET Level 3 en bezoekt elk domein persoonlijk — want een goede wijn begint in de wijngaard. Luisteren naar jouw wensen, laten proeven en verhalen vertellen: dat is Wijnen Waldo.</p>
+    <p class="intro-signature reveal d3">— Waldo &amp; Ann</p>
+  </div>
+  <div class="intro-photo">
+    <img src="https://d2ezq7q7q0tvyx.cloudfront.net/wijnen-waldo/waldo-ann.webp"
+         alt="Waldo en Ann Severins, oprichters van Wijnen Waldo in Zoersel">
   </div>
 </section>
 
-<!-- ============== INTRO ============== -->
-<section class="intro" id="intro">
-  <div class="container">
-    <div class="intro-grid reveal">
-      <div class="intro-quote">
-        &ldquo;Als je met goede wijnen bezig bent,<br>
-        is 80% het verhaal<br>
-        en 20% de wijn zelf.&rdquo;
-        <span class="attribution">— Waldo</span>
-      </div>
-      <div class="intro-divider" aria-hidden="true"></div>
-      <div class="intro-body">
-        <p>Wijnen Waldo is geen webshop.<br>Het is een wijnverhaal dat begint bij de wijngaard en eindigt in jouw glas.</p>
-        <p>Waldo en Ann reizen naar familiale domeinen in Italië, Spanje en Zuid-Frankrijk. Ze bezoeken elk domein persoonlijk voor ze samenwerken. Want een goede wijn begint op de wijngaard.</p>
-      </div>
+<!-- ── PULL QUOTE ───────────────────────────────────────── -->
+<section id="pullquote">
+  <!-- Zuiderse zon (element 7) -->
+  <svg class="pullquote-sun reveal" viewBox="0 0 200 240" width="120" height="144" aria-hidden="true">
+    <defs>
+      <radialGradient id="sun-fill" cx="50%" cy="48%" r="55%">
+        <stop offset="0%"  stop-color="#E6B14F"/>
+        <stop offset="55%" stop-color="#C9922C"/>
+        <stop offset="100%" stop-color="#8B1D2E"/>
+      </radialGradient>
+      <linearGradient id="ray-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#C9922C" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#8B1D2E" stop-opacity="0.4"/>
+      </linearGradient>
+      <clipPath id="drop-clip">
+        <path d="M 100 18 C 60 70, 40 120, 40 160 C 40 200, 70 222, 100 222 C 130 222, 160 200, 160 160 C 160 120, 140 70, 100 18 Z"/>
+      </clipPath>
+    </defs>
+    <path d="M 100 18 C 60 70, 40 120, 40 160 C 40 200, 70 222, 100 222 C 130 222, 160 200, 160 160 C 160 120, 140 70, 100 18 Z" fill="none" stroke="#C9922C" stroke-width="1" stroke-opacity="0.55"/>
+    <g clip-path="url(#drop-clip)">
+      <g stroke="url(#ray-grad)" stroke-linecap="round" fill="none" stroke-width="1.4" transform="translate(100 140)">
+        <line x1="0" y1="-72" x2="0" y2="-46"/>
+        <line transform="rotate(22.5)"  x1="0" y1="-66" x2="0" y2="-50"/>
+        <line transform="rotate(45)"    x1="0" y1="-72" x2="0" y2="-46"/>
+        <line transform="rotate(67.5)"  x1="0" y1="-66" x2="0" y2="-50"/>
+        <line transform="rotate(90)"    x1="0" y1="-72" x2="0" y2="-46"/>
+        <line transform="rotate(112.5)" x1="0" y1="-66" x2="0" y2="-50"/>
+        <line transform="rotate(135)"   x1="0" y1="-72" x2="0" y2="-46"/>
+        <line transform="rotate(157.5)" x1="0" y1="-66" x2="0" y2="-50"/>
+        <line transform="rotate(180)"   x1="0" y1="-72" x2="0" y2="-46"/>
+        <line transform="rotate(202.5)" x1="0" y1="-66" x2="0" y2="-50"/>
+        <line transform="rotate(225)"   x1="0" y1="-72" x2="0" y2="-46"/>
+        <line transform="rotate(247.5)" x1="0" y1="-66" x2="0" y2="-50"/>
+        <line transform="rotate(270)"   x1="0" y1="-72" x2="0" y2="-46"/>
+        <line transform="rotate(292.5)" x1="0" y1="-66" x2="0" y2="-50"/>
+        <line transform="rotate(315)"   x1="0" y1="-72" x2="0" y2="-46"/>
+        <line transform="rotate(337.5)" x1="0" y1="-66" x2="0" y2="-50"/>
+      </g>
+      <circle cx="100" cy="140" r="34" fill="url(#sun-fill)"/>
+      <circle cx="92" cy="132" r="10" fill="#EDE0C8" fill-opacity="0.18"/>
+    </g>
+    <line x1="55" y1="190" x2="145" y2="190" stroke="#C9922C" stroke-width="0.6" stroke-opacity="0.3" clip-path="url(#drop-clip)"/>
+  </svg>
+  <p class="pullquote-text reveal">
+    "Wijn is zoveel meer dan wat je proeft. Het zijn de mensen, de aarde, de passie erachter — en dat verhaal willen we met jullie delen."
+  </p>
+  <p class="pullquote-attr reveal d1">— Waldo &amp; Ann, Wijnen Waldo</p>
+</section>
+
+<!-- ── SELECTIE ─────────────────────────────────────────── -->
+<section id="selectie" class="section" aria-labelledby="selectie-heading">
+  <div class="selectie-head">
+    <span class="eyebrow reveal">Ons Aanbod</span>
+    <svg class="wine-divider reveal d1" viewBox="0 0 800 30" height="30" preserveAspectRatio="none" aria-hidden="true">
+      <g stroke="#C9922C" stroke-width="1" fill="none" stroke-linecap="round">
+        <line x1="0" y1="15" x2="340" y2="15"/>
+        <path d="M 340 15 C 350 15, 355 10, 360 8"/>
+        <circle cx="362" cy="7" r="1.4" fill="#C9922C"/>
+        <g transform="translate(400 15)">
+          <path d="M 0 -7 L 7 0 L 0 7 L -7 0 Z" fill="#C9922C" fill-opacity="0.8" stroke="none"/>
+          <path d="M -7 0 C -16 -2, -24 -6, -28 -2"/><path d="M -28 -2 C -32 0, -32 4, -28 5"/>
+          <path d="M 7 0 C 16 -2, 24 -6, 28 -2"/><path d="M 28 -2 C 32 0, 32 4, 28 5"/>
+          <circle cx="-22" cy="6" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="-18" cy="8" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="22" cy="6" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="18" cy="8" r="1.2" fill="#C9922C" stroke="none"/>
+        </g>
+        <circle cx="438" cy="7" r="1.4" fill="#C9922C"/>
+        <path d="M 460 15 C 450 15, 445 10, 440 8"/>
+        <line x1="460" y1="15" x2="800" y2="15"/>
+      </g>
+    </svg>
+    <h2 class="section-heading reveal d1" id="selectie-heading">Wijnen met <em>een verhaal</em><br>achter elke fles</h2>
+    <p class="reveal d2">Waldo zoekt naar domeinen met respect voor mens en natuur — familiale producenten waar kwaliteit en passie hand in hand gaan.</p>
+  </div>
+
+  <div class="selectie-grid">
+    <!-- Rode wijnen -->
+    <article class="wijn-card reveal">
+      <svg class="wijn-card-icon" aria-hidden="true" viewBox="0 0 40 100" fill="none" stroke="rgba(201,146,44,.6)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 16 3 L 24 3 L 24 14 L 16 14 Z"/>
+        <line x1="16" y1="9" x2="24" y2="9"/>
+        <line x1="17" y1="14" x2="17" y2="32"/>
+        <line x1="23" y1="14" x2="23" y2="32"/>
+        <path d="M 17 32 L 12 38 L 12 95 C 12 97, 14 98, 16 98 L 24 98 C 26 98, 28 97, 28 95 L 28 38 L 23 32"/>
+        <rect x="13" y="58" width="14" height="22"/>
+        <line x1="13" y1="64" x2="27" y2="64"/>
+      </svg>
+      <h3>Rode Wijnen</h3>
+      <span class="wijn-region">Zuid-Frankrijk · Italië · Spanje</span>
+      <p>Zuiderse rassen met karakter en warmte — van de Languedoc tot de Toscane, van de Rioja tot de Rhône-vallei.</p>
+      <a href="#" class="wijn-card-link">Bekijk selectie</a>
+    </article>
+
+    <!-- Witte wijnen -->
+    <article class="wijn-card reveal d1">
+      <svg class="wijn-card-icon" aria-hidden="true" viewBox="0 0 40 100" fill="none" stroke="rgba(201,146,44,.6)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 16 3 L 24 3 L 24 14 L 16 14 Z"/>
+        <line x1="16" y1="9" x2="24" y2="9"/>
+        <line x1="17" y1="14" x2="17" y2="28"/>
+        <line x1="23" y1="14" x2="23" y2="28"/>
+        <path d="M 17 28 C 14 32, 11 38, 11 46 L 11 95 C 11 97, 13 98, 15 98 L 25 98 C 27 98, 29 97, 29 95 L 29 46 C 29 38, 26 32, 23 28"/>
+        <rect x="13" y="62" width="14" height="20"/>
+        <line x1="13" y1="68" x2="27" y2="68"/>
+      </svg>
+      <h3>Witte Wijnen</h3>
+      <span class="wijn-region">Zuid-Frankrijk · Spanje · Portugal</span>
+      <p>Frisse, aromatische whites van familiale domeinen met zon in het glas — verrassend, toegankelijk en vol terroir.</p>
+      <a href="#" class="wijn-card-link">Bekijk selectie</a>
+    </article>
+
+    <!-- Bubbels -->
+    <article class="wijn-card reveal d2">
+      <svg class="wijn-card-icon" aria-hidden="true" viewBox="0 0 40 100" fill="none" stroke="rgba(201,146,44,.6)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 15 3 L 25 3 L 25 18 L 15 18 Z"/>
+        <line x1="15" y1="9"  x2="25" y2="9"/>
+        <line x1="15" y1="13" x2="25" y2="13"/>
+        <line x1="15" y1="18" x2="25" y2="18"/>
+        <line x1="20" y1="18" x2="20" y2="22"/>
+        <circle cx="20" cy="22" r="1" fill="rgba(201,146,44,.6)" stroke="none"/>
+        <line x1="16" y1="22" x2="16" y2="36"/>
+        <line x1="24" y1="22" x2="24" y2="36"/>
+        <path d="M 16 36 C 13 40, 10 46, 10 54 L 10 95 C 10 97, 12 98, 14 98 L 26 98 C 28 98, 30 97, 30 95 L 30 54 C 30 46, 27 40, 24 36"/>
+        <rect x="12" y="66" width="16" height="20"/>
+        <line x1="12" y1="72" x2="28" y2="72"/>
+        <path d="M 16 98 C 18 96, 22 96, 24 98"/>
+      </svg>
+      <h3>Bubbels &amp; Champagne</h3>
+      <span class="wijn-region">Champagne · Crémant · Cava</span>
+      <p>Grower-champagnes van kleine huizen, biologische Crémants en festieve Cavas voor elk moment van vieren.</p>
+      <a href="#" class="wijn-card-link">Bekijk selectie</a>
+    </article>
+  </div>
+</section>
+
+<!-- ── WIJN VAN DE MAAND ─────────────────────────────────── -->
+<section id="maand" aria-labelledby="maand-heading">
+  <div class="maand-inner reveal">
+    <!-- Filigree corners (element 5) -->
+    <svg class="maand-corner tl" viewBox="0 0 80 80" aria-hidden="true"><g fill="none" stroke="#C9922C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><path d="M 4 30 L 4 4 L 30 4"/><path d="M 10 26 L 10 10 L 26 10"/><path d="M 4 4 L 8 8"/><circle cx="6" cy="6" r="1" fill="#C9922C" stroke="none"/><path d="M 30 4 C 38 4, 44 6, 50 10"/><path d="M 50 10 C 54 12, 56 16, 54 20"/><path d="M 54 20 C 52 22, 48 22, 46 18"/><circle cx="46" cy="18" r="0.9" fill="#C9922C" stroke="none"/><path d="M 4 30 C 4 38, 6 44, 10 50"/><path d="M 10 50 C 12 54, 16 56, 20 54"/><path d="M 20 54 C 22 52, 22 48, 18 46"/><circle cx="18" cy="46" r="0.9" fill="#C9922C" stroke="none"/><path d="M 14 14 C 22 18, 28 24, 32 32"/><path d="M 22 18 C 24 20, 26 20, 26 18"/><path d="M 28 24 C 30 26, 32 26, 32 24"/></g></svg>
+    <svg class="maand-corner tr" viewBox="0 0 80 80" aria-hidden="true"><g fill="none" stroke="#C9922C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><path d="M 4 30 L 4 4 L 30 4"/><path d="M 10 26 L 10 10 L 26 10"/><circle cx="6" cy="6" r="1" fill="#C9922C" stroke="none"/><path d="M 30 4 C 38 4, 44 6, 50 10"/><path d="M 50 10 C 54 12, 56 16, 54 20"/><path d="M 54 20 C 52 22, 48 22, 46 18"/><circle cx="46" cy="18" r="0.9" fill="#C9922C" stroke="none"/><path d="M 4 30 C 4 38, 6 44, 10 50"/><path d="M 10 50 C 12 54, 16 56, 20 54"/><path d="M 20 54 C 22 52, 22 48, 18 46"/><circle cx="18" cy="46" r="0.9" fill="#C9922C" stroke="none"/><path d="M 14 14 C 22 18, 28 24, 32 32"/></g></svg>
+    <svg class="maand-corner bl" viewBox="0 0 80 80" aria-hidden="true"><g fill="none" stroke="#C9922C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><path d="M 4 30 L 4 4 L 30 4"/><path d="M 10 26 L 10 10 L 26 10"/><circle cx="6" cy="6" r="1" fill="#C9922C" stroke="none"/><path d="M 30 4 C 38 4, 44 6, 50 10"/><path d="M 50 10 C 54 12, 56 16, 54 20"/><circle cx="46" cy="18" r="0.9" fill="#C9922C" stroke="none"/><path d="M 4 30 C 4 38, 6 44, 10 50"/><path d="M 10 50 C 12 54, 16 56, 20 54"/><circle cx="18" cy="46" r="0.9" fill="#C9922C" stroke="none"/><path d="M 14 14 C 22 18, 28 24, 32 32"/></g></svg>
+    <svg class="maand-corner br" viewBox="0 0 80 80" aria-hidden="true"><g fill="none" stroke="#C9922C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"><path d="M 4 30 L 4 4 L 30 4"/><path d="M 10 26 L 10 10 L 26 10"/><circle cx="6" cy="6" r="1" fill="#C9922C" stroke="none"/><path d="M 30 4 C 38 4, 44 6, 50 10"/><path d="M 50 10 C 54 12, 56 16, 54 20"/><circle cx="46" cy="18" r="0.9" fill="#C9922C" stroke="none"/><path d="M 4 30 C 4 38, 6 44, 10 50"/><path d="M 10 50 C 12 54, 16 56, 20 54"/><circle cx="18" cy="46" r="0.9" fill="#C9922C" stroke="none"/><path d="M 14 14 C 22 18, 28 24, 32 32"/></g></svg>
+    <div class="maand-label">
+      <span class="maand-label-top">Wijn van de Maand</span>
+      <h3 id="maand-heading">Gevrey-<br>Chambertin</h3>
+      <span class="maand-label-vintage">2019</span>
     </div>
-  </div>
-</section>
-
-<!-- ============== AANBOD ============== -->
-<section class="aanbod" id="aanbod">
-  <div class="container">
-    <h2 class="section-title reveal">Wijnen die je hier nergens anders vindt.</h2>
-
-    <div class="aanbod-grid reveal">
-      <div class="aanbod-col">
-        <span class="mono label">TOSCANE · UMBRIA</span>
-        <h3 class="country">Italië</h3>
-        <p class="desc">Robuste reds van kleine familiaire domeinen. Van Chianti tot Montepulciano — ongezoet, eerlijk, vol verhaal.</p>
-        <a href="#contact" class="more">Bekijk wijnen &rarr;</a>
-      </div>
-
-      <div class="aanbod-col">
-        <span class="mono label">RIOJA · GALICIË</span>
-        <h3 class="country">Spanje</h3>
-        <p class="desc">Temperamentvolle wijnen uit de droge vlaktes en groene kuststreken. Druiven die zingen in de zon.</p>
-        <a href="#contact" class="more">Bekijk wijnen &rarr;</a>
-      </div>
-
-      <div class="aanbod-col">
-        <span class="mono label">LANGUEDOC · RHÔNE</span>
-        <h3 class="country">Zuid-Frankrijk</h3>
-        <p class="desc">Kruidig, warm, aromatisch. De zuidelijke wind in je glas — elegantie zonder pretentie.</p>
-        <a href="#contact" class="more">Bekijk wijnen &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== GESCHENKEN ============== -->
-<section class="geschenken" id="geschenken" style="background:var(--bg-2);padding:120px 48px;">
-  <div class="geschenken-grid reveal">
-    <div>
-      <span class="mono geschenken-label">Voor elke gelegenheid</span>
-      <h2 class="geschenken-title">Het perfecte cadeau<br>zit in een fles.</h2>
-      <p class="geschenken-body">Op zoek naar een origineel cadeau?
-Waldo stelt graag een persoonlijk wijnpakket samen voor elke gelegenheid — verjaardag, jubileum, bedrijfsgeschenk of gewoon omdat het kan.</p>
-      <a href="#contact" class="geschenken-cta">Vraag een geschenkpakket aan →</a>
-    </div>
-    <div class="geschenken-packages">
-      <div class="package-box">[ Wijnpakket 3 flessen ]</div>
-      <div class="package-box">[ Wijnpakket 6 flessen ]</div>
-      <div class="package-box">[ Wijnpakket op maat ]</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== BELEVEN ============== -->
-<section class="beleven" id="beleven">
-  <div class="container">
-    <h2 class="section-title reveal">Meer dan wijn kopen. Wijn beleven.</h2>
-
-    <div class="beleven-list reveal">
-      <div class="beleven-item">
-        <h3>Tuinproeverijen</h3>
-        <p>Elk seizoen openen we onze tuin. Proef onze nieuwste ontdekkingen onder de sheltertent.</p>
-        <a href="#contact">Meer info &rarr;</a>
-      </div>
-
-      <div class="beleven-item">
-        <h3>Wijncursus (1 avond)</h3>
-        <p>Leer kijken, ruiken, walsen en proeven. €25 per persoon.</p>
-        <a href="#contact">Meer info &rarr;</a>
-      </div>
-
-      <div class="beleven-item">
-        <h3>Cursus Wijnkenner (4 avonden)</h3>
-        <p>Een diepgaande reis door wijnstreken. €300 per persoon.</p>
-        <a href="#contact">Meer info &rarr;</a>
-      </div>
-
-      <div class="beleven-item">
-        <h3>Privé degustatie</h3>
-        <p>Een persoonlijke proeverij bij jou thuis of bij ons in de wijnkamer. Op maat, voor elke gelegenheid.</p>
-        <a href="#contact">Meer info &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== FOTO STRIP ============== -->
-<div class="foto-strip">
-  <img src="https://d2ezq7q7q0tvyx.cloudfront.net/wijnen-waldo/waldo-cursus.webp" alt="Waldo geeft cursus — Wijnen Waldo">
-  <div class="foto-strip-overlay"></div>
-  <p class="foto-strip-caption">"De wijnkamer van Waldo."</p>
-</div>
-
-<!-- ============== VRIENDEN ============== -->
-<section class="vrienden" id="vrienden" style="background:var(--bg);padding:120px 48px;">
-  <h2 class="section-title italic-h reveal" style="font-size:clamp(36px,5vw,70px);">Vrienden van Wijnen Waldo.</h2>
-  <p class="vrienden-sub reveal">Wijn is om te delen. Daarom omringen we ons<br>met mensen die dat begrijpen.</p>
-  <div class="vrienden-body reveal">
-    <p>Van restaurants tot particulieren, van wijnliefhebbers tot beginners — iedereen die oprecht geniet van een goed glas is welkom in onze kring.</p>
-    <p>Wil je deel uitmaken van onze community? Schrijf je in op de brieven van Waldo en blijf op de hoogte van onze proeverijen, nieuwe ontdekkingen en bijzondere momenten.</p>
-  </div>
-  <div class="reveal">
-    <a href="#newsletter" class="btn-bordeaux-wide">Word vriend van Wijnen Waldo</a>
-  </div>
-  <div class="partners-grid reveal">
-    <div class="partner-box">[ Partner ]</div>
-    <div class="partner-box">[ Partner ]</div>
-    <div class="partner-box">[ Partner ]</div>
-    <div class="partner-box">[ Partner ]</div>
-    <div class="partner-box">[ Partner ]</div>
-    <div class="partner-box">[ Partner ]</div>
-  </div>
-</section>
-
-<!-- ============== OVER ============== -->
-<section class="over" id="over">
-  <div class="container">
-    <div class="over-grid reveal">
-      <div class="photo-frame">
-        <img src="https://d2ezq7q7q0tvyx.cloudfront.net/wijnen-waldo/waldo-ann.webp" alt="Waldo en Ann — Wijnen Waldo" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-      </div>
-
-      <div class="over-text">
-        <span class="mono label">HET VERHAAL ACHTER DE FLES</span>
-        <h2>Passie delen,<br>dat is wat ons dreef.</h2>
-        <p>In 2016 startten Waldo en Ann met een simpele overtuiging: goede wijn verdient een goed verhaal.</p>
-        <p>Waldo heeft zowel een WSET level 3 als een diploma wijnbouw op zak. Maar wat hem echt onderscheidt is zijn obsessie voor het verhaal achter de fles.</p>
-        <p>Ze ontvangen klanten bij hen thuis in Zoersel. Geen winkel. Geen haast. Gewoon wijn, verhaal en goede sfeer.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== CONTACT ============== -->
-<section class="contact" id="contact">
-  <div class="container">
-    <h2 class="section-title reveal">Kom proeven.</h2>
-
-    <div class="contact-grid reveal">
-      <div class="contact-info">
-        <div class="item">
-          <span class="item-label">Adres</span>
-          Oase 12, 2980 Zoersel
+    <div class="maand-info">
+      <!-- Wijn van de Maand badge (element 6) -->
+      <svg class="maand-badge" width="90" height="90" viewBox="0 0 120 120" aria-hidden="true">
+        <defs>
+          <path id="bt" d="M 60 60 m -42 0 a 42 42 0 0 1 84 0"/>
+          <path id="bb" d="M 60 60 m -38 0 a 38 38 0 0 0 76 0"/>
+        </defs>
+        <g fill="none" stroke="#C9922C" stroke-width="0.9">
+          <circle cx="60" cy="60" r="56"/>
+          <circle cx="60" cy="60" r="52" stroke-opacity="0.4"/>
+          <ellipse cx="60" cy="60" rx="38" ry="42"/>
+          <g stroke-linecap="round"><line x1="60" y1="2" x2="60" y2="10"/><line x1="60" y1="110" x2="60" y2="118"/><line x1="2" y1="60" x2="10" y2="60"/><line x1="110" y1="60" x2="118" y2="60"/></g>
+        </g>
+        <text font-family="Cormorant, serif" font-size="9" letter-spacing="3" fill="#C9922C"><textPath href="#bt" startOffset="50%" text-anchor="middle">WIJN VAN DE MAAND</textPath></text>
+        <text font-family="Cormorant, serif" font-style="italic" font-size="9" letter-spacing="2" fill="#C9922C" fill-opacity="0.85"><textPath href="#bb" startOffset="50%" text-anchor="middle">· MMXXVI ·</textPath></text>
+        <g fill="#C9922C" stroke="none" transform="translate(60 58)">
+          <circle cx="0" cy="0" r="2.4"/><circle cx="-5" cy="2" r="2.4"/><circle cx="5" cy="2" r="2.4"/>
+          <circle cx="-2.5" cy="6" r="2.4"/><circle cx="2.5" cy="6" r="2.4"/><circle cx="0" cy="10" r="2.4"/>
+        </g>
+        <path d="M 60 48 C 60 45, 62 43, 64 44" fill="none" stroke="#C9922C" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M 64 44 C 68 42, 72 44, 72 48 C 70 49, 66 48, 64 44 Z" fill="#C9922C" fill-opacity="0.4" stroke="#C9922C" stroke-width="0.6"/>
+      </svg>
+      <span class="eyebrow">Aanbeveling door Waldo</span>
+      <h2>Domaine Rossignol-<em>Trapet</em></h2>
+      <p>Een biodynamisch geteelde Pinot Noir uit het hart van de Côte de Nuits. Diepe kersen, aarde en een subtiele rooktoets — een wijn die om geduld vraagt en er royaal voor beloont.</p>
+      <div class="maand-notes">
+        <div class="maand-note">
+          <span class="maand-note-label">Appellation</span>
+          <span class="maand-note-value">Gevrey-Chambertin AOC</span>
         </div>
-        <div class="item">
-          <span class="item-label">E-mail</span>
-          <a href="mailto:info@wijnenwaldo.be">info@wijnenwaldo.be</a>
+        <div class="maand-note">
+          <span class="maand-note-label">Druivenras</span>
+          <span class="maand-note-value">Pinot Noir</span>
         </div>
-        <div class="item">
-          <span class="item-label">Telefoon</span>
-          <a href="tel:+32496224468">+32 496 22 44 68</a>
+        <div class="maand-note">
+          <span class="maand-note-label">Millésime</span>
+          <span class="maand-note-value">2019</span>
         </div>
       </div>
-
-      <form class="contact-form" id="contactForm" novalidate>
-        <div>
-          <label for="naam">Naam</label>
-          <input type="text" id="naam" name="naam" placeholder="Jouw naam" autocomplete="name">
-        </div>
-        <div>
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="jij@voorbeeld.be" autocomplete="email">
-        </div>
-        <div>
-          <label for="bericht">Bericht</label>
-          <textarea id="bericht" name="bericht" placeholder="Vertel ons waar je benieuwd naar bent..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Verstuur</button>
-      </form>
+      <a href="#cta" class="btn btn-outline" style="align-self:flex-start">Reserveer een fles</a>
     </div>
   </div>
 </section>
 
-<!-- ============== NIEUWSBRIEF ============== -->
-<section class="newsletter" id="newsletter">
-  <h2>De brieven van Waldo.</h2>
-  <p>Schrijf je in en ontdek als eerste onze<br>nieuwe wijnen, proeverijen en verhalen uit de wijngaard.</p>
-  <form class="newsletter-form" id="newsletter-form">
-    <input type="email" placeholder="Uw e-mailadres">
-    <button type="submit">Inschrijven</button>
-  </form>
+<!-- ── BELEVEN ───────────────────────────────────────────── -->
+<section id="beleven" aria-labelledby="beleven-heading">
+  <div class="beleven-head">
+    <span class="eyebrow reveal">Beleef de Kelder</span>
+    <svg class="wine-divider reveal d1" viewBox="0 0 800 30" height="30" preserveAspectRatio="none" aria-hidden="true">
+      <g stroke="#C9922C" stroke-width="1" fill="none" stroke-linecap="round">
+        <line x1="0" y1="15" x2="340" y2="15"/>
+        <path d="M 340 15 C 350 15, 355 10, 360 8"/>
+        <circle cx="362" cy="7" r="1.4" fill="#C9922C"/>
+        <g transform="translate(400 15)">
+          <path d="M 0 -7 L 7 0 L 0 7 L -7 0 Z" fill="#C9922C" fill-opacity="0.8" stroke="none"/>
+          <path d="M -7 0 C -16 -2, -24 -6, -28 -2"/><path d="M -28 -2 C -32 0, -32 4, -28 5"/>
+          <path d="M 7 0 C 16 -2, 24 -6, 28 -2"/><path d="M 28 -2 C 32 0, 32 4, 28 5"/>
+          <circle cx="-22" cy="6" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="-18" cy="8" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="22" cy="6" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="18" cy="8" r="1.2" fill="#C9922C" stroke="none"/>
+        </g>
+        <circle cx="438" cy="7" r="1.4" fill="#C9922C"/>
+        <path d="M 460 15 C 450 15, 445 10, 440 8"/>
+        <line x1="460" y1="15" x2="800" y2="15"/>
+      </g>
+    </svg>
+    <h2 class="section-heading reveal d1" id="beleven-heading">Meer dan<br><em>een aankoop</em></h2>
+    <p class="reveal d2">Bij Wijnen Waldo koop je niet alleen wijn — je stapt een wereld binnen.</p>
+  </div>
+
+  <div class="beleven-grid">
+    <article class="beleven-card reveal">
+      <svg class="beleven-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 2h10l-2.5 11a3.5 3.5 0 0 1-5 0Z"/>
+        <path d="M12 15.5V21M8 21h8"/>
+      </svg>
+      <h3>Privédegustatie</h3>
+      <p>Vraag een privédegustatie aan en laat Waldo jullie persoonlijk begeleiden. Thematisch, op maat van jullie smaak — met verhalen over elk glas.</p>
+    </article>
+
+    <article class="beleven-card reveal d1">
+      <svg class="beleven-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+      </svg>
+      <h3>Tuinproeverij</h3>
+      <p>Neem deel aan onze tuinproeverijen — een relaxte, gezellige setting waar je kennismaakt met nieuwe wijnen en de mensen achter de domeinen.</p>
+    </article>
+
+    <article class="beleven-card reveal d2">
+      <svg class="beleven-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/>
+      </svg>
+      <h3>Wijncursussen</h3>
+      <p>Volg een van onze wijncursussen en leer alles over druivenrassen, regio's, proeftechnieken en spijs-wijncombinaties. Waldo (WSET Level 3) deelt zijn kennis met plezier.</p>
+    </article>
+
+    <article class="beleven-card reveal d3">
+      <svg class="beleven-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>
+      </svg>
+      <h3>Geschenken</h3>
+      <p>Op zoek naar een origineel cadeau? Waldo helpt je graag een wijn of geschenkmand samenstellen die écht past bij de gelegenheid en de persoon.</p>
+    </article>
+  </div>
 </section>
 
-<!-- ============== FOOTER ============== -->
-<footer>
-  <div class="footer-cols">
-    <div class="footer-col">
-      <div class="footer-col-logo">
-        <span class="f-brand">Wijnen Waldo</span>
-        <span class="f-tagline">De zuiderse zon in je glas.</span>
-      </div>
+<!-- ── CURSUSSEN BANNER ──────────────────────────────────── -->
+<section id="cursussen" aria-labelledby="cursussen-heading">
+  <img src="https://d2ezq7q7q0tvyx.cloudfront.net/wijnen-waldo/waldo-cursus.webp"
+       alt="Waldo die een wijncursus geeft aan geïnteresseerde deelnemers">
+  <div class="cursussen-grad" aria-hidden="true"></div>
+  <div class="cursussen-body">
+    <span class="eyebrow reveal">Wijncursussen</span>
+    <svg class="wine-divider reveal d1" viewBox="0 0 800 30" height="30" preserveAspectRatio="none" aria-hidden="true">
+      <g stroke="#C9922C" stroke-width="1" fill="none" stroke-linecap="round">
+        <line x1="0" y1="15" x2="340" y2="15"/>
+        <path d="M 340 15 C 350 15, 355 10, 360 8"/>
+        <circle cx="362" cy="7" r="1.4" fill="#C9922C"/>
+        <g transform="translate(400 15)">
+          <path d="M 0 -7 L 7 0 L 0 7 L -7 0 Z" fill="#C9922C" fill-opacity="0.8" stroke="none"/>
+          <path d="M -7 0 C -16 -2, -24 -6, -28 -2"/><path d="M -28 -2 C -32 0, -32 4, -28 5"/>
+          <path d="M 7 0 C 16 -2, 24 -6, 28 -2"/><path d="M 28 -2 C 32 0, 32 4, 28 5"/>
+          <circle cx="-22" cy="6" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="-18" cy="8" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="22" cy="6" r="1.2" fill="#C9922C" stroke="none"/>
+          <circle cx="18" cy="8" r="1.2" fill="#C9922C" stroke="none"/>
+        </g>
+        <circle cx="438" cy="7" r="1.4" fill="#C9922C"/>
+        <path d="M 460 15 C 450 15, 445 10, 440 8"/>
+        <line x1="460" y1="15" x2="800" y2="15"/>
+      </g>
+    </svg>
+    <h2 class="reveal d1" id="cursussen-heading">Leer alles over<br><em>de wereld van wijn</em></h2>
+    <p class="reveal d2">Waldo (WSET Level 3) deelt zijn kennis in interactieve cursussen voor beginners en enthousiastelingen. Theorie en praktijk gaan hand in hand — altijd met een glas erbij.</p>
+    <a href="#cta" class="btn btn-gold reveal d3">Bekijk het cursusaanbod</a>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ──────────────────────────────────────── -->
+<section id="testimonials" aria-labelledby="testi-heading">
+  <div class="testi-head">
+    <span class="eyebrow reveal">Wat klanten zeggen</span>
+    <div class="ornament reveal d1" aria-hidden="true" style="max-width:300px; margin:0 auto">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="var(--gold)">
+        <path d="M6 0l1.5 4.5L12 6l-4.5 1.5L6 12 4.5 7.5 0 6l4.5-1.5z"/>
+      </svg>
     </div>
-    <div class="footer-col">
-      <h4>Snelle links</h4>
+    <h2 class="section-heading reveal d1" id="testi-heading">Stemmen <em>uit de kelder</em></h2>
+  </div>
+
+  <div class="testi-grid">
+    <article class="testi-card reveal">
+      <div class="testi-stars" aria-label="5 op 5 sterren">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="testi-quote">"Waldo is geen verkoper, hij is een verteller. Na een uur in zijn kelder begrijp je niet alleen de wijn — je voelt het verhaal erachter."</p>
+      <p class="testi-author">— Sophie V., Zoersel</p>
+    </article>
+
+    <article class="testi-card reveal d1">
+      <div class="testi-stars" aria-label="5 op 5 sterren">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="testi-quote">"De cursus was een openbaring. Maanden later denk ik nog aan elke les. Waldo maakt van wijn iets menselijks en toegankelijks — zonder de diepgang te verliezen."</p>
+      <p class="testi-author">— Pieter D., Antwerpen</p>
+    </article>
+
+    <article class="testi-card reveal d2">
+      <div class="testi-stars" aria-label="5 op 5 sterren">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="testi-quote">"Het bedrijfsevenement dat Waldo en Ann voor ons verzorgden was perfect. Professioneel, warm en onvergetelijk. Onze klanten spreken er nog altijd over."</p>
+      <p class="testi-author">— Lien M., Antwerpen</p>
+    </article>
+  </div>
+</section>
+
+<!-- ── NEWSLETTER CTA ─────────────────────────────────────── -->
+<section id="cta" aria-labelledby="cta-heading">
+  <div class="cta-body">
+    <span class="eyebrow reveal">Brieven van Waldo</span>
+    <h2 class="reveal d1" id="cta-heading">Ontvang onze<br><em>nieuwste selecties</em></h2>
+    <p class="reveal d2">Schrijf je in op de Brieven van Waldo en ontvang als eerste nieuws over nieuwe wijnen, tuinproeverijen en cursussen — persoonlijk geschreven door Waldo zelf.</p>
+    <form class="cta-form reveal d3" id="newsletter" novalidate>
+      <label for="email-input">E-mailadres</label>
+      <input id="email-input" type="email" placeholder="jouw@email.be" autocomplete="email" required>
+      <button type="submit">Inschrijven</button>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">WIJNEN <em>WALDO</em></a>
+      <p>Familiale domeinen, uitzonderlijke wijnen vol smaak en passie. Op afspraak te bezoeken in Zoersel. Severins BV · BE 0455.393.125</p>
+    </div>
+    <div class="f-col">
+      <h4>Navigatie</h4>
       <ul>
-        <li><a href="#over">Over ons</a></li>
-        <li><a href="#aanbod">Wijn kopen</a></li>
-        <li><a href="#beleven">Wijncursus</a></li>
-        <li><a href="#beleven">Tuinproeverijen</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#intro">Over ons</a></li>
+        <li><a href="#selectie">Kies en geniet</a></li>
+        <li><a href="#beleven">Proef en beleef</a></li>
+        <li><a href="#">Vrienden van Wijnen Waldo</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="f-col">
+      <h4>Beleven</h4>
+      <ul>
+        <li><a href="#">Privédegustatie</a></li>
+        <li><a href="#">Tuinproeverij</a></li>
+        <li><a href="#cursussen">Wijncursussen</a></li>
+        <li><a href="#">Geschenken</a></li>
+      </ul>
+    </div>
+    <div class="f-col f-contact">
       <h4>Contact</h4>
-      <address>
-        <span>Oase 12, 2980 Zoersel</span>
-        <a href="mailto:info@wijnenwaldo.be">info@wijnenwaldo.be</a>
-        <a href="tel:+32496224468">+32 496 22 44 68</a>
-      </address>
-      <div class="footer-socials">
-        <a href="#" aria-label="Facebook">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2C16.5 4.1 15.5 4 14.4 4c-2.3 0-3.9 1.4-3.9 4v2.8H7.8V14h2.7v8h3z"/></svg>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-      </div>
+      <p>
+        Oase 12<br>
+        2980 Zoersel<br><br>
+        <a href="tel:+32496224468">0496 22 44 68</a><br>
+        <a href="mailto:info@wijnenwaldo.be">info@wijnenwaldo.be</a><br><br>
+        Enkel op afspraak
+      </p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2025 Wijnen Waldo — Zoersel, Kempen</p>
+    <span>© 2024 Wijnen Waldo. Alle rechten voorbehouden.</span>
+    <span>Geniet met mate. Verkoop uitsluitend aan 18+.</span>
+    <a href="#">Privacybeleid</a>
   </div>
 </footer>
 
 <script>
-  // Navbar scroll
-  (function() {
-    const nav = document.getElementById('nav');
-    const onScroll = () => {
-      if (window.scrollY > 60) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
+(function () {
+  'use strict';
 
-  // Hamburger
-  (function() {
-    const btn = document.getElementById('hamburger');
-    const menu = document.getElementById('mobileMenu');
-    const links = menu.querySelectorAll('.mobile-link');
-
-    const toggle = (open) => {
-      const isOpen = open !== undefined ? open : !menu.classList.contains('open');
-      menu.classList.toggle('open', isOpen);
-      btn.innerHTML = isOpen ? '&#10005;' : '&#9776;';
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    };
-
-    btn.addEventListener('click', () => toggle());
-    links.forEach(l => l.addEventListener('click', () => toggle(false)));
-  })();
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   // Reveal on scroll
-  (function() {
-    const els = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) {
-      els.forEach(e => e.classList.add('is-visible'));
-      return;
-    }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(en => {
-        if (en.isIntersecting) {
-          en.target.classList.add('is-visible');
-          io.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    els.forEach(e => io.observe(e));
-  })();
-
-  // Form
-  (function() {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.textContent = 'Bedankt — we nemen contact op.';
-      btn.disabled = true;
-      btn.style.opacity = '0.85';
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.disabled = false;
-        btn.style.opacity = '1';
-        form.reset();
-      }, 3200);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
     });
-  })();
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // Newsletter form
-  (function() {
-    var f = document.getElementById('newsletter-form');
-    if (f) f.addEventListener('submit', function(e) { e.preventDefault(); });
-  })();
+  const form = document.getElementById('newsletter');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = form.querySelector('input');
+    const btn   = form.querySelector('button');
+    if (!input.value || !input.validity.valid) {
+      input.focus();
+      return;
+    }
+    btn.textContent = 'Ingeschreven ✓';
+    btn.disabled = true;
+    input.value = '';
+    setTimeout(() => {
+      btn.textContent = 'Inschrijven';
+      btn.disabled = false;
+    }, 4000);
+  });
+})();
 </script>
-
 </body>
 </html>
