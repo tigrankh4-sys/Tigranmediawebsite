@@ -827,9 +827,12 @@ export default function Sections() {
           <div className="tm-section">
             <div className="tm-over-grid">
               <div className="over-mij-col">
-                <div id="foto-placeholder" className="tm-over-foto">
-                  <span className="tm-over-foto-label">[ foto ]</span>
-                </div>
+                <img
+                  id="foto-placeholder"
+                  src="https://tigranmedia.be/images/tigran-profiel.webp"
+                  alt="Tigran — Tigran Media"
+                  style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                />
               </div>
               <div className="over-mij-col">
                 <h2 className="tm-over-title">Wie zit er aan de andere kant?</h2>
