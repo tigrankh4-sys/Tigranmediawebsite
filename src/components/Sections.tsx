@@ -491,6 +491,67 @@ const css = `
     opacity: 0.7;
   }
 
+  /* ── OVER MIJ ── */
+  .tm-over-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .tm-over-foto {
+    aspect-ratio: 3/4;
+    background: #1A1A1A;
+    border: 1px solid #F0EBE0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tm-over-foto-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: #F0EBE0;
+    opacity: 0.4;
+  }
+
+  .tm-over-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4vw, 72px);
+    color: #F0EBE0;
+    margin-bottom: 40px;
+    line-height: 1.1;
+  }
+
+  .tm-over-body {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: #F0EBE0;
+    opacity: 0.75;
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .tm-over-divider {
+    width: 100%;
+    height: 1px;
+    background: #F0EBE0;
+    opacity: 0.2;
+    margin: 32px 0;
+  }
+
+  .tm-over-location {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #F0EBE0;
+    opacity: 0.4;
+  }
+
   /* ── REGIO NAV ── */
   .tm-regio-nav {
     padding: 24px 64px;
@@ -537,6 +598,7 @@ const css = `
     .tm-steps { grid-template-columns: 1fr; gap: 48px; }
     .tm-step::after { display: none !important; }
     .tm-step, .tm-step:not(:first-child), .tm-step:last-child { padding: 0; }
+    .tm-over-grid { grid-template-columns: 1fr; gap: 48px; }
     .tm-pricing-grid { grid-template-columns: 1fr; gap: 0; }
     .tm-price-card { padding: 40px 24px; }
     .tm-project-info { padding: 24px; }
@@ -705,6 +767,11 @@ export default function Sections() {
         },
       });
 
+      gsap.from('.over-mij-col', {
+        y: 30, opacity: 0, stagger: 0.15,
+        scrollTrigger: { trigger: '.over-mij-section', start: 'top 80%' },
+      });
+
       gsap.from('.werkwijze-item', {
         y: 30, opacity: 0, stagger: 0.1,
         scrollTrigger: { trigger: '.werkwijze-section', start: 'top 80%' },
@@ -752,6 +819,27 @@ export default function Sections() {
               <span className="tm-stat-num stat-score">0/100</span>
               <span className="tm-stat-label">Google Score</span>
               <span className="tm-stat-sub">Gegarandeerd</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="over" className="over-mij-section">
+          <div className="tm-section">
+            <div className="tm-over-grid">
+              <div className="over-mij-col">
+                <div id="foto-placeholder" className="tm-over-foto">
+                  <span className="tm-over-foto-label">[ foto ]</span>
+                </div>
+              </div>
+              <div className="over-mij-col">
+                <h2 className="tm-over-title">Wie zit er aan de andere kant?</h2>
+                <p className="tm-over-body">Ik ben Tigran. Autodidact. Ondernemer. Webdesigner in de Kempen.</p>
+                <p className="tm-over-body">Wat mij onderscheidt van andere webdesigners is simpel: ik ben zelf ondernemer. Ik begrijp wat het betekent om klanten te willen binnenhalen, om een merk te bouwen, om resultaat te willen zien voor je investering.</p>
+                <p className="tm-over-body">Ik kom uit de fotografie — dat geeft me een oog voor detail dat je niet leert uit een cursus. Compositie, licht, gevoel. Dat zit in elk project.</p>
+                <p className="tm-over-body">Ik stop niet tot het af is. En het is niet af tot jij tevreden bent.</p>
+                <div className="tm-over-divider" />
+                <p className="tm-over-location">Gebaseerd in Turnhout, Kempen — beschikbaar voor heel Vlaanderen.</p>
+              </div>
             </div>
           </div>
         </section>
