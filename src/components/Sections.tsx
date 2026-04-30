@@ -552,40 +552,157 @@ const css = `
     opacity: 0.4;
   }
 
-  /* ── REGIO NAV ── */
-  .tm-regio-nav {
-    padding: 24px 64px;
-    border-top: 1px solid rgba(240, 235, 224, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 32px;
-  }
-
-  .tm-regio-nav a {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #F0EBE0;
-    opacity: 0.4;
-    text-decoration: none;
-  }
-
   /* ── FOOTER ── */
-  .tm-footer {
-    border-top: 1px solid rgba(240, 235, 224, 0.15);
-    padding: 32px 64px;
-    text-align: center;
+  .tm-footer { border-top: 1px solid rgba(240,235,224,0.15); }
+
+  .tm-footer-top {
+    padding: 48px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    border-bottom: 1px solid rgba(240,235,224,0.08);
   }
 
-  .tm-footer p {
+  .tm-footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #F0EBE0;
+    letter-spacing: 0.02em;
+  }
+
+  .tm-footer-nav { display: flex; gap: 32px; flex-wrap: wrap; }
+
+  .tm-footer-nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #F0EBE0;
+    opacity: 0.45;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .tm-footer-nav a:hover { opacity: 1; }
+
+  .tm-footer-mid {
+    padding: 48px 64px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 64px;
+    border-bottom: 1px solid rgba(240,235,224,0.08);
+  }
+
+  .tm-footer-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #F0EBE0;
+    margin: 0 0 20px;
+  }
+
+  .tm-footer-contact-row { display: flex; flex-direction: column; gap: 8px; }
+
+  .tm-footer-contact-row a,
+  .tm-footer-contact-row p {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #F0EBE0;
+    opacity: 0.45;
+    text-decoration: none;
+    margin: 0;
+    transition: opacity 0.2s;
+  }
+  .tm-footer-contact-row a:hover { opacity: 1; }
+
+  .tm-footer-accord { border-bottom: 1px solid rgba(240,235,224,0.06); }
+  .tm-footer-accord:last-child { border-bottom: none; }
+
+  .tm-footer-accord-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .tm-footer-accord-btn .accord-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #F0EBE0;
+    opacity: 0.45;
+    letter-spacing: 0.06em;
+    transition: opacity 0.2s;
+  }
+  .tm-footer-accord-btn:hover .accord-name { opacity: 1; }
+
+  .tm-footer-accord-btn .accord-icon {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: #F0EBE0;
+    opacity: 0.25;
+    transition: opacity 0.2s;
+  }
+  .tm-footer-accord-btn:hover .accord-icon { opacity: 0.6; }
+
+  .tm-footer-accord-cities {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px 16px;
+    padding: 4px 0 16px;
+  }
+
+  .tm-footer-accord-cities a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #F0EBE0;
+    opacity: 0.3;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tm-footer-accord-cities a:hover { opacity: 0.8; }
+
+  .tm-footer-bottom {
+    padding: 24px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .tm-footer-copy {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: #F0EBE0;
-    opacity: 0.4;
+    opacity: 0.28;
+    margin: 0;
   }
+
+  .tm-footer-legal { display: flex; gap: 24px; }
+
+  .tm-footer-legal a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #F0EBE0;
+    opacity: 0.28;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .tm-footer-legal a:hover { opacity: 0.7; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
@@ -602,7 +719,10 @@ const css = `
     .tm-pricing-grid { grid-template-columns: 1fr; gap: 0; }
     .tm-price-card { padding: 40px 24px; }
     .tm-project-info { padding: 24px; }
-    .tm-footer { padding: 32px 24px; }
+    .tm-footer-top { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
+    .tm-footer-mid { grid-template-columns: 1fr; gap: 40px; padding: 32px 24px; }
+    .tm-footer-accord-cities { grid-template-columns: repeat(2, 1fr); }
+    .tm-footer-bottom { padding: 24px; flex-direction: column; align-items: flex-start; }
   }
 `;
 
@@ -638,6 +758,49 @@ const faqs = [
   { q: 'Heb ik technische kennis nodig?', a: 'Nee. Uw beheersysteem is gebouwd voor ondernemers, niet voor developers. Als u een e-mail kan schrijven, kan u uw site beheren.' },
   { q: 'Wat als ik niet tevreden ben?', a: 'Wij werken in nauw overleg. Na de discovery call weet u exact wat u krijgt. Geen verrassingen, geen meerkosten. Als er iets niet klopt, lossen wij het op.' },
 ];
+
+const footerGroupDefs = [
+  { name: 'de Kempen', slugs: ['turnhout','herentals','mol','geel','kasterlee','balen','hoogstraten','rijkevorsel','brecht','wuustwezel','pelt','zoersel'] },
+  { name: 'Antwerpen & Mechelen', slugs: ['antwerpen','mechelen','lier','brasschaat','schoten','wijnegem','aartselaar','boom','edegem','kapellen','kontich','lint','mortsel','niel','nijlen','sint-katelijne-waver','willebroek','wommelgem','heist-op-den-berg','ranst','puurs-sint-amands','bornem'] },
+  { name: 'Oost-Vlaanderen', slugs: ['gent','aalst','sint-niklaas','dendermonde','lokeren','beveren','aalter','berlare','brakel','deinze','eeklo','evergem','gavere','geraardsbergen','hamme','herzele','kruibeke','lebbeke','lede','lierde','maldegem','merelbeke','nazareth','ninove','oudenaarde','ronse','stekene','temse','wetteren','wichelen','waasmunster','zele','zelzate','zottegem','zwalm'] },
+  { name: 'West-Vlaanderen', slugs: ['brugge','kortrijk','oostende','roeselare','ieper','blankenberge','bredene','damme','de-panne','diksmuide','gistel','harelbeke','hooglede','ingelmunster','izegem','knokke-heist','ledegem','lendelede','lichtervelde','menen','middelkerke','moorslede','nieuwpoort','pittem','poperinge','ruiselede','staden','tielt','torhout','veurne','waregem','wevelgem','wingene','zedelgem','zwevegem'] },
+  { name: 'Vlaams-Brabant', slugs: ['leuven','vilvoorde','aarschot','asse','beersel','diest','dilbeek','grimbergen','haacht','halle','landen','londerzeel','lubbeek','overijse','sint-pieters-leeuw','tervuren','tienen','tremelo','zaventem','zemst'] },
+  { name: 'Limburg', slugs: ['hasselt','genk','beringen','bilzen','borgloon','diepenbeek','herk-de-stad','houthalen-helchteren','lanaken','lommel','maaseik','maasmechelen','peer','sint-truiden','tongeren'] },
+];
+
+const stadLookup = Object.fromEntries(steden.map(s => [s.slug, s.naam]));
+const footerGroups = footerGroupDefs.map(g => ({
+  name: g.name,
+  cities: g.slugs.map(slug => ({ slug, naam: stadLookup[slug] ?? slug })),
+}));
+
+function FooterAccordions() {
+  const [open, setOpen] = React.useState<string | null>(null);
+  return (
+    <div>
+      {footerGroups.map((g) => (
+        <div key={g.name} className="tm-footer-accord">
+          <button
+            type="button"
+            className="tm-footer-accord-btn"
+            onClick={() => setOpen(prev => prev === g.name ? null : g.name)}
+            aria-expanded={open === g.name}
+          >
+            <span className="accord-name">{g.name}</span>
+            <span className="accord-icon">{open === g.name ? '−' : '+'}</span>
+          </button>
+          {open === g.name && (
+            <div className="tm-footer-accord-cities">
+              {g.cities.map((c) => (
+                <a key={c.slug} href={`/webdesign/${c.slug}`}>{c.naam}</a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function ContactForm() {
   const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -926,12 +1089,37 @@ export default function Sections() {
       </main>
 
       <footer className="tm-footer">
-        <nav aria-label="Regio's" className="tm-regio-nav">
-          {steden.map((s) => (
-            <a key={s.slug} href={`/webdesign/${s.slug}`}>Webdesign {s.naam}</a>
-          ))}
-        </nav>
-        <p>© 2025 Tigran Media — Turnhout, België</p>
+        <div className="tm-footer-top">
+          <span className="tm-footer-brand">Tigran Media</span>
+          <nav className="tm-footer-nav">
+            <a href="/#diensten">Diensten</a>
+            <a href="/#projecten">Projecten</a>
+            <a href="/#over">Over</a>
+            <a href="/#contact">Contact</a>
+          </nav>
+        </div>
+        <div className="tm-footer-mid">
+          <div>
+            <p className="tm-footer-label">Contact</p>
+            <div className="tm-footer-contact-row">
+              <a href="mailto:info@tigranmedia.be">info@tigranmedia.be</a>
+              <a href="tel:+32474114899">+32 474 11 48 99</a>
+              <p>Ma–Vr 9:00 – 18:00</p>
+              <p>Turnhout, België</p>
+            </div>
+          </div>
+          <div>
+            <p className="tm-footer-label">Regio&apos;s</p>
+            <FooterAccordions />
+          </div>
+        </div>
+        <div className="tm-footer-bottom">
+          <p className="tm-footer-copy">© {new Date().getFullYear()} Tigran Media · BTW BE1035.278.921</p>
+          <nav className="tm-footer-legal">
+            <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
+            <a href="/privacybeleid">Privacybeleid</a>
+          </nav>
+        </div>
       </footer>
     </>
   );
