@@ -166,13 +166,13 @@ export default function Sections() {
         <section id="projecten">
           <div className="tm-section">
             <h2 className="tm-section-title">Ons werk.</h2>
-            <div className="tm-project-card">
-              <Image className="tm-project-img" src="/images/forest-bean.webp" alt="Forest & Bean — Coffeeshop concept Turnhout" width={1200} height={800} sizes="(max-width: 768px) 100vw, 900px" style={{ width: '100%', height: 'auto' }} />
+            <a href="/projecten/forest-bean/" className="tm-project-card" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
+              <Image className="tm-project-img" src="/images/forest-bean-cover.webp" alt="Forest & Bean — Coffeeshop concept Turnhout" width={3016} height={1724} sizes="(max-width: 768px) 100vw, 900px" style={{ width: '100%', height: 'auto' }} />
               <div className="tm-project-info">
                 <div className="tm-project-name">Forest &amp; Bean</div>
-                <div className="tm-project-sub">Coffeeshop concept — Turnhout</div>
+                <div className="tm-project-sub">Coffeeshop concept — Antwerpen</div>
               </div>
-            </div>
+            </a>
             <p className="tm-project-note">Meer projecten volgen. Bent u de volgende?</p>
           </div>
         </section>
