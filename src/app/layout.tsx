@@ -24,12 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nl">
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Mono&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Mono&display=swap" media="print" id="gfonts" />
-        <script dangerouslySetInnerHTML={{ __html: `document.getElementById('gfonts').onload=function(){this.media='all'}` }} />
-        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Mono&display=swap" /></noscript>
+        <link rel="preload" as="font" href="/fonts/cormorant-garamond-300-latin.woff2" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href="/fonts/dm-mono-400-latin.woff2" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body>{children}</body>
     </html>
