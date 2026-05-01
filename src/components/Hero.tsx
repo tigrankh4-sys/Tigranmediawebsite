@@ -166,7 +166,7 @@ export default function Hero() {
             <a href="#prijzen">Prijzen</a>
             <a href="/blog">Blog</a>
           </div>
-          <button className="tm-nav-btn">Gratis Discovery Call →</button>
+          <a href="#contact" className="tm-nav-btn">Gratis Discovery Call →</a>
         </nav>
 
         <section className="tm-hero">

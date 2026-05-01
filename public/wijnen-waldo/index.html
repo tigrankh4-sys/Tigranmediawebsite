@@ -981,6 +981,86 @@ footer {
 }
 .footer-bottom a:hover { color: var(--text-muted); }
 
+/* ── MOBILE NAV OVERLAY ───────────────────────────────── */
+#mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15,12,9,.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--t-slow) var(--ease-out),
+              visibility var(--t-slow) var(--ease-out);
+}
+#mobile-nav.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+#mobile-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 44px; height: 44px;
+  background: none; border: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+#mobile-close span {
+  display: block;
+  width: 22px; height: 1px;
+  background: var(--text);
+  position: absolute;
+}
+#mobile-close span:first-child { transform: rotate(45deg); }
+#mobile-close span:last-child  { transform: rotate(-45deg); }
+
+#mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+#mobile-nav-links a {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  font-weight: 300;
+  color: var(--text-sub);
+  text-decoration: none;
+  letter-spacing: .05em;
+  padding: 10px 20px;
+  transition: color var(--t-fast);
+}
+#mobile-nav-links a:hover,
+#mobile-nav-links a:focus { color: var(--gold); outline: none; }
+.mobile-nav-cta {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: .68rem !important;
+  font-weight: 400;
+  letter-spacing: .24em !important;
+  text-transform: uppercase;
+  color: var(--gold) !important;
+  border: 1px solid rgba(201,146,44,.35);
+  padding: 13px 36px !important;
+}
+.mobile-nav-sub {
+  position: absolute;
+  bottom: 36px;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: .5;
+}
+
 /* ── REDUCED MOTION ───────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .reveal { transition: opacity var(--t-mid); transform: none; }
@@ -999,22 +1079,97 @@ footer {
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-burger { display: flex; }
+
   #intro { grid-template-columns: 1fr; }
-  .intro-photo { min-height: 360px; }
+  .intro-copy { padding: 60px 7%; }
+  .intro-photo { min-height: 300px; order: -1; }
+
   .selectie-grid { grid-template-columns: 1fr; }
-  .beleven-grid { grid-template-columns: 1fr; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .beleven-grid  { grid-template-columns: 1fr; }
+  .testi-grid    { grid-template-columns: 1fr; }
+  .footer-grid   { grid-template-columns: 1fr 1fr; }
+  .hero-glass    { display: none; }
 }
 
-@media (max-width: 560px) {
-  .section { padding: 72px 6%; }
+@media (max-width: 600px) {
+  /* Sections */
+  .section    { padding: 64px 5%; }
+  .section-sm { padding: 52px 5%; }
+
+  /* Hero */
+  .hero-h1  { font-size: clamp(2.2rem, 8.5vw, 3rem); }
+  .hero-sub { font-size: .88rem; }
   .hero-ctas { flex-direction: column; align-items: center; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; text-align: center; }
+  .hero-ctas .btn { width: 100%; max-width: 280px; justify-content: center; }
+
+  /* Intro */
+  .intro-copy { padding: 48px 5%; }
+  .intro-photo { min-height: 260px; }
+  .intro-copy p { max-width: 100%; }
+
+  /* Pullquote */
+  #pullquote { padding: 60px 6%; }
+  #pullquote::before { font-size: 7rem; }
+
+  /* Selectie */
+  .selectie-head { margin-bottom: 36px; }
+  .wijn-card { padding: 40px 24px 36px; }
+  .wijn-card p { max-width: 100%; }
+
+  /* Maand */
+  #maand { padding: 64px 5%; }
+  .maand-inner { max-width: 100%; }
+  .maand-label {
+    flex-direction: column;
+    padding: 28px 20px;
+    text-align: center;
+    gap: 8px;
+  }
+  .maand-label-vintage { font-size: 2.8rem; }
+  .maand-info { padding: 32px 20px; }
+  .maand-info p { max-width: 100%; }
+  .maand-notes { gap: 14px; }
+  .maand-corner { width: 44px; height: 44px; }
+  .maand-corner.tl { top: 6px; left: 6px; }
+  .maand-corner.tr { top: 6px; right: 6px; }
+  .maand-corner.bl { bottom: 6px; left: 6px; }
+  .maand-corner.br { bottom: 6px; right: 6px; }
+
+  /* Beleven */
+  #beleven { padding: 64px 5%; }
+  .beleven-head { margin-bottom: 40px; }
+  .beleven-head p { max-width: 100%; }
+  .beleven-card { padding: 36px 24px; }
+  .beleven-card p { max-width: 100%; }
+
+  /* Cursussen */
+  #cursussen { height: auto; min-height: 520px; align-items: flex-end; }
+  .cursussen-grad {
+    background: linear-gradient(to top,
+      rgba(15,12,9,.95) 0%,
+      rgba(15,12,9,.65) 50%,
+      rgba(15,12,9,.2)  100%);
+  }
+  .cursussen-body { margin-left: 0; width: 100%; padding: 0 5% 56px; }
+
+  /* Testimonials */
+  #testimonials { padding: 64px 5%; }
+  .testi-head   { margin-bottom: 36px; }
+  .testi-card   { padding: 32px 20px; }
+
+  /* CTA */
+  #cta { padding: 64px 5%; }
   .cta-form { flex-direction: column; }
-  .cta-form input { border-right: 1px solid rgba(237,224,200,.2); border-bottom: none; }
-  #cursussen { height: auto; min-height: 460px; }
+  .cta-form input {
+    border-right: 1px solid rgba(237,224,200,.2);
+    border-bottom: none;
+  }
+  .cta-form button { width: 100%; }
+
+  /* Footer */
+  footer { padding: 52px 5% 28px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
 }
 </style>
 </head>
@@ -1074,6 +1229,21 @@ footer {
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<!-- ── MOBILE NAV ──────────────────────────────────────── -->
+<div id="mobile-nav" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobiel menu">
+  <button id="mobile-close" aria-label="Menu sluiten">
+    <span></span><span></span>
+  </button>
+  <nav id="mobile-nav-links">
+    <a href="#intro">Over ons</a>
+    <a href="#selectie">Kies &amp; geniet</a>
+    <a href="#beleven">Proef &amp; beleef</a>
+    <a href="#cursussen">Cursussen</a>
+    <a href="#cta" class="mobile-nav-cta">Afspraak maken</a>
+  </nav>
+  <p class="mobile-nav-sub">Zoersel &nbsp;·&nbsp; Op afspraak &nbsp;·&nbsp; 0496 22 44 68</p>
+</div>
 
 <!-- ── HERO ────────────────────────────────────────────── -->
 <section id="hero" aria-label="Hero">
@@ -1567,6 +1737,34 @@ footer {
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // Mobile nav
+  const burger     = document.getElementById('burger');
+  const mobileNav  = document.getElementById('mobile-nav');
+  const mobileClose = document.getElementById('mobile-close');
+
+  function openMenu() {
+    mobileNav.classList.add('open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    mobileClose.focus();
+  }
+
+  function closeMenu() {
+    mobileNav.classList.remove('open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    burger.focus();
+  }
+
+  burger.addEventListener('click', openMenu);
+  mobileClose.addEventListener('click', closeMenu);
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeMenu();
+  });
 
   // Reveal on scroll
   const observer = new IntersectionObserver((entries) => {

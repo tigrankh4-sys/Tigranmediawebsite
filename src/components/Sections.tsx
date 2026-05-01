@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { steden } from '@/data/steden';
+import { steps, plans, faqs } from '../data/content';
 
 const css = `
   /* ── SHARED ── */
@@ -726,39 +727,6 @@ const css = `
   }
 `;
 
-const steps = [
-  { num: '01', label: 'Discovery Call', desc: 'Wij luisteren. Jij vertelt. Wij nemen alles op.' },
-  { num: '02', label: 'Design',          desc: 'Een ontwerp op maat. Geen templates. Geen compromissen.' },
-  { num: '03', label: 'Build',           desc: 'Live in 1 week. 99/100 Google score. Gegarandeerd.' },
-  { num: '04', label: 'Launch',          desc: 'Jouw site live. Wij blijven beschikbaar.' },
-];
-
-const plans = [
-  {
-    name: 'Starter', price: '€500', sub: 'Voor wie wil starten.',
-    features: ['Volledig custom Next.js website', 'Custom CMS + eigen beheersysteem', 'Live in 1 week', '99/100 Google score', 'SEO technisch correct'],
-    cta: 'Kies Starter', highlight: false,
-  },
-  {
-    name: 'Groei', price: '€1.000', sub: 'Voor wie wil groeien.',
-    features: ['Volledig custom Next.js website', 'Custom CMS + eigen beheersysteem', 'SEO + copywriting', 'Live in 1 week', '99/100 Google score', '1 maand support'],
-    cta: 'Kies Groei', highlight: true,
-  },
-  {
-    name: 'Full Service', price: '€1.500', sub: 'Voor wie wil domineren.',
-    features: ['Volledig custom Next.js website', 'Custom CMS + eigen beheersysteem', 'SEO + copywriting + strategie', 'Live in 1 week', '99/100 Google score', '3 maanden support'],
-    cta: 'Kies Full Service', highlight: false,
-  },
-];
-
-const faqs = [
-  { q: 'Waarom zijn jullie prijzen zo laag?', a: 'Omdat wij slank werken. Geen groot kantoor, geen overhead, geen tussenpersonen. Wij investeren in technologie en vakmanschap — niet in dure bureaukosten. Die besparing geven wij door aan u.' },
-  { q: 'Hoe lang duurt het?', a: 'Één week. Vanaf het moment dat wij alle inhoud van u hebben, is uw site live binnen 7 dagen. Geen weken wachten, geen vage deadlines.' },
-  { q: 'Wat krijg ik precies?', a: 'Een volledig custom Next.js website — geen template, geen WordPress. Inclusief een eigen beheersysteem waarmee u zelf teksten en afbeeldingen kan aanpassen. Zonder technische kennis.' },
-  { q: 'Heb ik technische kennis nodig?', a: 'Nee. Uw beheersysteem is gebouwd voor ondernemers, niet voor developers. Als u een e-mail kan schrijven, kan u uw site beheren.' },
-  { q: 'Wat als ik niet tevreden ben?', a: 'Wij werken in nauw overleg. Na de discovery call weet u exact wat u krijgt. Geen verrassingen, geen meerkosten. Als er iets niet klopt, lossen wij het op.' },
-];
-
 const footerGroupDefs = [
   { name: 'de Kempen', slugs: ['turnhout','herentals','mol','geel','kasterlee','balen','hoogstraten','rijkevorsel','brecht','wuustwezel','pelt','zoersel'] },
   { name: 'Antwerpen & Mechelen', slugs: ['antwerpen','mechelen','lier','brasschaat','schoten','wijnegem','aartselaar','boom','edegem','kapellen','kontich','lint','mortsel','niel','nijlen','sint-katelijne-waver','willebroek','wommelgem','heist-op-den-berg','ranst','puurs-sint-amands','bornem'] },
@@ -835,19 +803,19 @@ function ContactForm() {
   return (
     <form className="tm-form" onSubmit={handleSubmit}>
       <input type="text" name="honeypot" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-      <div className="tm-field form-field"><label>Naam</label><input type="text" name="naam" placeholder="Jan Janssen" required /></div>
-      <div className="tm-field form-field"><label>Bedrijf</label><input type="text" name="bedrijf" placeholder="Jouw Bedrijf BV" /></div>
-      <div className="tm-field form-field"><label>E-mail</label><input type="email" name="email" placeholder="jan@bedrijf.be" required /></div>
+      <div className="tm-field form-field"><label htmlFor="naam">Naam</label><input id="naam" type="text" name="naam" placeholder="Jan Janssen" required /></div>
+      <div className="tm-field form-field"><label htmlFor="bedrijf">Bedrijf</label><input id="bedrijf" type="text" name="bedrijf" placeholder="Jouw Bedrijf BV" /></div>
+      <div className="tm-field form-field"><label htmlFor="email">E-mail</label><input id="email" type="email" name="email" placeholder="jan@bedrijf.be" required /></div>
       <div className="tm-field form-field">
-        <label>Pakket interesse</label>
-        <select name="pakket" defaultValue="">
+        <label htmlFor="pakket">Pakket interesse</label>
+        <select id="pakket" name="pakket" defaultValue="">
           <option value="" disabled>Selecteer pakket</option>
           <option value="Starter">Starter</option>
           <option value="Groei">Groei</option>
           <option value="Full Service">Full Service</option>
         </select>
       </div>
-      <div className="tm-field form-field"><label>Bericht</label><textarea name="bericht" rows={4} placeholder="Vertel ons over uw project..." /></div>
+      <div className="tm-field form-field"><label htmlFor="bericht">Bericht</label><textarea id="bericht" name="bericht" rows={4} placeholder="Vertel ons over uw project..." /></div>
       <button type="submit" className="tm-submit" disabled={status === 'loading'}>
         {status === 'loading' ? 'Verzenden...' : 'Verstuur →'}
       </button>
