@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 32" role="img" aria-labelledby="code-tag-title">
+  <title id="code-tag-title">Code tag stamp — &lt;tm /&gt;</title>
+  
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter" shape-rendering="crispEdges">
+    
+    <path d="M20 10 L10 16 L20 22" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"></path>
+
+    
+    
+    <path d="M34 10 L34 22" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"></path>
+    
+    <path d="M30 14 L38 14" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"></path>
+    
+    <path d="M34 22 L37 22" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"></path>
+
+    
+    
+    <path d="M46 22 L46 14" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"></path>
+    
+    <path d="M46 14 L50 14" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"></path>
+    
+    <path d="M50 14 L50 22" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"></path>
+    
+    <path d="M50 14 L54 14" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"></path>
+    
+    <path d="M54 14 L54 22" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"></path>
+
+    
+
+    
+    <path d="M82 10 L76 22" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1"></path>
+
+    
+    <path d="M94 10 L104 16 L94 22" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"></path>
+  </g>
+</svg>

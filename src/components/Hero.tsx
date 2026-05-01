@@ -40,6 +40,7 @@ export default function Hero() {
                 U heeft een probleem.
               </h1>
               <hr className="tm-line hero-line" />
+              <img src="/svg/code-tag.svg" alt="" aria-hidden="true" style={{ display: 'block', width: 120, height: 32, marginBottom: 20, opacity: 0.6 }} />
               <p className="tm-subline hero-subline">Webdesign voor Vlaamse KMO&apos;s. Vanaf €500 — Live in 1 week.</p>
             </div>
             <div className="tm-vertical hero-label">STUDIO KEMPEN / EST. 2024</div>

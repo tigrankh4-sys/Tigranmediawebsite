@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 48" preserveAspectRatio="none" role="img" aria-labelledby="wedge-title">
+  <title id="wedge-title">Diagonal section wedge — hard 2° cut from dark to light</title>
+  
+  <polygon points="0,0 1440,0 1440,0 0,48" fill="#050505"></polygon>
+</svg>

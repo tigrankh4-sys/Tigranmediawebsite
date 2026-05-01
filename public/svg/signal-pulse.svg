@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 48" role="img" aria-labelledby="signal-pulse-title">
+  <title id="signal-pulse-title">Performance signal — flatline with a single precise spike</title>
+  
+  <path d="M0 24 L268 24" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1" fill="none" shape-rendering="crispEdges"></path>
+  
+  <path d="M268 24 L276 24 L282 18 L288 4 L294 18 L300 24 L600 24" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1" fill="none" stroke-linejoin="miter" stroke-linecap="butt"></path>
+  
+  <rect x="287" y="3" width="2" height="2" fill="#00F0FF"></rect>
+</svg>

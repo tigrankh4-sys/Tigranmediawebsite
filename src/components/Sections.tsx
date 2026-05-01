@@ -6,6 +6,7 @@ import { steps, plans } from '../data/content';
 import ContactForm from './ContactForm';
 import FaqAccordion from './FaqAccordion';
 import FooterAccordions from './FooterAccordions';
+import { DividerStar, Ticker } from './DecorativeElements';
 
 export default function Sections() {
   useEffect(() => {
@@ -95,6 +96,7 @@ export default function Sections() {
   return (
     <>
       <main>
+        <img src="/svg/signal-pulse.svg" alt="" aria-hidden="true" style={{ display: 'block', width: '100%', maxWidth: 600, height: 48, margin: '0 auto', opacity: 0.5 }} />
         <section className="tm-stats-bar stats-section">
           <div className="tm-stats-grid">
             <div className="tm-stat-col stat-item">
@@ -114,6 +116,8 @@ export default function Sections() {
             </div>
           </div>
         </section>
+
+        <div style={{ color: 'rgba(240,235,224,0.25)', margin: '0 0 48px' }}><Ticker /></div>
 
         <section id="over" className="over-mij-section">
           <div className="tm-section">
@@ -143,10 +147,14 @@ export default function Sections() {
           </div>
         </section>
 
+        <div style={{ color: 'rgba(240,235,224,0.2)', padding: '0 24px', margin: '48px 0' }}><DividerStar /></div>
+
         <section id="werkwijze" className="werkwijze-section">
           <div className="tm-section">
             <h2 className="tm-section-title">Hoe het werkt.</h2>
-            <div className="tm-steps">
+            <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+              <img src="/svg/step-node-connector.svg" alt="" aria-hidden="true" style={{ width: 12, height: 280, flexShrink: 0, marginTop: 8, opacity: 0.7 }} />
+            <div className="tm-steps" style={{ flex: 1 }}>
               {steps.map((s) => (
                 <div className="tm-step werkwijze-item" key={s.num}>
                   <div className="tm-step-number">{s.num}</div>
@@ -154,6 +162,7 @@ export default function Sections() {
                   <div className="tm-step-desc">{s.desc}</div>
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </section>

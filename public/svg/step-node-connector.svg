@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 280" role="img" aria-labelledby="step-node-title">
+  <title id="step-node-title">Four-step process connector — vertical hairline with square nodes</title>
+  
+  <line x1="6" y1="0" x2="6" y2="280" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1" shape-rendering="crispEdges"></line>
+
+  
+  <rect x="3" y="17" width="6" height="6" fill="#00F0FF" stroke="#00F0FF" stroke-width="1" shape-rendering="crispEdges"></rect>
+
+  
+  <rect x="3" y="107" width="6" height="6" fill="none" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1" shape-rendering="crispEdges"></rect>
+  <rect x="3" y="167" width="6" height="6" fill="none" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1" shape-rendering="crispEdges"></rect>
+  <rect x="3" y="257" width="6" height="6" fill="none" stroke="#ffffff" stroke-opacity="0.20" stroke-width="1" shape-rendering="crispEdges"></rect>
+</svg>
