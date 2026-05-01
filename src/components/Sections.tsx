@@ -1,13 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import { steps, plans } from '../data/content';
 import ContactForm from './ContactForm';
 import FaqAccordion from './FaqAccordion';
-
-const FooterAccordions = dynamic(() => import('./FooterAccordions'), { ssr: false, loading: () => null });
+import FooterAccordions from './FooterAccordions';
 
 export default function Sections() {
   useEffect(() => {
