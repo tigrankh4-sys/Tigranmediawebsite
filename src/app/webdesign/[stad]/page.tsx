@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { steden } from '@/data/steden';
 import { cityContent } from '@/data/cityContent';
 import StadSections from '@/components/StadSections';
+import { JsonLd } from '@/components/JsonLd';
 
 interface Props {
   params: Promise<{ stad: string }>;
@@ -21,9 +22,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://tigranmedia.be/webdesign/${slug}/`,
     },
+    openGraph: {
+      title: stad.metaTitle,
+      description: stad.metaDescription,
+      url: `https://tigranmedia.be/webdesign/${slug}/`,
+      type: 'website',
+      locale: 'nl_BE',
+      siteName: 'Tigran Media',
+      images: [{ url: '/images/forest-bean.webp', width: 1200, height: 630, alt: stad.metaTitle }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: stad.metaTitle,
+      description: stad.metaDescription,
+      images: ['/images/forest-bean.webp'],
+    },
   };
 }
-
 
 export default async function StadPage({ params }: Props) {
   const { stad: slug } = await params;
@@ -35,9 +50,25 @@ export default async function StadPage({ params }: Props) {
 
   const verticalLabel = `WEBDESIGN ${stad.naam.toUpperCase()} / TIGRAN MEDIA`;
 
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'Tigran Media',
+    url: `https://tigranmedia.be/webdesign/${slug}/`,
+    description: stad.metaDescription,
+    areaServed: {
+      '@type': 'City',
+      name: stad.naam,
+    },
+    serviceType: 'Webdesign',
+    priceRange: '€€',
+    inLanguage: 'nl-BE',
+  };
+
   return (
     <>
-<nav className="nav">
+      <JsonLd data={localBusinessSchema} />
+      <nav className="nav">
         <a href="/"><img src="/logo.svg" alt="Tigran Media" className="nav-logo" /></a>
         <div className="nav-links">
           <a href="/#werkwijze">Werkwijze</a>

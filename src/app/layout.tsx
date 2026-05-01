@@ -1,21 +1,38 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0F0F0F',
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tigranmedia.be"),
-  title: "Tigran Media — Webdesign voor Vlaamse KMO's",
+  metadataBase: new URL('https://tigranmedia.be'),
+  title: {
+    default: "Tigran Media — Webdesign voor Vlaamse KMO's",
+    template: '%s | Tigran Media',
+  },
   description: "Custom webdesign voor Vlaamse KMO's. Vanaf €500. 99/100 Google score. Live in 1 week.",
+  keywords: ['webdesign', 'website laten maken', 'webdesign België', 'webdesign Vlaanderen', 'KMO website', 'Next.js webdesign', 'professionele website'],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
+    type: 'website',
+    locale: 'nl_BE',
+    siteName: 'Tigran Media',
     title: "Tigran Media — Webdesign voor Vlaamse KMO's",
     description: "Custom Next.js websites voor Vlaamse KMO's. Vanaf €500, live in 1 week, 99/100 Google score.",
-    url: "https://tigranmedia.be",
-    type: "website",
-    images: ["/images/forest-bean.webp"],
+    url: 'https://tigranmedia.be',
+    images: [{ url: '/images/forest-bean.webp', width: 1200, height: 630, alt: "Tigran Media — Webdesign voor Vlaamse KMO's" }],
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: "Tigran Media — Webdesign voor Vlaamse KMO's",
     description: "Custom Next.js websites voor Vlaamse KMO's. Vanaf €500, live in 1 week.",
+    images: ['/images/forest-bean.webp'],
   },
 };
 
