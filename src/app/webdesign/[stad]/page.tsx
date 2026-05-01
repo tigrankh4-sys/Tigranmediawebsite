@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: stad.metaTitle,
     description: stad.metaDescription,
     alternates: {
-      canonical: `https://tigranmedia.be/webdesign/${slug}`,
+      canonical: `https://tigranmedia.be/webdesign/${slug}/`,
     },
   };
 }
