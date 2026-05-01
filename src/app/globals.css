@@ -265,7 +265,7 @@ section {
 
 .tm-project-card { max-width: 900px; margin: 0 auto; border: 1px solid #F0EBE0; }
 
-.tm-project-img { width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+.tm-project-img { width: 100%; display: block; height: auto; }
 
 .tm-project-img-fallback {
   width: 100%;
