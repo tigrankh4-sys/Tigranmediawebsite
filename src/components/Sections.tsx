@@ -6,7 +6,7 @@ import { steps, plans } from '../data/content';
 import ContactForm from './ContactForm';
 import FaqAccordion from './FaqAccordion';
 import FooterAccordions from './FooterAccordions';
-import { DividerStar, Ticker } from './DecorativeElements';
+import { DividerStar, DividerDiamonds, Ticker, ArrowLong, PriceTag } from './DecorativeElements';
 
 export default function Sections() {
   useEffect(() => {
@@ -96,7 +96,6 @@ export default function Sections() {
   return (
     <>
       <main>
-        <img src="/svg/signal-pulse.svg" alt="" aria-hidden="true" style={{ display: 'block', width: '100%', maxWidth: 600, height: 48, margin: '0 auto', opacity: 0.5 }} />
         <section className="tm-stats-bar stats-section">
           <div className="tm-stats-grid">
             <div className="tm-stat-col stat-item">
@@ -117,7 +116,9 @@ export default function Sections() {
           </div>
         </section>
 
-        <div style={{ color: 'rgba(240,235,224,0.25)', margin: '0 0 48px' }}><Ticker /></div>
+        <div style={{ color: 'rgba(240,235,224,0.3)', padding: '0' }}>
+          <Ticker />
+        </div>
 
         <section id="over" className="over-mij-section">
           <div className="tm-section">
@@ -147,14 +148,14 @@ export default function Sections() {
           </div>
         </section>
 
-        <div style={{ color: 'rgba(240,235,224,0.2)', padding: '0 24px', margin: '48px 0' }}><DividerStar /></div>
+        <div style={{ color: 'rgba(240,235,224,0.2)', padding: '0 24px', margin: '40px 0' }}>
+          <DividerDiamonds />
+        </div>
 
         <section id="werkwijze" className="werkwijze-section">
           <div className="tm-section">
             <h2 className="tm-section-title">Hoe het werkt.</h2>
-            <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-              <img src="/svg/step-node-connector.svg" alt="" aria-hidden="true" style={{ width: 12, height: 280, flexShrink: 0, marginTop: 8, opacity: 0.7 }} />
-            <div className="tm-steps" style={{ flex: 1 }}>
+            <div className="tm-steps">
               {steps.map((s) => (
                 <div className="tm-step werkwijze-item" key={s.num}>
                   <div className="tm-step-number">{s.num}</div>
@@ -162,7 +163,6 @@ export default function Sections() {
                   <div className="tm-step-desc">{s.desc}</div>
                 </div>
               ))}
-            </div>
             </div>
           </div>
         </section>
@@ -185,13 +185,25 @@ export default function Sections() {
           <div className="tm-section tm-cta-mid">
             <h2 className="tm-cta-mid-title">Klaar om meer klanten te bereiken?</h2>
             <p className="tm-cta-mid-sub">Plan een vrijblijvend gesprek van 30 minuten.</p>
+            <div style={{ color: 'rgba(240,235,224,0.4)', margin: '24px 0' }}>
+              <ArrowLong />
+            </div>
             <a href="/#contact" className="tm-cta-mid-btn">Gratis Discovery Call →</a>
           </div>
         </section>
 
+        <div style={{ color: 'rgba(240,235,224,0.2)', padding: '0 24px', margin: '40px 0' }}>
+          <DividerStar />
+        </div>
+
         <section id="prijzen" className="prijzen-section">
           <div className="tm-section">
-            <h2 className="tm-section-title">Transparante prijzen.</h2>
+            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
+              <h2 className="tm-section-title">Transparante prijzen.</h2>
+              <div style={{ color: 'rgba(240,235,224,0.5)', flexShrink: 0 }}>
+                <PriceTag />
+              </div>
+            </div>
             <div className="tm-pricing-grid">
               {plans.map((p) => (
                 <div key={p.name} className={`tm-price-card prijs-kaart${p.highlight ? ' tm-price-card--highlight' : ''}`}>
