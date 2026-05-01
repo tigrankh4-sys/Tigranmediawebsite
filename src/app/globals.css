@@ -114,9 +114,13 @@ body { background: #0F0F0F; color: #F0EBE0; }
 
 .tm-headline {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
-  font-size: clamp(56px, 9vw, 130px);
-  line-height: 1.0;
+  font-size: clamp(64px, 10vw, 148px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  font-stretch: condensed;
   color: #F0EBE0;
   text-align: left;
 }
@@ -160,8 +164,13 @@ section {
 
 .tm-section-title {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
-  font-size: clamp(48px, 6vw, 96px);
+  font-size: clamp(52px, 7vw, 112px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  font-stretch: condensed;
   color: #F0EBE0;
   margin-bottom: 80px;
 }
@@ -191,10 +200,14 @@ section {
 
 .tm-stat-num {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(64px, 8vw, 120px);
   color: #F0EBE0;
-  line-height: 1;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  font-stretch: condensed;
   display: block;
 }
 
@@ -237,6 +250,8 @@ section {
 
 .tm-step-number {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(80px, 7vw, 120px);
   color: #F0EBE0;
@@ -278,6 +293,8 @@ section {
 
 .tm-project-img-fallback span {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(32px, 4vw, 64px);
   color: #F0EBE0;
@@ -288,6 +305,8 @@ section {
 
 .tm-project-name {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(36px, 4vw, 64px);
   color: #F0EBE0;
@@ -318,8 +337,13 @@ section {
 
 .tm-cta-mid-title {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
-  font-size: clamp(48px, 6vw, 96px);
+  font-size: clamp(52px, 7vw, 112px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  font-stretch: condensed;
   color: #F0EBE0;
   margin-bottom: 24px;
 }
@@ -383,10 +407,14 @@ section {
 
 .tm-price-amount {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(48px, 5vw, 80px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  font-stretch: condensed;
   color: #F0EBE0;
-  line-height: 1;
   margin-bottom: 8px;
 }
 
@@ -599,11 +627,15 @@ section {
 
 .tm-over-title {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
-  font-size: clamp(36px, 4vw, 72px);
+  font-size: clamp(40px, 5vw, 84px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  font-stretch: condensed;
   color: #F0EBE0;
   margin-bottom: 40px;
-  line-height: 1.1;
 }
 
 .tm-over-body {
@@ -640,6 +672,8 @@ section {
 
 .tm-footer-brand {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-size: 20px;
   font-weight: 500;
   color: #F0EBE0;
@@ -804,8 +838,13 @@ details[open] .accord-icon { opacity: 0.6; }
 }
 .stad-content-h2 {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(36px, 4.5vw, 68px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  font-stretch: condensed;
   color: #F0EBE0;
   margin-bottom: 28px;
 }
@@ -838,6 +877,8 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .sc-title {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(48px, 6vw, 96px);
   color: #F0EBE0;
@@ -862,6 +903,8 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .sc-step-number {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(80px, 7vw, 120px);
   color: #F0EBE0;
@@ -896,6 +939,8 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .sc-project-name {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(36px, 4vw, 64px);
   color: #F0EBE0;
@@ -951,6 +996,8 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .sc-price-amount {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(48px, 5vw, 80px);
   color: #F0EBE0;
@@ -1022,6 +1069,8 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .sc-cta-mid-title {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(48px, 6vw, 96px);
   color: #F0EBE0;
@@ -1281,6 +1330,8 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .headline {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(48px, 7vw, 110px);
   line-height: 1.0;
@@ -1339,6 +1390,8 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .stat-value {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(40px, 4vw, 64px);
   color: #F0EBE0;
@@ -1364,6 +1417,8 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .cta-title {
   font-family: 'Cormorant Garamond', serif;
+  font-stretch: condensed;
+  letter-spacing: 0.02em;
   font-weight: 300;
   font-size: clamp(40px, 5vw, 80px);
   color: #F0EBE0;
@@ -1406,7 +1461,7 @@ details[open] .accord-icon { opacity: 0.6; }
   .tm-nav { padding: 18px 24px; }
   .tm-nav-links { display: none; }
   .tm-hero { padding: 24px; }
-  .tm-headline { font-size: clamp(48px, 9vw, 130px); }
+  .tm-headline { font-size: clamp(52px, 11vw, 130px); }
   .tm-vertical { display: none; }
 
   section { padding-top: 80px; padding-bottom: 80px; }
