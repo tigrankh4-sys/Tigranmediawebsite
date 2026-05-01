@@ -11,7 +11,7 @@ export default function Hero() {
       gsap.registerPlugin(ScrollTrigger);
       gsap.defaults({ duration: 0.7, ease: 'power2.out' });
       gsap.from('.tm-nav', { y: -30, opacity: 0, duration: 0.5 });
-      gsap.from('.hero-headline', { y: 40, opacity: 0, delay: 0.3 });
+      gsap.from('.hero-headline', { y: 20, delay: 0.3 });
       gsap.from('.hero-line', { scaleX: 0, opacity: 0, delay: 0.5, transformOrigin: 'left' });
       gsap.from('.hero-subline', { y: 20, opacity: 0, delay: 0.6 });
       gsap.from('.hero-label', { opacity: 0, delay: 0.8 });
