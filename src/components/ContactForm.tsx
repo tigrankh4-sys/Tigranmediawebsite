@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import React from 'react';
 
 interface Props { cls: string; }
 

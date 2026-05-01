@@ -5,10 +5,9 @@ import { useEffect } from 'react';
 
 export default function Hero() {
   useEffect(() => {
+    let raf: number;
     const loadGSAP = async () => {
       const { gsap } = await import('gsap');
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-      gsap.registerPlugin(ScrollTrigger);
       gsap.defaults({ duration: 0.7, ease: 'power2.out' });
       gsap.from('.tm-nav', { y: -30, opacity: 0, duration: 0.5 });
       gsap.from('.hero-headline', { y: 20, delay: 0.3 });
@@ -16,7 +15,8 @@ export default function Hero() {
       gsap.from('.hero-subline', { y: 20, opacity: 0, delay: 0.6 });
       gsap.from('.hero-label', { opacity: 0, delay: 0.8 });
     };
-    loadGSAP();
+    raf = requestAnimationFrame(() => { loadGSAP(); });
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return (
