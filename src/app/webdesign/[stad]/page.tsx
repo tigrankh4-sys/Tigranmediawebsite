@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { steden } from '@/data/steden';
+import { cityContent } from '@/data/cityContent';
 import StadSections from '@/components/StadSections';
 
 interface Props {
@@ -17,6 +18,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: stad.metaTitle,
     description: stad.metaDescription,
+    alternates: {
+      canonical: `https://tigranmedia.be/webdesign/${slug}`,
+    },
   };
 }
 
@@ -39,7 +43,6 @@ export default async function StadPage({ params }: Props) {
           <a href="/#werkwijze">Werkwijze</a>
           <a href="/#projecten">Projecten</a>
           <a href="/#prijzen">Prijzen</a>
-          <a href="/blog">Blog</a>
         </div>
         <a href="/#contact" className="nav-btn">Gratis Discovery Call →</a>
       </nav>
@@ -73,6 +76,18 @@ export default async function StadPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {cityContent[slug] && (
+        <section className="stad-content">
+          <div className="stad-content-inner">
+            <h2 className="stad-content-h2">{cityContent[slug].h2}</h2>
+            <p className="stad-content-intro">{cityContent[slug].intro}</p>
+            {cityContent[slug].alineas.map((p, i) => (
+              <p key={i} className="stad-content-p">{p}</p>
+            ))}
+          </div>
+        </section>
+      )}
 
       <StadSections stadNaam={stad.naam} />
     </>

@@ -749,6 +749,11 @@ section {
 }
 .tm-footer-accord-cities a:hover { opacity: 0.8; }
 
+/* Remove default <details>/<summary> browser arrow */
+.tm-footer-accord summary { list-style: none; }
+.tm-footer-accord summary::-webkit-details-marker { display: none; }
+details[open] .accord-icon { opacity: 0.6; }
+
 .tm-footer-bottom {
   padding: 24px 64px;
   display: flex;
@@ -785,6 +790,41 @@ section {
 /* ────────────────────────────────────────────────────────
    STAD SECTIONS (sc-*)
    ──────────────────────────────────────────────────────── */
+.stad-content {
+  background: #0F0F0F;
+  color: #F0EBE0;
+  border-top: 1px solid rgba(240, 235, 224, 0.15);
+  padding: 80px 0;
+}
+.stad-content-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+.stad-content-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(32px, 4vw, 56px);
+  color: #F0EBE0;
+  margin-bottom: 28px;
+}
+.stad-content-intro {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  line-height: 1.85;
+  color: #F0EBE0;
+  opacity: 0.75;
+  margin-bottom: 24px;
+}
+.stad-content-p {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  line-height: 1.85;
+  color: #F0EBE0;
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
 .sc-section {
   padding-top: 120px;
   padding-bottom: 120px;

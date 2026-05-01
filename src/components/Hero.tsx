@@ -28,7 +28,6 @@ export default function Hero() {
             <a href="#werkwijze">Werkwijze</a>
             <a href="#projecten">Projecten</a>
             <a href="#prijzen">Prijzen</a>
-            <a href="/blog">Blog</a>
           </div>
           <a href="#contact" className="tm-nav-btn">Gratis Discovery Call →</a>
         </nav>

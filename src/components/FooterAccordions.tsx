@@ -1,5 +1,3 @@
-'use client';
-import { useState } from 'react';
 import { steden } from '@/data/steden';
 
 const footerGroupDefs = [
@@ -18,28 +16,20 @@ const footerGroups = footerGroupDefs.map(g => ({
 }));
 
 export default function FooterAccordions() {
-  const [open, setOpen] = useState<string | null>(null);
   return (
     <div>
       {footerGroups.map((g) => (
-        <div key={g.name} className="tm-footer-accord">
-          <button
-            type="button"
-            className="tm-footer-accord-btn"
-            onClick={() => setOpen(prev => prev === g.name ? null : g.name)}
-            aria-expanded={open === g.name}
-          >
+        <details key={g.name} className="tm-footer-accord">
+          <summary className="tm-footer-accord-btn">
             <span className="accord-name">{g.name}</span>
-            <span className="accord-icon">{open === g.name ? '−' : '+'}</span>
-          </button>
-          {open === g.name && (
-            <div className="tm-footer-accord-cities">
-              {g.cities.map((c) => (
-                <a key={c.slug} href={`/webdesign/${c.slug}`}>{c.naam}</a>
-              ))}
-            </div>
-          )}
-        </div>
+            <span className="accord-icon">+</span>
+          </summary>
+          <div className="tm-footer-accord-cities">
+            {g.cities.map((c) => (
+              <a key={c.slug} href={`/webdesign/${c.slug}`}>{c.naam}</a>
+            ))}
+          </div>
+        </details>
       ))}
     </div>
   );
