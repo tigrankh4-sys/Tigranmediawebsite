@@ -88,6 +88,7 @@ body { background: #0F0F0F; color: #F0EBE0; }
   box-shadow: 4px 4px 10px #050505, -4px -4px 10px #1a1a1a;
   transition: box-shadow 80ms linear;
   outline: none;
+  text-decoration: none;
 }
 
 .tm-nav-btn:hover { box-shadow: inset 4px 4px 10px #050505, inset -4px -4px 10px #1a1a1a; }

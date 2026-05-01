@@ -6,7 +6,7 @@ import { steps, plans } from '../data/content';
 import ContactForm from './ContactForm';
 import FaqAccordion from './FaqAccordion';
 import FooterAccordions from './FooterAccordions';
-import { DividerStar, DividerDiamonds, Ticker, ArrowLong, PriceTag } from './DecorativeElements';
+import { DividerStar, DividerDiamonds } from './DecorativeElements';
 
 export default function Sections() {
   useEffect(() => {
@@ -116,10 +116,6 @@ export default function Sections() {
           </div>
         </section>
 
-        <div style={{ color: 'rgba(240,235,224,0.3)', padding: '0' }}>
-          <Ticker />
-        </div>
-
         <section id="over" className="over-mij-section">
           <div className="tm-section">
             <div className="tm-over-grid">
@@ -185,9 +181,6 @@ export default function Sections() {
           <div className="tm-section tm-cta-mid">
             <h2 className="tm-cta-mid-title">Klaar om meer klanten te bereiken?</h2>
             <p className="tm-cta-mid-sub">Plan een vrijblijvend gesprek van 30 minuten.</p>
-            <div style={{ color: 'rgba(240,235,224,0.4)', margin: '24px 0' }}>
-              <ArrowLong />
-            </div>
             <a href="/#contact" className="tm-cta-mid-btn">Gratis Discovery Call →</a>
           </div>
         </section>
@@ -198,12 +191,7 @@ export default function Sections() {
 
         <section id="prijzen" className="prijzen-section">
           <div className="tm-section">
-            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
-              <h2 className="tm-section-title">Transparante prijzen.</h2>
-              <div style={{ color: 'rgba(240,235,224,0.5)', flexShrink: 0 }}>
-                <PriceTag />
-              </div>
-            </div>
+            <h2 className="tm-section-title">Transparante prijzen.</h2>
             <div className="tm-pricing-grid">
               {plans.map((p) => (
                 <div key={p.name} className={`tm-price-card prijs-kaart${p.highlight ? ' tm-price-card--highlight' : ''}`}>
