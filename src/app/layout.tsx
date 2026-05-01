@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tigranmedia.be"),
@@ -29,7 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Mono&display=swap" media="print" id="gfonts" />
         <script dangerouslySetInnerHTML={{ __html: `document.getElementById('gfonts').onload=function(){this.media='all'}` }} />
         <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Mono&display=swap" /></noscript>
-        <style>{`*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } body { background: #0F0F0F; color: #F0EBE0; } html { scroll-behavior: smooth; }`}</style>
       </head>
       <body>{children}</body>
     </html>
