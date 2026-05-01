@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { steden } from '@/data/steden';
 import { steps, plans } from '../data/content';
 import ContactForm from './ContactForm';
@@ -29,7 +30,7 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
         <div className="sc-inner">
           <h2 className="sc-title">Ons werk.</h2>
           <div className="sc-project-card">
-            <img className="sc-project-img" src="/images/forest-bean.webp" alt="Forest & Bean — Coffeeshop concept Turnhout" />
+            <Image className="sc-project-img" src="/images/forest-bean.webp" alt="Forest & Bean — Coffeeshop concept Turnhout" width={1200} height={800} sizes="(max-width: 768px) 100vw, 600px" />
             <div className="sc-project-info">
               <div className="sc-project-name">Forest &amp; Bean</div>
               <div className="sc-project-sub">Coffeeshop concept — Turnhout</div>
@@ -81,10 +82,13 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
         <div className="sc-inner">
           <div className="sc-contact-inner">
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '48px' }}>
-              <img
-                src="https://tigranmedia.be/images/tigran-profiel.webp"
+              <Image
+                src="/images/tigran-profiel.webp"
                 alt="Tigran — Tigran Media"
-                style={{ width: '64px', height: '64px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 20%', flexShrink: 0, border: '1px solid rgba(240,235,224,0.3)' }}
+                width={64}
+                height={64}
+                sizes="64px"
+                style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 20%', flexShrink: 0, border: '1px solid rgba(240,235,224,0.3)' }}
               />
               <div>
                 <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#F0EBE0', marginBottom: '4px' }}>Tigran — Tigran Media</div>

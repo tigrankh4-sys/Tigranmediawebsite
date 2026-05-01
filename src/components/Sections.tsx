@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { steden } from '@/data/steden';
 import { steps, plans } from '../data/content';
 import ContactForm from './ContactForm';
@@ -161,11 +162,15 @@ export default function Sections() {
           <div className="tm-section">
             <div className="tm-over-grid">
               <div className="over-mij-col">
-                <img
+                <Image
                   id="foto-placeholder"
-                  src="https://tigranmedia.be/images/tigran-profiel.webp"
+                  src="/images/tigran-profiel.webp"
                   alt="Tigran — Tigran Media"
-                  style={{ width: '480px', height: '480px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 20%', display: 'block', margin: '0 auto', border: '1px solid rgba(240,235,224,0.3)', maxWidth: '100%' }}
+                  width={480}
+                  height={480}
+                  priority={true}
+                  sizes="(max-width: 768px) 320px, 480px"
+                  style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 20%', display: 'block', margin: '0 auto', border: '1px solid rgba(240,235,224,0.3)', maxWidth: '100%', height: 'auto' }}
                 />
               </div>
               <div className="over-mij-col">
@@ -200,7 +205,7 @@ export default function Sections() {
           <div className="tm-section">
             <h2 className="tm-section-title">Ons werk.</h2>
             <div className="tm-project-card">
-              <img className="tm-project-img" src="/images/forest-bean.webp" alt="Forest & Bean — Coffeeshop concept Turnhout" />
+              <Image className="tm-project-img" src="/images/forest-bean.webp" alt="Forest & Bean — Coffeeshop concept Turnhout" width={1200} height={800} sizes="(max-width: 768px) 100vw, 600px" />
               <div className="tm-project-info">
                 <div className="tm-project-name">Forest &amp; Bean</div>
                 <div className="tm-project-sub">Coffeeshop concept — Turnhout</div>
