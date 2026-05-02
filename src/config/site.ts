@@ -17,7 +17,23 @@ export const siteConfig = {
 
   /** Primary contact email */
   email: 'info@tigranmedia.be',
+
+  /**
+   * Social profiles (used in Schema.org sameAs).
+   * Empty entries are filtered out.
+   */
+  socials: {
+    linkedin: '',  // bv. 'https://linkedin.com/company/tigran-media'
+    instagram: '', // bv. 'https://instagram.com/tigranmedia'
+    facebook: '',
+    googleMapsUrl: '', // bv. 'https://maps.app.goo.gl/...' for the GMB profile
+  },
 };
+
+/** Returns array of non-empty social URLs for use in JSON-LD sameAs */
+export function getSameAs(): string[] {
+  return Object.values(siteConfig.socials).filter((url) => url.length > 0);
+}
 
 /** True if a calendar booking URL is configured */
 export const hasDirectBooking = siteConfig.calUrl.length > 0;

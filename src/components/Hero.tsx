@@ -28,6 +28,7 @@ export default function Hero() {
             <a href="#werkwijze">Werkwijze</a>
             <a href="#projecten">Projecten</a>
             <a href="#prijzen">Prijzen</a>
+            <a href="#prijzen">Prijzen</a>
           </div>
           <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="tm-nav-btn">Gratis Discovery Call →</a>
         </nav>

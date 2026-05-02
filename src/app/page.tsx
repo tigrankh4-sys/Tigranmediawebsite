@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import Sections from '@/components/Sections';
 import { JsonLd } from '@/components/JsonLd';
 import { faqs } from '@/data/content';
+import { getSameAs } from '@/config/site';
 
 export const metadata: Metadata = {
   title: {
@@ -48,6 +49,7 @@ const businessSchema = {
   serviceType: 'Webdesign',
   priceRange: '€€',
   vatID: 'BE1035.278.921',
+  sameAs: getSameAs(),
   openingHoursSpecification: [{
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

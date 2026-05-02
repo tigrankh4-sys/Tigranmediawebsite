@@ -131,16 +131,16 @@ export default async function StadPage({ params }: Props) {
       <section className="stats">
         <div className="stats-inner">
           <div className="stat">
+            <div className="stat-value">5.0</div>
+            <div className="stat-label">Google Rating</div>
+          </div>
+          <div className="stat">
             <div className="stat-value">99/100</div>
-            <div className="stat-label">Google score</div>
+            <div className="stat-label">PageSpeed</div>
           </div>
           <div className="stat">
-            <div className="stat-value">1 week</div>
-            <div className="stat-label">Live</div>
-          </div>
-          <div className="stat">
-            <div className="stat-value">€500</div>
-            <div className="stat-label">Vanaf</div>
+            <div className="stat-value">7 dagen</div>
+            <div className="stat-label">Tot live</div>
           </div>
         </div>
       </section>

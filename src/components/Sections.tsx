@@ -127,7 +127,7 @@ export default function Sections() {
                 <Image
                   id="foto-placeholder"
                   src="/images/tigran-profiel.webp"
-                  alt="Tigran — Tigran Media"
+                  alt="Portret van Tigran, oprichter Tigran Media — Turnhout"
                   width={480}
                   height={480}
                   priority={true}
@@ -186,7 +186,9 @@ export default function Sections() {
                 </div>
               </a>
             </div>
-            <p className="tm-project-note">Meer projecten volgen. Bent u de volgende?</p>
+            <p className="tm-project-note">
+              Volgend project? <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>Boek een gesprek →</a>
+            </p>
           </div>
         </section>
 

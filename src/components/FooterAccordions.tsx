@@ -26,7 +26,7 @@ export default function FooterAccordions() {
           </summary>
           <div className="tm-footer-accord-cities">
             {g.cities.map((c) => (
-              <a key={c.slug} href={`/webdesign/${c.slug}`}>{c.naam}</a>
+              <a key={c.slug} href={`/webdesign/${c.slug}/`}>{c.naam}</a>
             ))}
           </div>
         </details>

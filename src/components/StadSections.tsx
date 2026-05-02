@@ -14,7 +14,7 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
 
       <section className="sc-section">
         <div className="sc-inner">
-          <h2 className="sc-title">Hoe het werkt.</h2>
+          <h2 className="sc-title">Hoe wij in {stadNaam} werken.</h2>
           <div className="sc-steps">
             {steps.map((s) => (
               <div className="sc-step" key={s.num}>
@@ -52,7 +52,7 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
 
       <section className="sc-section">
         <div className="sc-inner">
-          <h2 className="sc-title">Transparante prijzen.</h2>
+          <h2 className="sc-title">Vaste prijzen voor {stadNaam}.</h2>
           <div className="sc-pricing-grid">
             {plans.map((p) => (
               <div key={p.name} className={`sc-price-card${p.highlight ? ' sc-price-card--highlight' : ''}`}>
@@ -94,7 +94,7 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
             <div className="sc-author-row">
               <Image
                 src="/images/tigran-profiel.webp"
-                alt="Tigran — Tigran Media"
+                alt="Portret van Tigran, oprichter Tigran Media — Turnhout"
                 width={64}
                 height={64}
                 sizes="64px"
@@ -105,7 +105,7 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
                 <div className="sc-author-role">Webdesigner in de Kempen. Beschikbaar voor heel Vlaanderen.</div>
               </div>
             </div>
-            <h2 className="sc-title">Start uw project.</h2>
+            <h2 className="sc-title">Start uw project in {stadNaam}.</h2>
             <p className="sc-contact-sub">Vul het formulier in. Wij nemen binnen 24u contact op.</p>
             <ContactForm cls="sc" />
           </div>

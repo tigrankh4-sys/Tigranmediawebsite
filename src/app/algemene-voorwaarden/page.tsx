@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Algemene Voorwaarden',
-  description: 'Algemene voorwaarden van Tigran Media voor webdesign-opdrachten.',
+  description: 'Algemene voorwaarden van Tigran Media voor webdesign-opdrachten — offertes, betalingstermijnen, oplevering, intellectuele eigendom en aansprakelijkheid.',
   alternates: { canonical: 'https://tigranmedia.be/algemene-voorwaarden/' },
   robots: { index: true, follow: true },
 };

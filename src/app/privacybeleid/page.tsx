@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacybeleid',
-  description: 'Hoe Tigran Media omgaat met persoonsgegevens. GDPR-conform.',
+  description: 'Hoe Tigran Media omgaat met uw persoonsgegevens, welke data we verwerken, hoe lang we ze bewaren en uw GDPR-rechten als klant of bezoeker.',
   alternates: { canonical: 'https://tigranmedia.be/privacybeleid/' },
   robots: { index: true, follow: true },
 };
