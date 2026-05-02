@@ -1615,11 +1615,39 @@ details[open] .accord-icon { opacity: 0.6; }
   cursor: pointer;
 }
 
-/* ── Stacked project cards spacing + sc link variant ───────────────────────── */
+/* ── Project cards grid (2 columns desktop + mobile) ──────────────────────── */
 .sc-project-link { text-decoration: none; display: block; }
-.tm-project-card + .tm-project-card,
-.sc-project-card + .sc-project-card { margin-top: 32px; }
+.tm-projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.sc-projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.tm-projects-grid .tm-project-card,
+.sc-projects-grid .sc-project-card { max-width: none; margin: 0; }
 .tm-project-card.tm-project-link { transition: opacity 200ms ease; }
 .tm-project-card.tm-project-link:hover { opacity: 0.85; }
 .sc-project-card.sc-project-link { transition: opacity 200ms ease; }
 .sc-project-card.sc-project-link:hover { opacity: 0.85; }
+@media (max-width: 768px) {
+  .tm-projects-grid { gap: 12px; }
+  .sc-projects-grid { gap: 10px; }
+}
+
+/* Tighter project card spacing within grid on mobile */
+@media (max-width: 768px) {
+  .tm-projects-grid .tm-project-info,
+  .sc-projects-grid .sc-project-info { padding: 14px 12px; }
+  .tm-projects-grid .tm-project-name,
+  .sc-projects-grid .sc-project-name { font-size: 13px; }
+  .tm-projects-grid .tm-project-sub,
+  .sc-projects-grid .sc-project-sub { font-size: 9px; }
+}
