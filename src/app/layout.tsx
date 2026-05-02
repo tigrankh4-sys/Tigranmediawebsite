@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import StickyMobileCTA from '@/components/StickyMobileCTA';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -44,10 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preload" as="font" href="/fonts/cormorant-garamond-300-latin.woff2" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" as="font" href="/fonts/dm-mono-400-latin.woff2" type="font/woff2" crossOrigin="anonymous" />
       </head>
-      <body>
-        {children}
-        <StickyMobileCTA />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

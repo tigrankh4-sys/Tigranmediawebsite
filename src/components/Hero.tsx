@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
+import { getDiscoveryCallHref, hasDirectBooking } from '@/config/site';
 
 
 export default function Hero() {
@@ -28,18 +29,18 @@ export default function Hero() {
             <a href="#projecten">Projecten</a>
             <a href="#prijzen">Prijzen</a>
           </div>
-          <a href="#contact" className="tm-nav-btn">Gratis Discovery Call →</a>
+          <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="tm-nav-btn">Gratis Discovery Call →</a>
         </nav>
 
         <section className="tm-hero">
           <div className="tm-hero-inner">
             <div className="tm-hero-left">
               <h1 className="tm-headline hero-headline">
-                Uw concurrenten hebben een website.<br />
-                U heeft een probleem.
+                Uw concurrenten kochten een template.<br />
+                Wij bouwen u een echte website.
               </h1>
               <hr className="tm-line hero-line" />
-              <p className="tm-subline hero-subline">Webdesign voor Vlaamse KMO&apos;s. Vanaf €500 — Live in 1 week.</p>
+              <p className="tm-subline hero-subline">Custom Next.js — Vaste prijs vanaf €500 — Live in 7 dagen</p>
             </div>
             <div className="tm-vertical hero-label">STUDIO KEMPEN / EST. 2024</div>
           </div>

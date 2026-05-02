@@ -7,6 +7,7 @@ import ContactForm from './ContactForm';
 import FaqAccordion from './FaqAccordion';
 import Footer from './Footer';
 import { DividerStar, DividerDiamonds } from './DecorativeElements';
+import { getDiscoveryCallHref, hasDirectBooking } from '@/config/site';
 
 export default function Sections() {
   useEffect(() => {
@@ -31,25 +32,8 @@ export default function Sections() {
         scrollTrigger: { trigger: '.stats-section', start: 'top 80%' },
       });
 
-      const ratingEl = document.querySelector('.stat-rating');
-      const pctEl = document.querySelector('.stat-percentage');
       const scoreEl = document.querySelector('.stat-score');
-
-      const ratingObj = { val: 5 };
-      gsap.fromTo(ratingObj, { val: 0 }, {
-        val: 5, duration: 1.2, ease: 'power2.out',
-        immediateRender: false,
-        scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
-        onUpdate: () => { if (ratingEl) ratingEl.textContent = ratingObj.val.toFixed(1); },
-      });
-
-      const pctObj = { val: 100 };
-      gsap.fromTo(pctObj, { val: 0 }, {
-        val: 100, duration: 1.2, ease: 'power2.out',
-        immediateRender: false,
-        scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
-        onUpdate: () => { if (pctEl) pctEl.textContent = Math.floor(pctObj.val) + '%'; },
-      });
+      const dagenEl = document.querySelector('.stat-dagen');
 
       const scoreObj = { val: 99 };
       gsap.fromTo(scoreObj, { val: 0 }, {
@@ -57,6 +41,14 @@ export default function Sections() {
         immediateRender: false,
         scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
         onUpdate: () => { if (scoreEl) scoreEl.textContent = Math.floor(scoreObj.val) + '/100'; },
+      });
+
+      const dagenObj = { val: 7 };
+      gsap.fromTo(dagenObj, { val: 0 }, {
+        val: 7, duration: 1.2, ease: 'power2.out',
+        immediateRender: false,
+        scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
+        onUpdate: () => { if (dagenEl) dagenEl.textContent = Math.floor(dagenObj.val) + ''; },
       });
 
       gsap.from('.over-mij-col', {
@@ -67,6 +59,11 @@ export default function Sections() {
       gsap.from('.werkwijze-item', {
         y: 30, opacity: 0, stagger: 0.1,
         scrollTrigger: { trigger: '.werkwijze-section', start: 'top 80%' },
+      });
+
+      gsap.from('.tm-belofte-item', {
+        y: 30, opacity: 0, stagger: 0.1,
+        scrollTrigger: { trigger: '.belofte-section', start: 'top 80%' },
       });
 
       gsap.from('.prijs-kaart', {
@@ -97,19 +94,19 @@ export default function Sections() {
         <section className="tm-stats-bar stats-section">
           <div className="tm-stats-grid">
             <div className="tm-stat-col stat-item">
-              <span className="tm-stat-num stat-rating">5.0</span>
-              <span className="tm-stat-label">Google Rating</span>
-              <span className="tm-stat-sub">Geverifieerd</span>
-            </div>
-            <div className="tm-stat-col stat-item">
-              <span className="tm-stat-num stat-percentage">100%</span>
-              <span className="tm-stat-label">Tevreden klanten</span>
-              <span className="tm-stat-sub">Altijd</span>
-            </div>
-            <div className="tm-stat-col stat-item">
               <span className="tm-stat-num stat-score">99/100</span>
-              <span className="tm-stat-label">Google Score</span>
-              <span className="tm-stat-sub">Gegarandeerd</span>
+              <span className="tm-stat-label">Google PageSpeed</span>
+              <span className="tm-stat-sub">Verifieerbaar</span>
+            </div>
+            <div className="tm-stat-col stat-item">
+              <span className="tm-stat-num stat-dagen">7</span>
+              <span className="tm-stat-label">Dagen tot live</span>
+              <span className="tm-stat-sub">Vaste belofte</span>
+            </div>
+            <div className="tm-stat-col stat-item">
+              <span className="tm-stat-num">0</span>
+              <span className="tm-stat-label">Templates</span>
+              <span className="tm-stat-sub">Custom Next.js</span>
             </div>
           </div>
         </section>
@@ -188,7 +185,56 @@ export default function Sections() {
           <div className="tm-section tm-cta-mid">
             <h2 className="tm-cta-mid-title">Klaar om meer klanten te bereiken?</h2>
             <p className="tm-cta-mid-sub">Plan een vrijblijvend gesprek van 30 minuten.</p>
-            <a href="/#contact" className="tm-cta-mid-btn">Gratis Discovery Call →</a>
+            <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="tm-cta-mid-btn">Gratis Discovery Call →</a>
+          </div>
+        </section>
+
+        <section id="belofte" className="belofte-section">
+          <div className="tm-section">
+            <h2 className="tm-section-title">Onze belofte.</h2>
+            <p className="tm-belofte-intro">
+              Wij zijn jong. We bouwen onze portfolio op. Dat betekent voor u:
+              maximale aandacht, eerlijke prijzen, geen tussenlagen. Hier is wat
+              wij u garanderen — zwart op wit.
+            </p>
+            <div className="tm-belofte-grid">
+              <div className="tm-belofte-item">
+                <div className="tm-belofte-num">01</div>
+                <h3 className="tm-belofte-title">Vaste prijs in de offerte.</h3>
+                <p className="tm-belofte-desc">
+                  Wat in uw offerte staat, is wat u betaalt. Geen meerwerk-facturen
+                  achteraf, geen verrassingen. Wijzigt het project van scope?
+                  Dan stellen wij eerst een aanvulling op.
+                </p>
+              </div>
+              <div className="tm-belofte-item">
+                <div className="tm-belofte-num">02</div>
+                <h3 className="tm-belofte-title">Live in 7 werkdagen.</h3>
+                <p className="tm-belofte-desc">
+                  Vanaf het moment dat u alle inhoud aanlevert. Halen we het
+                  niet binnen 7 werkdagen door iets aan onze kant?
+                  Dan krijgt u 20% van het pakketbedrag terug.
+                </p>
+              </div>
+              <div className="tm-belofte-item">
+                <div className="tm-belofte-num">03</div>
+                <h3 className="tm-belofte-title">Direct met de oprichter.</h3>
+                <p className="tm-belofte-desc">
+                  Geen accountmanagers, geen junior developers, geen tussenlagen.
+                  U werkt rechtstreeks met Tigran — van de eerste call tot
+                  oplevering. Iedereen die u spreekt, beslist mee.
+                </p>
+              </div>
+              <div className="tm-belofte-item">
+                <div className="tm-belofte-num">04</div>
+                <h3 className="tm-belofte-title">U beheert uw eigen site.</h3>
+                <p className="tm-belofte-desc">
+                  Eigen CMS, geen WordPress. U past zelf teksten, foto&apos;s en
+                  prijzen aan zonder developer in te bellen. Geen maandelijkse
+                  hostingkosten van €50 of meer aan derden.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -209,7 +255,7 @@ export default function Sections() {
                   <ul className="tm-price-features">
                     {p.features.map((f) => <li key={f}>{f}</li>)}
                   </ul>
-                  <a href="#contact" className="tm-pricing-cta">
+                  <a href={`?pakket=${encodeURIComponent(p.name)}#contact`} className="tm-pricing-cta">
                     {p.cta}
                   </a>
                 </div>

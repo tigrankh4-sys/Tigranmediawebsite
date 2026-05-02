@@ -5,6 +5,7 @@ import Image from 'next/image';
 import StadSections from '@/components/StadSections';
 import { JsonLd } from '@/components/JsonLd';
 import { faqs } from '@/data/content';
+import { getDiscoveryCallHref, hasDirectBooking } from '@/config/site';
 
 interface Props {
   params: Promise<{ stad: string }>;
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const stad = steden.find((s) => s.slug === slug);
   if (!stad) return {};
   return {
-    title: stad.metaTitle,
+    title: { absolute: stad.metaTitle },
     description: stad.metaDescription,
     alternates: {
       canonical: `https://tigranmedia.be/webdesign/${slug}/`,
@@ -111,7 +112,7 @@ export default async function StadPage({ params }: Props) {
           <a href="/#projecten">Projecten</a>
           <a href="/#prijzen">Prijzen</a>
         </div>
-        <a href="/#contact" className="nav-btn">Gratis Discovery Call →</a>
+        <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="nav-btn">Gratis Discovery Call →</a>
       </nav>
 
       <section className="hero">

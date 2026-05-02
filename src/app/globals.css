@@ -380,7 +380,7 @@ section {
 
 .tm-pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: stretch;
   gap: 2px;
   margin-bottom: 40px;
@@ -970,7 +970,7 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .sc-pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: stretch;
   gap: 2px;
   margin-bottom: 40px;
@@ -1650,4 +1650,84 @@ details[open] .accord-icon { opacity: 0.6; }
   .sc-projects-grid .sc-project-name { font-size: 13px; }
   .tm-projects-grid .tm-project-sub,
   .sc-projects-grid .sc-project-sub { font-size: 9px; }
+}
+
+/* Hide "Bel" label on very small phones (< 360px) */
+@media (max-width: 359px) {
+  .tm-sticky-cta-phone-label { display: none; }
+}
+
+/* ── Form success message (richer than plain status) ──────────────────────── */
+.tm-form-success, .sc-form-success { margin-top: 24px; }
+.tm-form-success .tm-form-status,
+.sc-form-success .sc-form-status { font-size: 14px; text-transform: none; letter-spacing: 0; opacity: 1; margin-top: 0; line-height: 1.55; }
+.tm-form-status-sub, .sc-form-status-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  margin-top: 12px;
+  opacity: 0.7;
+  line-height: 1.7;
+}
+.tm-form-status-sub a, .sc-form-status-sub a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.tm-form-status-sub a:hover, .sc-form-status-sub a:hover { opacity: 0.6; }
+
+/* ── Belofte / Commitments section ────────────────────────────────────────── */
+.tm-belofte-intro {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  max-width: 700px;
+  opacity: 0.7;
+  margin-bottom: 80px;
+}
+.tm-belofte-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 64px;
+}
+.tm-belofte-item {
+  position: relative;
+  padding-top: 8px;
+}
+.tm-belofte-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 300;
+  opacity: 0.3;
+  margin-bottom: 16px;
+}
+.tm-belofte-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.tm-belofte-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+@media (max-width: 768px) {
+  .tm-belofte-intro { font-size: 12px; margin-bottom: 56px; }
+  .tm-belofte-grid { grid-template-columns: 1fr; gap: 48px; }
+  .tm-belofte-num { font-size: 48px; margin-bottom: 12px; }
+  .tm-belofte-title { font-size: 22px; margin-bottom: 12px; }
+  .tm-belofte-desc { font-size: 11px; }
+}
+
+/* Intermediate breakpoint for 4-card pricing grid */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .tm-pricing-grid, .sc-pricing-grid { grid-template-columns: repeat(2, 1fr); }
 }

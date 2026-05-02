@@ -5,6 +5,7 @@ import { steps, plans } from '../data/content';
 import ContactForm from './ContactForm';
 import FaqAccordion from './FaqAccordion';
 import Footer from './Footer';
+import { getDiscoveryCallHref, hasDirectBooking } from '@/config/site';
 
 
 export default function StadSections({ stadNaam }: { stadNaam: string }) {
@@ -62,7 +63,7 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
                 <ul className="sc-price-features">
                   {p.features.map((f) => <li key={f}>{f}</li>)}
                 </ul>
-                <a href="#contact" className="sc-pricing-cta">
+                <a href={`?pakket=${encodeURIComponent(p.name)}#contact`} className="sc-pricing-cta">
                   {p.cta}
                 </a>
               </div>
@@ -76,7 +77,7 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
         <div className="sc-inner sc-cta-mid">
           <h2 className="sc-cta-mid-title">Klaar om {stadNaam} te domineren?</h2>
           <p className="sc-cta-mid-sub">Plan een vrijblijvend gesprek van 30 minuten.</p>
-          <a href="#contact" className="sc-cta-btn">Gratis Discovery Call →</a>
+          <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="sc-cta-btn">Gratis Discovery Call →</a>
         </div>
       </section>
 

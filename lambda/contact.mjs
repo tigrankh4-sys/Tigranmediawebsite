@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const VALID_PAKKETTEN = new Set(['Starter', 'Groei', 'Full Service', '']);
+const VALID_PAKKETTEN = new Set(['Starter', 'Groei', 'Full Service', 'Op Maat', '']);
 const MAX_BODY_BYTES = 10_000;
 
 function escapeHtml(s) {

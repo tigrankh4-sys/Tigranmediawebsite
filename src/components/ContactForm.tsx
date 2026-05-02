@@ -1,7 +1,10 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { siteConfig } from '@/config/site';
 
 interface Props { cls: string; }
+
+const VALID_PAKKETTEN = ['Starter', 'Groei', 'Full Service', 'Op Maat'];
 
 const COMMON_TYPOS: Record<string, string> = {
   'gmial.com': 'gmail.com', 'gmal.com': 'gmail.com', 'gmail.co': 'gmail.com', 'gmail.cm': 'gmail.com',
@@ -22,6 +25,14 @@ function suggestEmail(email: string): string | null {
 export default function ContactForm({ cls }: Props) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [emailHint, setEmailHint] = useState<string | null>(null);
+  const [submittedName, setSubmittedName] = useState<string>('');
+  const [pakket, setPakket] = useState<string>('');
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const initial = params.get('pakket') ?? '';
+    if (initial && VALID_PAKKETTEN.includes(initial)) setPakket(initial);
+  }, []);
 
   const handleEmailBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const v = e.target.value.trim();
@@ -32,6 +43,8 @@ export default function ContactForm({ cls }: Props) {
     e.preventDefault();
     setStatus('loading');
     const fd = new FormData(e.currentTarget);
+    const naam = String(fd.get('naam') ?? '').trim();
+    setSubmittedName(naam);
     try {
       const res = await fetch(process.env.NEXT_PUBLIC_CONTACT_API ?? '/api/contact', {
         method: 'POST',
@@ -52,7 +65,24 @@ export default function ContactForm({ cls }: Props) {
   };
 
   if (status === 'success') {
-    return <p className={`${cls}-form-status`}>Uw aanvraag is verzonden. Wij nemen binnen 24u contact op.</p>;
+    const firstName = submittedName.split(' ')[0] || '';
+    return (
+      <div className={`${cls}-form-success`}>
+        <p className={`${cls}-form-status`}>
+          Bedankt{firstName ? `, ${firstName}` : ''}. Ik bel of mail u binnen 24 uur terug
+          {firstName ? ' — vandaag nog als het kan' : ''}.
+        </p>
+        <p className={`${cls}-form-status-sub`}>
+          Intussen — bekijk hoe wij voor anderen werken:&nbsp;
+          <a href="/projecten/forest-bean/" target="_blank" rel="noopener noreferrer">Forest &amp; Bean</a>
+          {' · '}
+          <a href="/projecten/dakwerken/" target="_blank" rel="noopener noreferrer">Van Damme Dakwerken</a>
+        </p>
+        <p className={`${cls}-form-status-sub`}>
+          Of bel direct: <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a>
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -79,11 +109,12 @@ export default function ContactForm({ cls }: Props) {
       </div>
       <div className={`${cls}-field form-field`}>
         <label htmlFor={`${cls}-pakket`}>Pakket interesse</label>
-        <select id={`${cls}-pakket`} name="pakket" defaultValue="">
+        <select id={`${cls}-pakket`} name="pakket" value={pakket} onChange={(e) => setPakket(e.target.value)}>
           <option value="" disabled>Selecteer pakket</option>
           <option value="Starter">Starter</option>
           <option value="Groei">Groei</option>
           <option value="Full Service">Full Service</option>
+          <option value="Op Maat">Op Maat</option>
         </select>
       </div>
       <div className={`${cls}-field form-field`}>
