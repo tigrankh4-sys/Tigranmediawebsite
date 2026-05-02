@@ -9,7 +9,7 @@ export const siteConfig = {
    * Set this to enable single-click booking and reduce friction.
    * Example: 'https://cal.com/tigranmedia/discovery'
    */
-  calUrl: '',
+  calUrl: 'https://cal.com/tigranmedia/discovery-call',
 
   /** Phone number used in tel: links and visible CTAs */
   phone: '+32474114899',
