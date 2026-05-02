@@ -11,10 +11,9 @@ export default function Hero() {
       const { gsap } = await import('gsap');
       gsap.defaults({ duration: 0.7, ease: 'power2.out' });
       gsap.from('.tm-nav', { y: -30, duration: 0.5 });
-      gsap.from('.hero-headline', { y: 20, delay: 0.3 });
-      gsap.from('.hero-line', { scaleX: 0, delay: 0.5, transformOrigin: 'left' });
-      gsap.from('.hero-subline', { y: 20, delay: 0.6 });
-      gsap.from('.hero-label', { y: 10, delay: 0.8 });
+      gsap.from('.hero-subline', { y: -10, opacity: 0, delay: 0.2 });
+      gsap.from('.hero-headline', { y: 20, delay: 0.4 });
+      gsap.from('.hero-label', { y: 10, delay: 0.7 });
     });
     return () => cancelAnimationFrame(raf);
   }, []);
@@ -35,12 +34,11 @@ export default function Hero() {
         <section className="tm-hero">
           <div className="tm-hero-inner">
             <div className="tm-hero-left">
+              <p className="tm-subline hero-subline">Custom Next.js — Vaste prijs vanaf €500 — Live in 7 dagen</p>
               <h1 className="tm-headline hero-headline">
                 Uw concurrenten kochten een template.<br />
                 Wij bouwen u een echte website.
               </h1>
-              <hr className="tm-line hero-line" />
-              <p className="tm-subline hero-subline">Custom Next.js — Vaste prijs vanaf €500 — Live in 7 dagen</p>
             </div>
             <div className="tm-vertical hero-label">STUDIO KEMPEN / EST. 2024</div>
           </div>

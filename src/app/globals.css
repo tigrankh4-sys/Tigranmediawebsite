@@ -124,15 +124,14 @@ body { background: #0F0F0F; color: #F0EBE0; }
   text-align: left;
 }
 
-.tm-line { width: 100%; height: 1px; background: #F0EBE0; border: none; margin-top: 36px; }
-
 .tm-subline {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #F0EBE0;
-  margin-top: 20px;
+  opacity: 0.6;
+  margin-bottom: 24px;
 }
 
 .tm-vertical {
