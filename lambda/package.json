@@ -1,0 +1,9 @@
+{
+  "name": "tigranmedia-contact-lambda",
+  "private": true,
+  "type": "module",
+  "main": "contact.mjs",
+  "dependencies": {
+    "nodemailer": "^8.0.7"
+  }
+}

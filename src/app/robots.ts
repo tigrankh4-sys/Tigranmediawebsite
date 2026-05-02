@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/projecten/'],
+      disallow: ['/projecten/', '/wijnen-waldo/'],
     },
     sitemap: 'https://tigranmedia.be/sitemap.xml',
   };

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import StickyMobileCTA from '@/components/StickyMobileCTA';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -14,7 +15,6 @@ export const metadata: Metadata = {
     template: '%s | Tigran Media',
   },
   description: "Custom webdesign voor Vlaamse KMO's. Vanaf €500. 99/100 Google score. Live in 1 week.",
-  keywords: ['webdesign', 'website laten maken', 'webdesign België', 'webdesign Vlaanderen', 'KMO website', 'Next.js webdesign', 'professionele website'],
   robots: {
     index: true,
     follow: true,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Tigran Media — Webdesign voor Vlaamse KMO's",
     description: "Custom Next.js websites voor Vlaamse KMO's. Vanaf €500, live in 1 week, 99/100 Google score.",
     url: 'https://tigranmedia.be',
-    images: [{ url: '/images/forest-bean.webp', width: 1200, height: 630, alt: "Tigran Media — Webdesign voor Vlaamse KMO's" }],
+    images: [{ url: '/images/forest-bean.webp', width: 1024, height: 560, alt: "Tigran Media — Webdesign voor Vlaamse KMO's" }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -38,13 +38,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl">
+    <html lang="nl-BE">
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preload" as="font" href="/fonts/cormorant-garamond-300-latin.woff2" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" as="font" href="/fonts/dm-mono-400-latin.woff2" type="font/woff2" crossOrigin="anonymous" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <StickyMobileCTA />
+      </body>
     </html>
   );
 }

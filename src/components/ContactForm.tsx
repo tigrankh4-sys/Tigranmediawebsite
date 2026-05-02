@@ -3,8 +3,30 @@ import { useState } from 'react';
 
 interface Props { cls: string; }
 
+const COMMON_TYPOS: Record<string, string> = {
+  'gmial.com': 'gmail.com', 'gmal.com': 'gmail.com', 'gmail.co': 'gmail.com', 'gmail.cm': 'gmail.com',
+  'hotmial.com': 'hotmail.com', 'hotmal.com': 'hotmail.com', 'hotmail.co': 'hotmail.com',
+  'outlok.com': 'outlook.com', 'outloo.com': 'outlook.com',
+  'telnet.be': 'telenet.be', 'telent.be': 'telenet.be',
+  'skynt.be': 'skynet.be', 'sknet.be': 'skynet.be',
+};
+
+function suggestEmail(email: string): string | null {
+  const at = email.lastIndexOf('@');
+  if (at < 0) return null;
+  const domain = email.slice(at + 1).toLowerCase();
+  const fix = COMMON_TYPOS[domain];
+  return fix ? email.slice(0, at + 1) + fix : null;
+}
+
 export default function ContactForm({ cls }: Props) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [emailHint, setEmailHint] = useState<string | null>(null);
+
+  const handleEmailBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const v = e.target.value.trim();
+    setEmailHint(v ? suggestEmail(v) : null);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,7 +60,23 @@ export default function ContactForm({ cls }: Props) {
       <input type="text" name="honeypot" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
       <div className={`${cls}-field form-field`}><label htmlFor={`${cls}-naam`}>Naam</label><input id={`${cls}-naam`} type="text" name="naam" placeholder="Jan Janssen" required /></div>
       <div className={`${cls}-field form-field`}><label htmlFor={`${cls}-bedrijf`}>Bedrijf</label><input id={`${cls}-bedrijf`} type="text" name="bedrijf" placeholder="Jouw Bedrijf BV" /></div>
-      <div className={`${cls}-field form-field`}><label htmlFor={`${cls}-email`}>E-mail</label><input id={`${cls}-email`} type="email" name="email" placeholder="jan@bedrijf.be" required /></div>
+      <div className={`${cls}-field form-field`}>
+        <label htmlFor={`${cls}-email`}>E-mail</label>
+        <input
+          id={`${cls}-email`}
+          type="email"
+          name="email"
+          placeholder="jan@bedrijf.be"
+          required
+          onBlur={handleEmailBlur}
+          onChange={() => emailHint && setEmailHint(null)}
+        />
+        {emailHint && (
+          <p className={`${cls}-email-hint`}>
+            Bedoelde u <button type="button" onClick={(e) => { const input = (e.currentTarget.closest('form')?.querySelector(`#${cls}-email`)) as HTMLInputElement | null; if (input) { input.value = emailHint; setEmailHint(null); } }}>{emailHint}</button>?
+          </p>
+        )}
+      </div>
       <div className={`${cls}-field form-field`}>
         <label htmlFor={`${cls}-pakket`}>Pakket interesse</label>
         <select id={`${cls}-pakket`} name="pakket" defaultValue="">
@@ -48,7 +86,15 @@ export default function ContactForm({ cls }: Props) {
           <option value="Full Service">Full Service</option>
         </select>
       </div>
-      <div className={`${cls}-field form-field`}><label htmlFor={`${cls}-bericht`}>Bericht</label><textarea id={`${cls}-bericht`} name="bericht" rows={4} placeholder="Vertel ons over uw project..." /></div>
+      <div className={`${cls}-field form-field`}>
+        <label htmlFor={`${cls}-bericht`}>Bericht</label>
+        <textarea
+          id={`${cls}-bericht`}
+          name="bericht"
+          rows={5}
+          placeholder="Wat wilt u maken? Wanneer moet het live? Heeft u al een budget in gedachten? Bestaande site (URL)?"
+        />
+      </div>
       <button type="submit" className={`${cls}-submit`} disabled={status === 'loading'}>
         {status === 'loading' ? 'Verzenden...' : 'Verstuur →'}
       </button>

@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
 import { steden } from '@/data/steden';
 import { cityContent } from '@/data/cityContent';
+import Image from 'next/image';
 import StadSections from '@/components/StadSections';
 import { JsonLd } from '@/components/JsonLd';
+import { faqs } from '@/data/content';
 
 interface Props {
   params: Promise<{ stad: string }>;
@@ -29,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'website',
       locale: 'nl_BE',
       siteName: 'Tigran Media',
-      images: [{ url: '/images/forest-bean.webp', width: 1200, height: 630, alt: stad.metaTitle }],
+      images: [{ url: '/images/forest-bean.webp', width: 1024, height: 560, alt: stad.metaTitle }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -55,21 +57,55 @@ export default async function StadPage({ params }: Props) {
     '@type': 'ProfessionalService',
     name: 'Tigran Media',
     url: `https://tigranmedia.be/webdesign/${slug}/`,
+    logo: 'https://tigranmedia.be/logo.svg',
+    image: 'https://tigranmedia.be/images/forest-bean.webp',
     description: stad.metaDescription,
+    telephone: '+32474114899',
+    email: 'info@tigranmedia.be',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Turnhout',
+      addressRegion: 'Antwerpen',
+      postalCode: '2300',
+      addressCountry: 'BE',
+    },
     areaServed: {
       '@type': 'City',
       name: stad.naam,
     },
     serviceType: 'Webdesign',
     priceRange: '€€',
+    vatID: 'BE1035.278.921',
     inLanguage: 'nl-BE',
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tigranmedia.be/' },
+      { '@type': 'ListItem', position: 2, name: 'Webdesign', item: 'https://tigranmedia.be/' },
+      { '@type': 'ListItem', position: 3, name: stad.naam, item: `https://tigranmedia.be/webdesign/${slug}/` },
+    ],
   };
 
   return (
     <>
       <JsonLd data={localBusinessSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <nav className="nav">
-        <a href="/"><img src="/logo.svg" alt="Tigran Media" className="nav-logo" /></a>
+        <a href="/"><Image src="/logo.svg" alt="Tigran Media" className="nav-logo" width={123} height={28} priority /></a>
         <div className="nav-links">
           <a href="/#werkwijze">Werkwijze</a>
           <a href="/#projecten">Projecten</a>

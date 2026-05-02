@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { steps, plans } from '../data/content';
 import ContactForm from './ContactForm';
 import FaqAccordion from './FaqAccordion';
-import FooterAccordions from './FooterAccordions';
+import Footer from './Footer';
 import { DividerStar, DividerDiamonds } from './DecorativeElements';
 
 export default function Sections() {
@@ -31,34 +31,32 @@ export default function Sections() {
         scrollTrigger: { trigger: '.stats-section', start: 'top 80%' },
       });
 
-      const ratingObj = { val: 0 };
-      gsap.to(ratingObj, {
+      const ratingEl = document.querySelector('.stat-rating');
+      const pctEl = document.querySelector('.stat-percentage');
+      const scoreEl = document.querySelector('.stat-score');
+
+      const ratingObj = { val: 5 };
+      gsap.fromTo(ratingObj, { val: 0 }, {
         val: 5, duration: 1.2, ease: 'power2.out',
+        immediateRender: false,
         scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
-        onUpdate: () => {
-          const el = document.querySelector('.stat-rating');
-          if (el) el.textContent = ratingObj.val.toFixed(1);
-        },
+        onUpdate: () => { if (ratingEl) ratingEl.textContent = ratingObj.val.toFixed(1); },
       });
 
-      const pctObj = { val: 0 };
-      gsap.to(pctObj, {
+      const pctObj = { val: 100 };
+      gsap.fromTo(pctObj, { val: 0 }, {
         val: 100, duration: 1.2, ease: 'power2.out',
+        immediateRender: false,
         scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
-        onUpdate: () => {
-          const el = document.querySelector('.stat-percentage');
-          if (el) el.textContent = Math.floor(pctObj.val) + '%';
-        },
+        onUpdate: () => { if (pctEl) pctEl.textContent = Math.floor(pctObj.val) + '%'; },
       });
 
-      const scoreObj = { val: 0 };
-      gsap.to(scoreObj, {
+      const scoreObj = { val: 99 };
+      gsap.fromTo(scoreObj, { val: 0 }, {
         val: 99, duration: 1.2, ease: 'power2.out',
+        immediateRender: false,
         scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
-        onUpdate: () => {
-          const el = document.querySelector('.stat-score');
-          if (el) el.textContent = Math.floor(scoreObj.val) + '/100';
-        },
+        onUpdate: () => { if (scoreEl) scoreEl.textContent = Math.floor(scoreObj.val) + '/100'; },
       });
 
       gsap.from('.over-mij-col', {
@@ -99,17 +97,17 @@ export default function Sections() {
         <section className="tm-stats-bar stats-section">
           <div className="tm-stats-grid">
             <div className="tm-stat-col stat-item">
-              <span className="tm-stat-num stat-rating">0.0</span>
+              <span className="tm-stat-num stat-rating">5.0</span>
               <span className="tm-stat-label">Google Rating</span>
               <span className="tm-stat-sub">Geverifieerd</span>
             </div>
             <div className="tm-stat-col stat-item">
-              <span className="tm-stat-num stat-percentage">0%</span>
+              <span className="tm-stat-num stat-percentage">100%</span>
               <span className="tm-stat-label">Tevreden klanten</span>
               <span className="tm-stat-sub">Altijd</span>
             </div>
             <div className="tm-stat-col stat-item">
-              <span className="tm-stat-num stat-score">0/100</span>
+              <span className="tm-stat-num stat-score">99/100</span>
               <span className="tm-stat-label">Google Score</span>
               <span className="tm-stat-sub">Gegarandeerd</span>
             </div>
@@ -128,7 +126,7 @@ export default function Sections() {
                   height={480}
                   priority={true}
                   sizes="(max-width: 768px) 320px, 480px"
-                  style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 20%', display: 'block', margin: '0 auto', border: '1px solid rgba(240,235,224,0.3)', maxWidth: '100%', height: 'auto' }}
+                  className="tm-profile-img"
                 />
               </div>
               <div className="over-mij-col">
@@ -144,7 +142,7 @@ export default function Sections() {
           </div>
         </section>
 
-        <div style={{ color: 'rgba(240,235,224,0.2)', padding: '0 24px', margin: '40px 0' }}>
+        <div className="tm-divider-wrap">
           <DividerDiamonds />
         </div>
 
@@ -166,8 +164,8 @@ export default function Sections() {
         <section id="projecten">
           <div className="tm-section">
             <h2 className="tm-section-title">Ons werk.</h2>
-            <a href="/projecten/forest-bean/" className="tm-project-card" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
-              <Image className="tm-project-img" src="/images/forest-bean-cover.webp" alt="Forest & Bean — Coffeeshop concept Turnhout" width={3016} height={1724} sizes="(max-width: 768px) 100vw, 900px" style={{ width: '100%', height: 'auto' }} />
+            <a href="/projecten/forest-bean/" className="tm-project-card tm-project-link">
+              <Image className="tm-project-img tm-project-img-fluid" src="/images/forest-bean-cover.webp" alt="Forest & Bean — Coffeeshop concept Antwerpen" width={3016} height={1724} sizes="(max-width: 768px) 100vw, 900px" />
               <div className="tm-project-info">
                 <div className="tm-project-name">Forest &amp; Bean</div>
                 <div className="tm-project-sub">Coffeeshop concept — Antwerpen</div>
@@ -185,7 +183,7 @@ export default function Sections() {
           </div>
         </section>
 
-        <div style={{ color: 'rgba(240,235,224,0.2)', padding: '0 24px', margin: '40px 0' }}>
+        <div className="tm-divider-wrap">
           <DividerStar />
         </div>
 
@@ -202,9 +200,9 @@ export default function Sections() {
                   <ul className="tm-price-features">
                     {p.features.map((f) => <li key={f}>{f}</li>)}
                   </ul>
-                  <button className="tm-pricing-cta" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <a href="#contact" className="tm-pricing-cta">
                     {p.cta}
-                  </button>
+                  </a>
                 </div>
               ))}
             </div>
@@ -230,39 +228,7 @@ export default function Sections() {
         </section>
       </main>
 
-      <footer className="tm-footer">
-        <div className="tm-footer-top">
-          <span className="tm-footer-brand">Tigran Media</span>
-          <nav className="tm-footer-nav">
-            <a href="/#diensten">Diensten</a>
-            <a href="/#projecten">Projecten</a>
-            <a href="/#over">Over</a>
-            <a href="/#contact">Contact</a>
-          </nav>
-        </div>
-        <div className="tm-footer-mid">
-          <div>
-            <p className="tm-footer-label">Contact</p>
-            <div className="tm-footer-contact-row">
-              <a href="mailto:info@tigranmedia.be">info@tigranmedia.be</a>
-              <a href="tel:+32474114899">+32 474 11 48 99</a>
-              <p>Ma–Vr 9:00 – 18:00</p>
-              <p>Turnhout, België</p>
-            </div>
-          </div>
-          <div>
-            <p className="tm-footer-label">Regio&apos;s</p>
-            <FooterAccordions />
-          </div>
-        </div>
-        <div className="tm-footer-bottom">
-          <p className="tm-footer-copy">© {new Date().getFullYear()} Tigran Media · BTW BE1035.278.921</p>
-          <nav className="tm-footer-legal">
-            <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
-            <a href="/privacybeleid">Privacybeleid</a>
-          </nav>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

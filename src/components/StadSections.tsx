@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { steps, plans } from '../data/content';
 import ContactForm from './ContactForm';
 import FaqAccordion from './FaqAccordion';
-import FooterAccordions from './FooterAccordions';
+import Footer from './Footer';
 
 
 export default function StadSections({ stadNaam }: { stadNaam: string }) {
@@ -30,10 +30,10 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
         <div className="sc-inner">
           <h2 className="sc-title">Ons werk.</h2>
           <div className="sc-project-card">
-            <Image className="sc-project-img" src="/images/forest-bean.webp" alt="Forest & Bean — Coffeeshop concept Turnhout" width={1200} height={800} sizes="(max-width: 768px) 100vw, 600px" />
+            <Image className="sc-project-img" src="/images/forest-bean.webp" alt="Forest & Bean — Coffeeshop concept Antwerpen" width={1024} height={560} sizes="(max-width: 768px) 100vw, 600px" />
             <div className="sc-project-info">
               <div className="sc-project-name">Forest &amp; Bean</div>
-              <div className="sc-project-sub">Coffeeshop concept — Turnhout</div>
+              <div className="sc-project-sub">Coffeeshop concept — Antwerpen</div>
             </div>
           </div>
           <p className="sc-project-note">Meer projecten volgen. Bent u de volgende?</p>
@@ -53,9 +53,9 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
                 <ul className="sc-price-features">
                   {p.features.map((f) => <li key={f}>{f}</li>)}
                 </ul>
-                <button className="sc-pricing-cta" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                <a href="#contact" className="sc-pricing-cta">
                   {p.cta}
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -81,18 +81,18 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
       <section className="sc-section" id="contact">
         <div className="sc-inner">
           <div className="sc-contact-inner">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '48px' }}>
+            <div className="sc-author-row">
               <Image
                 src="/images/tigran-profiel.webp"
                 alt="Tigran — Tigran Media"
                 width={64}
                 height={64}
                 sizes="64px"
-                style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 20%', flexShrink: 0, border: '1px solid rgba(240,235,224,0.3)' }}
+                className="sc-author-avatar"
               />
               <div>
-                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#F0EBE0', marginBottom: '4px' }}>Tigran — Tigran Media</div>
-                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '10px', letterSpacing: '0.08em', color: '#F0EBE0', opacity: 0.5, lineHeight: 1.6 }}>Webdesigner in de Kempen. Beschikbaar voor heel Vlaanderen.</div>
+                <div className="sc-author-name">Tigran — Tigran Media</div>
+                <div className="sc-author-role">Webdesigner in de Kempen. Beschikbaar voor heel Vlaanderen.</div>
               </div>
             </div>
             <h2 className="sc-title">Start uw project.</h2>
@@ -102,39 +102,7 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
         </div>
       </section>
 
-      <footer className="tm-footer">
-        <div className="tm-footer-top">
-          <span className="tm-footer-brand">Tigran Media</span>
-          <nav className="tm-footer-nav">
-            <a href="/#diensten">Diensten</a>
-            <a href="/#projecten">Projecten</a>
-            <a href="/#over">Over</a>
-            <a href="/#contact">Contact</a>
-          </nav>
-        </div>
-        <div className="tm-footer-mid">
-          <div>
-            <p className="tm-footer-label">Contact</p>
-            <div className="tm-footer-contact-row">
-              <a href="mailto:info@tigranmedia.be">info@tigranmedia.be</a>
-              <a href="tel:+32474114899">+32 474 11 48 99</a>
-              <p>Ma–Vr 9:00 – 18:00</p>
-              <p>Turnhout, België</p>
-            </div>
-          </div>
-          <div>
-            <p className="tm-footer-label">Regio&apos;s</p>
-            <FooterAccordions />
-          </div>
-        </div>
-        <div className="tm-footer-bottom">
-          <p className="tm-footer-copy">© {new Date().getFullYear()} Tigran Media · BTW BE1035.278.921</p>
-          <nav className="tm-footer-legal">
-            <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
-            <a href="/privacybeleid">Privacybeleid</a>
-          </nav>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

@@ -1,21 +1,20 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 
 export default function Hero() {
   useEffect(() => {
-    let raf: number;
-    const loadGSAP = async () => {
+    const raf = requestAnimationFrame(async () => {
       const { gsap } = await import('gsap');
       gsap.defaults({ duration: 0.7, ease: 'power2.out' });
-      gsap.from('.tm-nav', { y: -30, opacity: 0, duration: 0.5 });
+      gsap.from('.tm-nav', { y: -30, duration: 0.5 });
       gsap.from('.hero-headline', { y: 20, delay: 0.3 });
-      gsap.from('.hero-line', { scaleX: 0, opacity: 0, delay: 0.5, transformOrigin: 'left' });
-      gsap.from('.hero-subline', { y: 20, opacity: 0, delay: 0.6 });
-      gsap.from('.hero-label', { opacity: 0, delay: 0.8 });
-    };
-    raf = requestAnimationFrame(() => { loadGSAP(); });
+      gsap.from('.hero-line', { scaleX: 0, delay: 0.5, transformOrigin: 'left' });
+      gsap.from('.hero-subline', { y: 20, delay: 0.6 });
+      gsap.from('.hero-label', { y: 10, delay: 0.8 });
+    });
     return () => cancelAnimationFrame(raf);
   }, []);
 
@@ -23,7 +22,7 @@ export default function Hero() {
     <>
       <div className="tm-root">
         <nav className="tm-nav">
-          <a href="/"><img src="/logo.svg" alt="Tigran Media" className="tm-nav-logo" width={123} height={28} /></a>
+          <a href="/"><Image src="/logo.svg" alt="Tigran Media" className="tm-nav-logo" width={123} height={28} priority /></a>
           <div className="tm-nav-links">
             <a href="#werkwijze">Werkwijze</a>
             <a href="#projecten">Projecten</a>
