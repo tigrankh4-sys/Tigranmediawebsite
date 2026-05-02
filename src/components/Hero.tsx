@@ -21,18 +21,17 @@ export default function Hero() {
 
   return (
     <>
-      <div className="tm-root">
-        <nav className="tm-nav">
-          <a href="/"><Image src="/logo.svg" alt="Tigran Media" className="tm-nav-logo" width={123} height={28} priority /></a>
-          <div className="tm-nav-links">
-            <a href="#werkwijze">Werkwijze</a>
-            <a href="#projecten">Projecten</a>
-            <a href="#prijzen">Prijzen</a>
-            <a href="#prijzen">Prijzen</a>
-          </div>
-          <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="tm-nav-btn">Gratis Discovery Call →</a>
-        </nav>
+      <nav className="tm-nav">
+        <a href="/"><Image src="/logo.svg" alt="Tigran Media" className="tm-nav-logo" width={123} height={28} priority /></a>
+        <div className="tm-nav-links">
+          <a href="#werkwijze">Werkwijze</a>
+          <a href="#projecten">Projecten</a>
+          <a href="#prijzen">Prijzen</a>
+        </div>
+        <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="tm-nav-btn">Gratis Discovery Call →</a>
+      </nav>
 
+      <div className="tm-root">
         <section className="tm-hero">
           <div className="tm-hero-inner">
             <div className="tm-hero-left">

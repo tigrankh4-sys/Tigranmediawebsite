@@ -49,14 +49,16 @@ body { background: #0F0F0F; color: #F0EBE0; }
 }
 
 .tm-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 22px 64px;
-  background: transparent;
+  background: rgba(15, 15, 15, 0.6);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
