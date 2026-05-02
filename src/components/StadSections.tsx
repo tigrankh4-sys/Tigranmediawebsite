@@ -32,7 +32,7 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
           <h2 className="sc-title">Ons werk.</h2>
           <div className="sc-projects-grid">
             <a href="/projecten/forest-bean/" className="sc-project-card sc-project-link" target="_blank" rel="noopener noreferrer">
-              <Image className="sc-project-img" src="/images/forest-bean.webp" alt="Forest & Bean — Coffeeshop concept Antwerpen" width={1024} height={560} sizes="(max-width: 768px) 50vw, 300px" />
+              <Image className="sc-project-img" src="/images/forest-bean-cover.webp" alt="Forest & Bean — Coffeeshop concept Antwerpen" width={3016} height={1724} sizes="(max-width: 768px) 50vw, 300px" />
               <div className="sc-project-info">
                 <div className="sc-project-name">Forest &amp; Bean</div>
                 <div className="sc-project-sub">Coffeeshop concept — Antwerpen</div>

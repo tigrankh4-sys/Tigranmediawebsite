@@ -916,7 +916,7 @@ details[open] .accord-icon { opacity: 0.6; }
 
 .sc-project-card { max-width: 900px; margin: 0 auto; border: 1px solid #F0EBE0; }
 
-.sc-project-img { width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+.sc-project-img { width: 100%; display: block; height: auto; }
 
 .sc-project-info { padding: 32px 40px; }
 
