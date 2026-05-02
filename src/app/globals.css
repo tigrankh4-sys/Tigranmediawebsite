@@ -1614,3 +1614,12 @@ details[open] .accord-icon { opacity: 0.6; }
   padding: 0;
   cursor: pointer;
 }
+
+/* ── Stacked project cards spacing + sc link variant ───────────────────────── */
+.sc-project-link { text-decoration: none; display: block; }
+.tm-project-card + .tm-project-card,
+.sc-project-card + .sc-project-card { margin-top: 32px; }
+.tm-project-card.tm-project-link { transition: opacity 200ms ease; }
+.tm-project-card.tm-project-link:hover { opacity: 0.85; }
+.sc-project-card.sc-project-link { transition: opacity 200ms ease; }
+.sc-project-card.sc-project-link:hover { opacity: 0.85; }

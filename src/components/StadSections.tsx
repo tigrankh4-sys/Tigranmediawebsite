@@ -29,13 +29,20 @@ export default function StadSections({ stadNaam }: { stadNaam: string }) {
       <section className="sc-section">
         <div className="sc-inner">
           <h2 className="sc-title">Ons werk.</h2>
-          <div className="sc-project-card">
+          <a href="/projecten/forest-bean/" className="sc-project-card sc-project-link" target="_blank" rel="noopener noreferrer">
             <Image className="sc-project-img" src="/images/forest-bean.webp" alt="Forest & Bean — Coffeeshop concept Antwerpen" width={1024} height={560} sizes="(max-width: 768px) 100vw, 600px" />
             <div className="sc-project-info">
               <div className="sc-project-name">Forest &amp; Bean</div>
               <div className="sc-project-sub">Coffeeshop concept — Antwerpen</div>
             </div>
-          </div>
+          </a>
+          <a href="/projecten/dakwerken/" className="sc-project-card sc-project-link" target="_blank" rel="noopener noreferrer">
+            <Image className="sc-project-img" src="/images/dakwerken-cover.webp" alt="Van Damme Dakwerken — Concept site Mechelen" width={1920} height={1280} sizes="(max-width: 768px) 100vw, 600px" />
+            <div className="sc-project-info">
+              <div className="sc-project-name">Van Damme Dakwerken</div>
+              <div className="sc-project-sub">Dakwerker concept — Mechelen</div>
+            </div>
+          </a>
           <p className="sc-project-note">Meer projecten volgen. Bent u de volgende?</p>
         </div>
       </section>

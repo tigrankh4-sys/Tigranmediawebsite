@@ -164,11 +164,18 @@ export default function Sections() {
         <section id="projecten">
           <div className="tm-section">
             <h2 className="tm-section-title">Ons werk.</h2>
-            <a href="/projecten/forest-bean/" className="tm-project-card tm-project-link">
+            <a href="/projecten/forest-bean/" className="tm-project-card tm-project-link" target="_blank" rel="noopener noreferrer">
               <Image className="tm-project-img tm-project-img-fluid" src="/images/forest-bean-cover.webp" alt="Forest & Bean — Coffeeshop concept Antwerpen" width={3016} height={1724} sizes="(max-width: 768px) 100vw, 900px" />
               <div className="tm-project-info">
                 <div className="tm-project-name">Forest &amp; Bean</div>
                 <div className="tm-project-sub">Coffeeshop concept — Antwerpen</div>
+              </div>
+            </a>
+            <a href="/projecten/dakwerken/" className="tm-project-card tm-project-link" target="_blank" rel="noopener noreferrer">
+              <Image className="tm-project-img tm-project-img-fluid" src="/images/dakwerken-cover.webp" alt="Van Damme Dakwerken — Concept site Mechelen" width={1920} height={1280} sizes="(max-width: 768px) 100vw, 900px" />
+              <div className="tm-project-info">
+                <div className="tm-project-name">Van Damme Dakwerken</div>
+                <div className="tm-project-sub">Dakwerker concept — Mechelen</div>
               </div>
             </a>
             <p className="tm-project-note">Meer projecten volgen. Bent u de volgende?</p>
