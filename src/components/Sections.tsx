@@ -238,11 +238,12 @@ export default function Sections() {
               </div>
               <div className="tm-belofte-item">
                 <div className="tm-belofte-num">04</div>
-                <h3 className="tm-belofte-title">U beheert uw eigen site.</h3>
+                <h3 className="tm-belofte-title">U houdt de sleutel.</h3>
                 <p className="tm-belofte-desc">
-                  Eigen CMS, geen WordPress. U past zelf teksten, foto&apos;s en
-                  prijzen aan zonder developer in te bellen. Geen maandelijkse
-                  hostingkosten van €50 of meer aan derden.
+                  De code is van u. De hosting staat op uw naam. Het CMS draait
+                  op uw infrastructuur. Op elk moment kunt u zonder ons verder —
+                  een andere developer, een eigen team, een nieuwe richting.
+                  Wij verdienen uw terugkomst, niet uw afhankelijkheid.
                 </p>
               </div>
             </div>

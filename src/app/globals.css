@@ -115,12 +115,10 @@ body { background: #0F0F0F; color: #F0EBE0; }
 .tm-headline {
   font-family: 'Cormorant Garamond', serif;
   font-stretch: condensed;
-  letter-spacing: 0.02em;
   font-weight: 300;
-  font-size: clamp(64px, 10vw, 148px);
-  line-height: 0.9;
-  letter-spacing: 0.02em;
-  font-stretch: condensed;
+  font-size: clamp(48px, 7vw, 104px);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
   color: #F0EBE0;
   text-align: left;
 }
@@ -186,8 +184,8 @@ section {
 }
 
 .tm-stat-col { padding: 0 48px; text-align: center; position: relative; }
-.tm-stat-col:first-child { padding-left: 0; text-align: left; }
-.tm-stat-col:last-child  { padding-right: 0; text-align: right; }
+.tm-stat-col:first-child { padding-left: 0; }
+.tm-stat-col:last-child  { padding-right: 0; }
 
 .tm-stat-col:not(:last-child)::after {
   content: '';
@@ -203,12 +201,11 @@ section {
   font-stretch: condensed;
   letter-spacing: 0.02em;
   font-weight: 300;
-  font-size: clamp(64px, 8vw, 120px);
+  font-size: clamp(56px, 6.5vw, 96px);
   color: #F0EBE0;
-  line-height: 0.9;
-  letter-spacing: 0.02em;
-  font-stretch: condensed;
+  line-height: 1;
   display: block;
+  font-variant-numeric: tabular-nums;
 }
 
 .tm-stat-label {
