@@ -32,8 +32,17 @@ export default function Sections() {
         scrollTrigger: { trigger: '.stats-section', start: 'top 80%' },
       });
 
+      const ratingEl = document.querySelector('.stat-rating');
       const scoreEl = document.querySelector('.stat-score');
       const dagenEl = document.querySelector('.stat-dagen');
+
+      const ratingObj = { val: 5 };
+      gsap.fromTo(ratingObj, { val: 0 }, {
+        val: 5, duration: 1.2, ease: 'power2.out',
+        immediateRender: false,
+        scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
+        onUpdate: () => { if (ratingEl) ratingEl.textContent = ratingObj.val.toFixed(1); },
+      });
 
       const scoreObj = { val: 99 };
       gsap.fromTo(scoreObj, { val: 0 }, {
@@ -94,6 +103,11 @@ export default function Sections() {
         <section className="tm-stats-bar stats-section">
           <div className="tm-stats-grid">
             <div className="tm-stat-col stat-item">
+              <span className="tm-stat-num stat-rating">5.0</span>
+              <span className="tm-stat-label">Google Rating</span>
+              <span className="tm-stat-sub">Geverifieerd</span>
+            </div>
+            <div className="tm-stat-col stat-item">
               <span className="tm-stat-num stat-score">99/100</span>
               <span className="tm-stat-label">Google PageSpeed</span>
               <span className="tm-stat-sub">Verifieerbaar</span>
@@ -102,11 +116,6 @@ export default function Sections() {
               <span className="tm-stat-num stat-dagen">7</span>
               <span className="tm-stat-label">Dagen tot live</span>
               <span className="tm-stat-sub">Vaste belofte</span>
-            </div>
-            <div className="tm-stat-col stat-item">
-              <span className="tm-stat-num">0</span>
-              <span className="tm-stat-label">Templates</span>
-              <span className="tm-stat-sub">Custom Next.js</span>
             </div>
           </div>
         </section>
