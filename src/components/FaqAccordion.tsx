@@ -16,7 +16,7 @@ export default function FaqAccordion({ cls }: Props) {
               <span>{item.q}</span>
               <span className={`${cls}-faq-icon`} style={{ transform: isOpen ? 'rotate(45deg)' : 'none' }}>+</span>
             </button>
-            <div className={`${cls}-faq-answer`} style={{ maxHeight: isOpen ? '400px' : '0' }}>
+            <div className={`${cls}-faq-answer${isOpen ? ' is-open' : ''}`} style={{ maxHeight: isOpen ? '400px' : '0' }}>
               <p className={`${cls}-faq-answer-inner`}>{item.a}</p>
             </div>
           </li>
