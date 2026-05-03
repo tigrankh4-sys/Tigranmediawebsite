@@ -11,6 +11,7 @@ export default function Footer() {
           <a href="/#prijzen">Prijzen</a>
           <a href="/#over">Over</a>
           <a href="/#contact">Contact</a>
+          <a href="/blog">Blog</a>
         </nav>
       </div>
       <div className="tm-footer-mid">
@@ -20,7 +21,7 @@ export default function Footer() {
             <a href="mailto:info@tigranmedia.be">info@tigranmedia.be</a>
             <a href="tel:+32474114899">+32 474 11 48 99</a>
             <p>Ma–Vr 9:00 – 18:00</p>
-            <p>Turnhout, België</p>
+            <p>Kempenlaan 14, 2300 Turnhout, België</p>
           </div>
         </div>
         <div>

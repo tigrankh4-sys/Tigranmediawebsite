@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: {
     absolute: "Tigran Media — Webdesign voor Vlaamse KMO's",
   },
+  description: "Custom webdesign voor Vlaamse KMO's — geen templates, geen WordPress. Vanaf €500, live in 1 week, 99/100 Google score. Plan gratis een discovery call.",
   alternates: {
     canonical: 'https://tigranmedia.be/',
   },
@@ -37,17 +38,24 @@ const businessSchema = {
   email: 'info@tigranmedia.be',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Kempenlaan 14',
     addressLocality: 'Turnhout',
     addressRegion: 'Antwerpen',
     postalCode: '2300',
     addressCountry: 'BE',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 51.3227,
+    longitude: 4.9442,
+  },
+  hasMap: 'https://maps.app.goo.gl/B8Sr9GkisvR26wWP7',
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Vlaanderen' },
     { '@type': 'Country', name: 'België' },
   ],
   serviceType: 'Webdesign',
-  priceRange: '€€',
+  priceRange: '€500-€1500',
   vatID: 'BE1035.278.921',
   sameAs: getSameAs(),
   openingHoursSpecification: [{

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     locale: 'nl_BE',
     siteName: 'Tigran Media',
     title: "Tigran Media — Webdesign voor Vlaamse KMO's",
-    description: "Custom Next.js websites voor Vlaamse KMO's. Vanaf €500, live in 1 week, 99/100 Google score.",
+    description: "Custom webdesign voor Vlaamse KMO's. Vanaf €500. 99/100 Google score. Live in 1 week.",
     url: 'https://tigranmedia.be',
     images: [{ url: '/images/forest-bean.webp', width: 1024, height: 560, alt: "Tigran Media — Webdesign voor Vlaamse KMO's" }],
   },

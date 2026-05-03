@@ -23,10 +23,10 @@ export const siteConfig = {
    * Empty entries are filtered out.
    */
   socials: {
-    linkedin: '',  // bv. 'https://linkedin.com/company/tigran-media'
-    instagram: '', // bv. 'https://instagram.com/tigranmedia'
+    linkedin: 'https://www.linkedin.com/in/tigran-khachatryan-01b67a361/',
+    instagram: 'https://www.instagram.com/tigran.media',
     facebook: '',
-    googleMapsUrl: '', // bv. 'https://maps.app.goo.gl/...' for the GMB profile
+    googleMapsUrl: 'https://maps.app.goo.gl/B8Sr9GkisvR26wWP7',
   },
 };
 

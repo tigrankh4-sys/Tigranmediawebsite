@@ -4,8 +4,19 @@ import { cityContent } from '@/data/cityContent';
 import Image from 'next/image';
 import StadSections from '@/components/StadSections';
 import { JsonLd } from '@/components/JsonLd';
-import { faqs } from '@/data/content';
 import { getDiscoveryCallHref, hasDirectBooking } from '@/config/site';
+
+function buildDescription(base: string): string {
+  const cta = 'Plan gratis een discovery call.';
+  const clean = base.replace(/\s*(Gratis discovery call\.|Plan gratis een discovery call\.)$/, '').trimEnd();
+  const full = `${clean} ${cta}`;
+  if (full.length <= 155) return full;
+  const limit = 155 - cta.length - 1;
+  const truncated = clean.substring(0, limit);
+  const lastPeriod = truncated.lastIndexOf('.');
+  const shortened = lastPeriod > 80 ? clean.substring(0, lastPeriod + 1) : truncated.substring(0, truncated.lastIndexOf(' '));
+  return `${shortened} ${cta}`;
+}
 
 interface Props {
   params: Promise<{ stad: string }>;
@@ -19,15 +30,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { stad: slug } = await params;
   const stad = steden.find((s) => s.slug === slug);
   if (!stad) return {};
+  const description = buildDescription(stad.metaDescription);
   return {
     title: { absolute: stad.metaTitle },
-    description: stad.metaDescription,
+    description,
     alternates: {
       canonical: `https://tigranmedia.be/webdesign/${slug}/`,
     },
     openGraph: {
       title: stad.metaTitle,
-      description: stad.metaDescription,
+      description,
       url: `https://tigranmedia.be/webdesign/${slug}/`,
       type: 'website',
       locale: 'nl_BE',
@@ -37,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: stad.metaTitle,
-      description: stad.metaDescription,
+      description,
       images: ['/images/forest-bean.webp'],
     },
   };
@@ -56,6 +68,7 @@ export default async function StadPage({ params }: Props) {
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
+    '@id': 'https://tigranmedia.be/#organization',
     name: 'Tigran Media',
     url: `https://tigranmedia.be/webdesign/${slug}/`,
     logo: 'https://tigranmedia.be/logo.svg',
@@ -80,22 +93,12 @@ export default async function StadPage({ params }: Props) {
     inLanguage: 'nl-BE',
   };
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  };
-
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tigranmedia.be/' },
-      { '@type': 'ListItem', position: 2, name: 'Webdesign', item: 'https://tigranmedia.be/' },
+      { '@type': 'ListItem', position: 2, name: 'Webdesign', item: 'https://tigranmedia.be/webdesign/' },
       { '@type': 'ListItem', position: 3, name: stad.naam, item: `https://tigranmedia.be/webdesign/${slug}/` },
     ],
   };
@@ -103,7 +106,6 @@ export default async function StadPage({ params }: Props) {
   return (
     <>
       <JsonLd data={localBusinessSchema} />
-      <JsonLd data={faqSchema} />
       <JsonLd data={breadcrumbSchema} />
       <nav className="nav">
         <a href="/"><Image src="/logo.svg" alt="Tigran Media" className="nav-logo" width={123} height={28} priority /></a>
