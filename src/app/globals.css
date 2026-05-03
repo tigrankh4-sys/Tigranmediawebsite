@@ -1689,6 +1689,80 @@ details[open] .accord-icon { opacity: 0.6; }
   .tm-belofte-desc { font-size: 11px; }
 }
 
+/* ── Pricing context helpers ──────────────────────────────────────────────── */
+.tm-pricing-help {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #F0EBE0;
+  opacity: 0.6;
+  line-height: 1.8;
+  max-width: 720px;
+  margin-top: -48px;
+  margin-bottom: 64px;
+}
+
+.tm-pricing-contact {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #F0EBE0;
+  opacity: 0.6;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.tm-pricing-contact a {
+  color: #F0EBE0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(240,235,224,0.4);
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+
+.tm-pricing-contact a:hover { opacity: 0.8; }
+
+/* ── Filter section ("Eerlijk over wie wij helpen") ───────────────────────── */
+.tm-filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.tm-filter-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #F0EBE0;
+  opacity: 0.4;
+  margin-bottom: 32px;
+}
+
+.tm-filter-list { list-style: none; }
+
+.tm-filter-list li {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #F0EBE0;
+  opacity: 0.8;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(240,235,224,0.1);
+  line-height: 1.5;
+}
+
+.tm-filter-list li::before { content: '→ '; opacity: 0.4; }
+
+.tm-filter-list--no li { opacity: 0.5; }
+.tm-filter-list--no li::before { content: '— '; opacity: 0.3; }
+
+@media (max-width: 768px) {
+  .tm-filter-grid { grid-template-columns: 1fr; gap: 48px; }
+  .tm-pricing-help { font-size: 11px; margin-top: -24px; margin-bottom: 48px; }
+}
+
 /* Intermediate breakpoint for pricing grids */
 @media (max-width: 1100px) and (min-width: 769px) {
   .sc-pricing-grid { grid-template-columns: repeat(2, 1fr); }

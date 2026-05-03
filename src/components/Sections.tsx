@@ -85,9 +85,9 @@ export default function Sections() {
               <span className="tm-stat-sub">Verifieerbaar</span>
             </div>
             <div className="tm-stat-col stat-item">
-              <span className="tm-stat-num stat-dagen">7</span>
-              <span className="tm-stat-label">Dagen tot live</span>
-              <span className="tm-stat-sub">Vaste belofte</span>
+              <span className="tm-stat-num">3</span>
+              <span className="tm-stat-label">Projecten per maand</span>
+              <span className="tm-stat-sub">Max — voor kwaliteit</span>
             </div>
           </div>
         </section>
@@ -171,6 +171,7 @@ export default function Sections() {
         <section id="prijzen" className="prijzen-section">
           <div className="tm-section">
             <h2 className="tm-section-title">Transparante prijzen.</h2>
+            <p className="tm-pricing-help">Eén dienst, simpele site, snel live — Starter. Meerdere diensten met SEO en meer pagina's — Groei. Volledig brand-traject met copywriting en strategie — Full Service.</p>
             <div className="tm-pricing-grid">
               {plans.map((p) => (
                 <div key={p.name} className={`tm-price-card prijs-kaart${p.highlight ? ' tm-price-card--highlight' : ''}`}>
@@ -187,6 +188,7 @@ export default function Sections() {
                 </div>
               ))}
             </div>
+            <p className="tm-pricing-contact">Twijfelt u tussen pakketten? <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>Plan een 15-min gesprek →</a></p>
             <p className="tm-pricing-note">Alle prijzen excl. BTW. 50% aanbetaling, 50% bij oplevering.</p>
           </div>
         </section>
@@ -236,6 +238,32 @@ export default function Sections() {
                   een andere developer, een eigen team, een nieuwe richting.
                   Wij verdienen uw terugkomst, niet uw afhankelijkheid.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="filter-section">
+          <div className="tm-section">
+            <h2 className="tm-section-title">Eerlijk over wie wij helpen.</h2>
+            <div className="tm-filter-grid">
+              <div className="tm-filter-col">
+                <p className="tm-filter-label">Wij werken graag met</p>
+                <ul className="tm-filter-list">
+                  <li>Ondernemers die hun merk serieus nemen</li>
+                  <li>Bedrijven met een visie, niet alleen een wens</li>
+                  <li>Wie kwaliteit als investering ziet, niet als kost</li>
+                  <li>Mensen die openstaan voor eerlijk advies</li>
+                </ul>
+              </div>
+              <div className="tm-filter-col">
+                <p className="tm-filter-label">Wij zijn niet de juiste keuze voor</p>
+                <ul className="tm-filter-list tm-filter-list--no">
+                  <li>Wie de laagste prijs als criterium gebruikt</li>
+                  <li>Wie een standaard template voldoende vindt</li>
+                  <li>Wie niet bereid is om content aan te leveren</li>
+                  <li>Wie zijn merk niet als prioriteit ziet</li>
+                </ul>
               </div>
             </div>
           </div>

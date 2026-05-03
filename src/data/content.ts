@@ -27,17 +27,17 @@ export const steps: Step[] = [
 
 export const plans: Plan[] = [
   {
-    name: 'Starter', price: '€500', sub: 'Voor wie wil starten.',
+    name: 'Starter', price: '€500', sub: '1 dienst, simpele site, snel live.',
     features: ['Volledig custom Next.js website', 'Custom CMS + eigen beheersysteem', 'Live in 1 week', '99/100 Google score', 'SEO technisch correct'],
     cta: 'Kies Starter', highlight: false,
   },
   {
-    name: 'Groei', price: '€1.000', sub: 'Voor wie wil groeien.',
+    name: 'Groei', price: '€1.000', sub: 'Meerdere diensten, SEO, meer pagina\'s.',
     features: ['Volledig custom Next.js website', 'Custom CMS + eigen beheersysteem', 'SEO + copywriting', 'Live in 1 week', '99/100 Google score', '1 maand support'],
     cta: 'Kies Groei', highlight: true,
   },
   {
-    name: 'Full Service', price: '€1.500', sub: 'Voor wie wil domineren.',
+    name: 'Full Service', price: '€1.500', sub: 'Brand-traject, copywriting, strategie.',
     features: ['Volledig custom Next.js website', 'Custom CMS + eigen beheersysteem', 'SEO + copywriting + strategie', 'Live in 1 week', '99/100 Google score', '3 maanden support'],
     cta: 'Kies Full Service', highlight: false,
   },
