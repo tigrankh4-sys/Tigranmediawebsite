@@ -36,6 +36,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { background: #0F0F0F; color: #F0EBE0; }
+:root { --accent: #D4B896; }
 
 /* ────────────────────────────────────────────────────────
    HERO COMPONENT (tm-root, tm-nav, tm-hero)
@@ -375,7 +376,7 @@ section {
 
 .tm-pricing-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
   gap: 2px;
   margin-bottom: 40px;
@@ -389,7 +390,7 @@ section {
   border: 1px solid rgba(240, 235, 224, 0.2);
 }
 
-.tm-price-card--highlight { border: 2px solid #F0EBE0; }
+.tm-price-card--highlight { border: 2px solid var(--accent); }
 
 .tm-price-name {
   font-family: 'DM Mono', monospace;
@@ -1688,7 +1689,7 @@ details[open] .accord-icon { opacity: 0.6; }
   .tm-belofte-desc { font-size: 11px; }
 }
 
-/* Intermediate breakpoint for 4-card pricing grid */
+/* Intermediate breakpoint for pricing grids */
 @media (max-width: 1100px) and (min-width: 769px) {
-  .tm-pricing-grid, .sc-pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .sc-pricing-grid { grid-template-columns: repeat(2, 1fr); }
 }

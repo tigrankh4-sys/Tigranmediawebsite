@@ -4,7 +4,7 @@ import { siteConfig } from '@/config/site';
 
 interface Props { cls: string; }
 
-const VALID_PAKKETTEN = ['Starter', 'Groei', 'Full Service', 'Op Maat'];
+const VALID_PAKKETTEN = ['Starter', 'Groei', 'Full Service'];
 
 const COMMON_TYPOS: Record<string, string> = {
   'gmial.com': 'gmail.com', 'gmal.com': 'gmail.com', 'gmail.co': 'gmail.com', 'gmail.cm': 'gmail.com',
@@ -114,7 +114,6 @@ export default function ContactForm({ cls }: Props) {
           <option value="Starter">Starter</option>
           <option value="Groei">Groei</option>
           <option value="Full Service">Full Service</option>
-          <option value="Op Maat">Op Maat</option>
         </select>
       </div>
       <div className={`${cls}-field form-field`}>

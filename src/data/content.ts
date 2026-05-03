@@ -41,11 +41,6 @@ export const plans: Plan[] = [
     features: ['Volledig custom Next.js website', 'Custom CMS + eigen beheersysteem', 'SEO + copywriting + strategie', 'Live in 1 week', '99/100 Google score', '3 maanden support'],
     cta: 'Kies Full Service', highlight: false,
   },
-  {
-    name: 'Op Maat', price: 'Op aanvraag', sub: 'Voor wie meer nodig heeft.',
-    features: ['Multi-page custom Next.js', 'Geavanceerd CMS — meerdere editors, rollen, workflows', 'Integraties: Stripe, boekingen, koppelingen', 'Branding + strategie + copywriting', 'Performance reviews per kwartaal', '6 maanden support'],
-    cta: 'Plan gesprek', highlight: false,
-  },
 ];
 
 export const faqs: Faq[] = [

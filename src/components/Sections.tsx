@@ -32,34 +32,6 @@ export default function Sections() {
         scrollTrigger: { trigger: '.stats-section', start: 'top 80%' },
       });
 
-      const ratingEl = document.querySelector('.stat-rating');
-      const scoreEl = document.querySelector('.stat-score');
-      const dagenEl = document.querySelector('.stat-dagen');
-
-      const ratingObj = { val: 5 };
-      gsap.fromTo(ratingObj, { val: 0 }, {
-        val: 5, duration: 1.2, ease: 'power2.out',
-        immediateRender: false,
-        scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
-        onUpdate: () => { if (ratingEl) ratingEl.textContent = ratingObj.val.toFixed(1); },
-      });
-
-      const scoreObj = { val: 99 };
-      gsap.fromTo(scoreObj, { val: 0 }, {
-        val: 99, duration: 1.2, ease: 'power2.out',
-        immediateRender: false,
-        scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
-        onUpdate: () => { if (scoreEl) scoreEl.textContent = Math.floor(scoreObj.val) + '/100'; },
-      });
-
-      const dagenObj = { val: 7 };
-      gsap.fromTo(dagenObj, { val: 0 }, {
-        val: 7, duration: 1.2, ease: 'power2.out',
-        immediateRender: false,
-        scrollTrigger: { trigger: '.stats-section', start: 'top 80%', once: true },
-        onUpdate: () => { if (dagenEl) dagenEl.textContent = Math.floor(dagenObj.val) + ''; },
-      });
-
       gsap.from('.over-mij-col', {
         y: 30, opacity: 0, stagger: 0.15,
         scrollTrigger: { trigger: '.over-mij-section', start: 'top 80%' },
@@ -192,11 +164,30 @@ export default function Sections() {
           </div>
         </section>
 
-        <section>
-          <div className="tm-section tm-cta-mid">
-            <h2 className="tm-cta-mid-title">Klaar om meer klanten te bereiken?</h2>
-            <p className="tm-cta-mid-sub">Plan een vrijblijvend gesprek van 30 minuten.</p>
-            <a href={getDiscoveryCallHref()} {...(hasDirectBooking ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="tm-cta-mid-btn">Gratis Discovery Call →</a>
+        <div className="tm-divider-wrap">
+          <DividerStar />
+        </div>
+
+        <section id="prijzen" className="prijzen-section">
+          <div className="tm-section">
+            <h2 className="tm-section-title">Transparante prijzen.</h2>
+            <div className="tm-pricing-grid">
+              {plans.map((p) => (
+                <div key={p.name} className={`tm-price-card prijs-kaart${p.highlight ? ' tm-price-card--highlight' : ''}`}>
+                  <div className="tm-price-name">{p.name}</div>
+                  <div className="tm-price-amount">{p.price}</div>
+                  <div className="tm-price-subtitle">{p.sub}</div>
+                  <div className="tm-price-divider" />
+                  <ul className="tm-price-features">
+                    {p.features.map((f) => <li key={f}>{f}</li>)}
+                  </ul>
+                  <a href={`?pakket=${encodeURIComponent(p.name)}#contact`} className="tm-pricing-cta">
+                    {p.cta}
+                  </a>
+                </div>
+              ))}
+            </div>
+            <p className="tm-pricing-note">Alle prijzen excl. BTW. 50% aanbetaling, 50% bij oplevering.</p>
           </div>
         </section>
 
@@ -247,33 +238,6 @@ export default function Sections() {
                 </p>
               </div>
             </div>
-          </div>
-        </section>
-
-        <div className="tm-divider-wrap">
-          <DividerStar />
-        </div>
-
-        <section id="prijzen" className="prijzen-section">
-          <div className="tm-section">
-            <h2 className="tm-section-title">Transparante prijzen.</h2>
-            <div className="tm-pricing-grid">
-              {plans.map((p) => (
-                <div key={p.name} className={`tm-price-card prijs-kaart${p.highlight ? ' tm-price-card--highlight' : ''}`}>
-                  <div className="tm-price-name">{p.name}</div>
-                  <div className="tm-price-amount">{p.price}</div>
-                  <div className="tm-price-subtitle">{p.sub}</div>
-                  <div className="tm-price-divider" />
-                  <ul className="tm-price-features">
-                    {p.features.map((f) => <li key={f}>{f}</li>)}
-                  </ul>
-                  <a href={`?pakket=${encodeURIComponent(p.name)}#contact`} className="tm-pricing-cta">
-                    {p.cta}
-                  </a>
-                </div>
-              ))}
-            </div>
-            <p className="tm-pricing-note">Alle prijzen excl. BTW. 50% aanbetaling, 50% bij oplevering.</p>
           </div>
         </section>
 
