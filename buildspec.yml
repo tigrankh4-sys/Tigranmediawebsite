@@ -22,7 +22,8 @@ phases:
       # SVG decorations — 30-day cache
       - aws s3 sync out/svg/ s3://tigranmedia-website-new/svg/ --cache-control "public,max-age=2592000"
       # Everything else — no-cache, delete stale files
-      - aws s3 sync out/ s3://tigranmedia-website-new --delete --cache-control "no-cache" --exclude "_next/*" --exclude "fonts/*" --exclude "images/*" --exclude "svg/*" --exclude "wijnen-waldo/*.webp" --exclude "wijnen-waldo/*.mp4" --exclude "projecten/*/*.mp4" --exclude "projecten/*/*.webm"
+      # NOTE: projecten/* is fully excluded — those pages are externally generated and managed manually in S3
+      - aws s3 sync out/ s3://tigranmedia-website-new --delete --cache-control "no-cache" --exclude "_next/*" --exclude "fonts/*" --exclude "images/*" --exclude "svg/*" --exclude "wijnen-waldo/*.webp" --exclude "wijnen-waldo/*.mp4" --exclude "projecten/*"
       - aws cloudfront create-invalidation --distribution-id EM0N7M5T0RYSC --paths "/*"
 
 artifacts:
