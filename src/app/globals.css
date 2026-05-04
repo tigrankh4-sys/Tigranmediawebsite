@@ -44,8 +44,17 @@ body { background: #0F0F0F; color: #F0EBE0; }
   --pad-section-y-sm: clamp(3rem, 6vw, 6rem);     /* 48 → 96px */
   --pad-nav-y: clamp(1rem, 1.6vw, 1.625rem);      /* 16 → 26px */
   --max-content: 90rem;                           /* 1440px desktop cap */
-  --max-content-wide: 100rem;                     /* 1600px wider cap for 27" */
+  --max-content-wide: clamp(100rem, 85vw, 120rem); /* 1600px → 1920px on 27" */
   --max-prose: 42.5rem;                           /* 680px */
+}
+
+/* 27"+ override: tighter section rhythm, larger gutter */
+@media (min-width: 1920px) {
+  :root {
+    --pad-section-y: 6rem;
+    --pad-section-y-sm: 4.5rem;
+    --pad-edge: 5rem;
+  }
 }
 
 /* ────────────────────────────────────────────────────────
@@ -199,8 +208,8 @@ body { background: #0F0F0F; color: #F0EBE0; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
-  padding: clamp(4rem, 8vw, 6rem) var(--pad-edge);
+  min-height: 100svh;
+  padding: clamp(6rem, 10vw, 8rem) var(--pad-edge) clamp(4rem, 8vw, 6rem);
 }
 
 .tm-hero-inner {
@@ -755,6 +764,7 @@ section {
   opacity: 0.8;
   line-height: 1.9;
   margin-bottom: 1.5rem;
+  max-width: 60ch;
 }
 
 .tm-over-divider { width: 100%; height: 1px; background: #F0EBE0; opacity: 0.2; margin: 2rem 0; }
